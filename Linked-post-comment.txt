@@ -1,0 +1,42 @@
+users - [{username: 'lisuef', password: 'uyy}, {username: 'lisuef', password: 'uyy}, {username: 'lisuef', password: 'uyy}]
+
+posts/questions - [ ]
+
+{
+
+postid
+
+postcontent
+
+likecount
+
+commentcount
+
+username
+
+}
+
+[ ]
+
+comments/answers - []
+
+{
+
+commentid
+
+commentcontent
+
+username
+
+postid
+
+}
+
+
+
+
+
+
+
+
+
