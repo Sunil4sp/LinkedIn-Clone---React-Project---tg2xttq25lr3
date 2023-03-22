@@ -6,6 +6,7 @@ const DataApp = (props) => {
 
     const initialState = {
         loginStatus: false, //false means not logged in
+        name: '',   //name
         username: '', //username
         password:'', //password
     }

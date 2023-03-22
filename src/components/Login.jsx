@@ -10,6 +10,7 @@ const Login = () => {
   const initialData = {
       username: '',
       password: '',
+      name:''
   }
 
   //state object for formdata
@@ -52,6 +53,7 @@ const Login = () => {
                               ...localContext.appState,
                               loginStatus: true, //true means logged in
                               username: loginformdata.username,
+                              name: loginformdata.name
                           }
                           localContext.setAppState(obj)
                           //navigate page to home
@@ -84,8 +86,8 @@ const Login = () => {
     <div>
       <nav className="navbar">
         <img className="loginLogo" src={linkedInLogo} alt="logo" />
-        <button className="sign">Sign in</button>
-        <button className="join">Join Now</button>
+        <button className="sign"><Link to='/login' active>Sign in</Link>{" "}</button>
+        <button className="join"><Link to='/newuser'>Join Now</Link>{" "}</button>
         <i className="fa fa-cc-discover discover">
           <p>Discover</p>
         </i>
@@ -103,6 +105,15 @@ const Login = () => {
       <div className="divAfterNav">
         <div className="leftSide">
           <p>Welcome to your professional community</p>
+          <label htmlFor="Name">Name</label>
+          <br></br>
+          <input
+            type="text"
+            id="name"
+            value={loginformdata.name}
+            onChange={(e)=>updateData(e)}
+          />
+          <br></br>
           <label htmlFor="Name">Email or phone</label>
           <br></br>
           <input
@@ -133,7 +144,7 @@ const Login = () => {
           <hr className="secondhr"></hr>
           <br></br>
           <button className="newtoLinkedIn">
-            New to Linkedln?<Link to="newuser">Join now</Link>{" "}
+            New to Linkedln?<Link to="/newuser">Join now</Link>{" "}
           </button>
         </div>
         <div className="rightWithImg">
