@@ -1,4 +1,3 @@
-## Like: username:'sunil@gmail.com', password:'sunil@12345'
 
 # Getting Started with Create React App
 
