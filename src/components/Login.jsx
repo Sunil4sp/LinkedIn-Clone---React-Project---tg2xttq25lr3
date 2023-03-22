@@ -139,6 +139,15 @@ const Login = () => {
           <button className="signIn" onClick={loginFn}>
             Sign in
           </button>
+          {loginstatus && <div class="alert alert-success" role="alert">
+                <h2>Successfully Logged In</h2>
+                </div>
+            }
+
+            {loginApiFailStatus && <div class="alert alert-danger" role="alert">
+                <h3>Login Failed</h3>
+                </div>
+            }
           <hr className="firsthr"></hr>
           <div className="orr">or</div>
           <hr className="secondhr"></hr>

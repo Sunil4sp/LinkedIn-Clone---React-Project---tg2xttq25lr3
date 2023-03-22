@@ -167,7 +167,7 @@ function Home() {
                 <div className='postDiv'>
                   <i className="fa fa-user-circle-o postME" ></i>
                   <h2>{name}</h2>
-                  <p className='testingPara'>Post</p>
+                  {/* <p className='testingPara'></p> */}
                   <hr></hr>
                   <h3 className='testingHeading'>{item.msg}</h3>
                   <hr></hr>
