@@ -4,6 +4,10 @@
     box-sizing: border-box;
     font-family: sans-serif;
 }
+.main{
+    width: 100%;
+    height: auto;
+}
 
 .navStart{
     height: 60px;
@@ -22,13 +26,14 @@
     margin: 10px 0px 0px 10px;
     border: 0;
     background-color: aliceblue;
+    border-radius: 5px;
 }
 .faIconsIcon{
     margin: 10px 20px 10px 190px;
     font-size: 28px;
     color: grey;
 }
-.faIconsIcon p{
+ .faIcons p{
     font-size: 13px;
     font-family: sans-serif;
 }
@@ -70,17 +75,18 @@
 
 }
 .mainContainer{
-    height: 500px;
+    height: 1000px;
+    min-height: auto;
     width: 100%;
     display: flex;
 }
 .leftSideBar{
     height: 500px;
-    width: 27%;
+    width: 24%;
     font-family: sans-serif;
 }
 .MiddleBar{
-    height: 1000px;
+    height: auto;
     width: 50%;
 }
 .RightSideBar{
@@ -98,6 +104,7 @@
 .upperDiv h3{
     margin: 20px 20px 30px 40px;
 }
+
  .connections{
     margin: 10px 0px 0px 10px;
 }
@@ -115,17 +122,17 @@
     margin-left: 13px;
 }
 .camera{
-    height: 65px;
+    height: 45px;
     width: 30%;
-    border-radius: 50%;
+    border-radius: 70px;
     background-color: white;
     border: 1px solid aliceblue;
-    margin: 20px 0px 10px 70px;
+    margin: 20px 0px 10px 55px;
 }
 
 .cameraIcon{
-    font-size: 25px;
-    margin: 20px 0px 0px 17px;
+    font-size: 23px;
+    margin: 10px 0px 0px 10px;
 }
 .lowerDiv{
     height: 280px;
@@ -162,6 +169,7 @@
     border-radius: 24px;
     border: 1px solid  rgb(140, 143, 135);
     margin: -10px 0px 0px 0px;
+    padding: 5px 5px 5px 10px;
 }
 .photos{
     margin-left: -9px;
@@ -181,12 +189,12 @@
 .PostShare button{
     height: 35px;
     width: 12%;
-border-radius: 20px;
-background-color: #0A66C2;
-border: 0;
-color: #fff;
-margin-left: 5px;
-cursor: pointer;
+    border-radius: 20px;
+    background-color: #0A66C2;
+    border: 0;
+    color: #fff;
+    margin-left: 5px;
+    cursor: pointer;
 }
 .photoIcon{
      font-size: 22px; 
@@ -207,7 +215,7 @@ cursor: pointer;
     color: grey;
 }
 .eventsIcon{
-      font-size: 22px; 
+    font-size: 22px; 
     margin: 5px 50px 0px 40px;
     color: orange;
 }
@@ -216,7 +224,7 @@ cursor: pointer;
     color: grey;
 }
 .articleIcon{
-      font-size: 22px; 
+    font-size: 22px; 
     margin: 5px 40px 0px 40px;
     color: red;
 }
@@ -236,9 +244,14 @@ cursor: pointer;
     font-size: 29px;
     margin: 10px 0px 0px 20px;
 }
-.postDiv h2{
+.postDiv h3{
     margin: 5px 0px 0px 20px;
 }
+.postDiv h4{
+    margin: 5px 0px 0px 20px;
+    padding-left: 15px;
+}
+
 .testingPara{
     margin: 10px 0px 5px 20px;
 }
@@ -250,15 +263,14 @@ cursor: pointer;
     margin: 10px 0px 10px 20px;
     color: blue;
 }
-.dislikeArrow{
+/* .dislikeArrow{
     font-size: 25px;
     margin: 10px 0px 10px 20px;
     color: red;
-}
+} */
 .commentArrow{
     font-size: 25px;
     /* color: grey; */
-
     margin: 10px 0px 10px 40px;
 }
 .commentArrow span{
@@ -324,17 +336,19 @@ cursor: pointer;
     margin: 15px 10px 5px 50px;
 }
 .commentDiv{
-   height: 170px;
+    height: 170px;
     width: 93%;
     border: 1px solid grey;
     margin: 10px 0px 10px 17px;
     border-radius: 20px;
     background-color: #fff;
+    padding: 5px;
 }
 .commentDiv input{
     height: 30px;
     width: 70%;
     border-radius: 10px;
+    padding-left: 10px;
 }
 
 .comntMe{
@@ -359,28 +373,87 @@ cursor: pointer;
     text-decoration: none;
 }
 
+.comment-btn{
+    border-radius: 5px;
+}
 
-@media screen and (max-width:600px) {
-    *{
+span{
+    font-size: 14px;
+    text-decoration: none;
+    color: black;
+}
+.photoIcon,
+.videosIcon,
+.eventsIcon,
+.articleIcon{
+    content: "To be added";
+    cursor: pointer;
+}
+
+
+
+
+@media (max-width: 480px) {
+    /* *{
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+    } */
+    .main{
+        /* margin: auto;
+        left: 0;
+        right: 0; */
+        position: relative;
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        align-content: flex-start;
     }
     .navStart{
-        width: 100vw;
+        width: 50%;
+        position: absolute;
     }
     .smallLogo{
-        width: 2%;
+        width: 5%;
+        padding: 0;
+        margin: 10px;
     }
-    .faIconsIcon{
-    margin: 10px 20px 10px 50px;
-    font-size: 15px;
+    .input1{
+        width: 120px;
+    }
+    .navStart .faIcons{
+        margin: 10px 10px 10px 50px;
+        font-size: 15px;
+    }
+    .mainContainer{
+         max-width: 90%;
+        /*margin: auto;
+        left: 0;
+        right: 0; */
+        display: flex;
+        justify-content: center;
+        /* flex-direction: column; */
+        align-content: center;
     }
     .MiddleBar{
-        width: 40%;
+        max-width: 40%;
+        margin: auto;
+        left: 0;
+        right: 0;
+    }
+    .leftSideBar{
+        max-width:25%;
+        margin: auto;
+        left: 0;
+        right: 0;
     }
     .RightSideBar{
-        width: 20%;
+        max-width: 25%;
+        margin: auto;
+        left: 0;
+        right: 0;
     }
     .upperDiv{
         width: 100vw;
@@ -389,9 +462,9 @@ cursor: pointer;
     .lowerDiv{
         display: none;
     }
-    .RightSideBar{
+    /* .RightSideBar{
         display: none;
-    }
+    } */
     .PostShare{
         width: 100vw;
        margin: 380px 0px 0px -100px;

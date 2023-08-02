@@ -1,20 +1,20 @@
-import React, { useContext } from 'react'
-import smallLogo from '../Images/smallLogo.png'
+import React, { useContext, useState} from 'react'
 import '../styles/home.css'
-import { useState } from 'react'
 import imgTwoLadies from '../Images/twoLadies.png'
 import { Link } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+import { DataAppContext } from "./DataApp";
+
+/* import smallLogo from '../Images/smallLogo.png'
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { useNavigate } from "react-router-dom";
-import { DataAppContext } from "./DataApp";
+import MyNetwork from './MyNetwork'; */
+
 
 
 const ShareAble = (props) => {
   const [inputs, setInputs] = useState("");
-  let names = localStorage.getItem('name');
-  console.log(names);
 
   const commentPost = () => {
     let objs = { inputs };
@@ -27,10 +27,10 @@ const ShareAble = (props) => {
     <div>
         <div className='commentDiv'>
           <input type="text" placeholder='Post Comment' onChange={e => setInputs(e.target.value)} />
-          <button onClick={commentPost}>Comment</button>
+          <button className='comment-btn' onClick={commentPost}>Comment</button>
           {props.posts[props.index].coment.map((data) => (
             <div>
-         <i className="fa fa-user-circle-o comntMe"><h5 className='h5'>{names}</h5></i>
+         <i className="fa fa-user-circle-o comntMe"><h5 className='h5'>{props.name}</h5></i>
               <p className='showComnt'>{data.inputs}</p>
             </div>
           ))}
@@ -38,13 +38,28 @@ const ShareAble = (props) => {
     </div>
   )
 }
+
 function Home() {
+
+  const localContext = useContext(DataAppContext);
+  const { appState, setAppState } = localContext;
+  const { username, loginStatus } = appState;
 
   const [input, setInput] = useState();
   const [post, setPost] = useState([]);
-  const [like, setLike] = useState(false);
-  /* let names = localStorage.getItem('name'); */
+  const [like, setLike] = useState(0);
+  const [clicked, setClicked] = useState(false);
   
+  const name = appState.name;
+  console.log(name);
+
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    const clickedOnce = !clicked;
+    setLike(clickedOnce ? like + 1 : like - 1);
+    setClicked(clickedOnce);
+  };
 
   const clickFn = (index) => {
     console.log("clickfn")
@@ -54,11 +69,21 @@ function Home() {
   }
 
   const submitPost = (e) => {
-    let obj = { id: post.length, clicked: false, msg: input, coment: [] };
-    e.preventDefault();
-    setPost([obj, ...post])
-    setInput("");
-    console.log(post)
+    if(loginStatus){
+      let obj = { id: post.length, clicked: false, msg: input, coment: [] };
+      e.preventDefault();
+
+      if(obj.msg !== ""){  
+        setPost([obj, ...post])
+        setInput("");
+        console.log(post)
+      }else {
+        alert("Please enter a message");
+        }
+    } else{
+      alert('Login to add post & comment');
+      navigate('/login');
+    }
   }
 
   const deletePost = (index) => {
@@ -68,60 +93,66 @@ function Home() {
     setPost([...tempArr]);
   }
 
-  const localContext = useContext(DataAppContext);
-  const { appState, setAppState } = localContext;
-  const { username, loginStatus } = appState;
-  const {name, setName} = appState;
-  const navigate = useNavigate();
+  
+  /*
 
-  const logoutFn = () => {
+   const userName = appState.name; */
+
+  /* const logoutFn = () => {
     //update context variable
+    navigate("/login");
+    //get the name variable from the appState object
+    //display the user's name in a logout message
+    alert(`Logout successful. Goodbye ${name}!`);
     setAppState({
       ...appState,
       loginStatus: false,
       username: "",
       name:''
     });
-    navigate("/login");
-  };
+  }; */
+
+  /*const [showAlert, setShowAlert] = useState(false);
+
+   const handleAlert = () => {
+    setShowAlert(true);
+  }; */
 
   return (
-    <div>
-      <nav className='navStart'>
+    /*<div className='main'>
+       <nav className='navStart'>
         <img className='smallLogo' src={smallLogo} alt='small-logo'/>
         <input className='input1' type="search" placeholder='Search ' />
-        <i className="fa fa-home faIconsIcon"><p className='homeIcon'>Home</p></i>
-        <i className="fa fa-users faIcons"><p className='networkIcon'>My Network</p></i>
-        <i className="fa fa-briefcase faIcons" ><p className='jobsIcon'>Jobs</p></i>
-        <i className="fa fa-commenting-o faIcons" ><p className='msgIcon'>Messaging</p></i>
-        <i className="fa fa-bell-o faIcons" ><p className='notificationsIcon'>Notifications</p></i>
+        <Link to="/home"><i className="fa fa-home faIcons"><p className='homeIcon'>Home</p></i></Link>
+        <Link to="/MyNetwork"><i className="fa fa-users faIcons"><p className='networkIcon'>My Network</p></i></Link>
+        <Link to="/myjob"><i className="fa fa-briefcase faIcons" ><p className='jobsIcon'>Jobs</p></i></Link>
+        <Link to="/messaging"><i className="fa fa-commenting-o faIcons" ><p className='msgIcon'>Messaging</p></i></Link>
+        {/* <i className="fa fa-bell-o faIcons" ><p className='notificationsIcon'>Notifications</p></i> 
         <i className="fa fa-user-circle-o faIcons" ><p className='meIcon'>
           <Navbar variant="light">
-        <Container>
+          <Container>
           <Nav className="me-auto">
             {loginStatus ? (
               <>
-                <Nav.Link onClick={logoutFn}><i class="fa fa-sign-out" aria-hidden="true">Logout </i></Nav.Link>&ensp;&ensp;&ensp;
+                <Nav.Link onClick={logoutFn}><i className="fa fa-sign-out" aria-hidden="true">Logout </i></Nav.Link>&ensp;&ensp;&ensp;
                 {loginStatus && <Nav.Link className='user-name'> Hi {name} !</Nav.Link>}
               </>
             ) : (
               <>
                 <Nav.Link>
-                  <Link to="/login"><i class="fa fa-sign-in" aria-hidden="true"><p className='meIcon'>Login</p></i></Link>
+                  <Link to="/login"><i className="fa fa-sign-in" aria-hidden="true"><p className='meIcon'>Login</p></i></Link>
                 </Nav.Link>
                 <Nav.Link>
-                  <Link to="/newuser"><i class="fa fa-user-plus" aria-hidden="true"><p className='meIcon'>Register</p></i></Link>
+                  <Link to="/newuser"><i className="fa fa-user-plus" aria-hidden="true"><p className='meIcon'>Register</p></i></Link>
                 </Nav.Link>
               </>
             )}
           </Nav>
         </Container>
       </Navbar></p></i>
-        <i className="fa fa-th faIcons"><p>Work</p></i>
+        {/* <i className="fa fa-th faIcons"><p>Work</p></i> 
 
-        
-
-      </nav>
+      </nav> */
       <div className='mainContainer'>
         <div className='leftSideBar'>
           <div className='upperDiv'>
@@ -137,7 +168,7 @@ function Home() {
             <hr></hr>
             <p className='access'>Access exclusive Tools & insights</p>
             <hr></hr>
-            <i className="fa fa-bookmark bookmark"> My Items</i>
+            <i className="fa fa-bookmark bookmark">My Items</i>
           </div>
           <div className='lowerDiv'>
             <p>Recent</p>
@@ -152,7 +183,7 @@ function Home() {
         <div className='MiddleBar'>
           <div className='PostShare'>
             <i className="fa fa-user-circle-o shareIcon" ></i>
-            <input type="search" placeholder=' Start Post' onChange={e => setInput(e.target.value)} />
+            <input type="search" placeholder='Start Post' onChange={e => setInput(e.target.value)} />
             <button onClick={submitPost}>Add Post</button>
             <br></br>
             <i className="fa fa-picture-o photoIcon"><p className='photos'>Photos</p></i>
@@ -162,24 +193,24 @@ function Home() {
           </div>
           <hr></hr>
           <div>
-            {post.map((item, index) => (
+            {loginStatus &&
+            post.map((item, index) => (
               <div>
                 <div className='postDiv'>
                   <i className="fa fa-user-circle-o postME" ></i>
-                  <h2>{name}</h2>
-                  {/* <p className='testingPara'></p> */}
+                  <h3>{name}</h3>
+                  
                   <hr></hr>
-                  <h3 className='testingHeading'>{item.msg}</h3>
+                  <h4 className='testingHeading'>{item.msg}</h4>
                   <hr></hr>
-                  {like ? <i className="fa fa-thumbs-o-down dislikeArrow"></i> : <i className="fa fa-thumbs-o-up likeArrow"></i>}
-                  <span onClick={() => setLike(!like)}>{like ? <span>DisLike</span> : <span>Like</span>}</span>
+                  <i className="fa fa-thumbs-o-up likeArrow" onClick={handleClick}><span>{like} Like</span></i>
                   <i className="fa fa-comments commentArrow" onClick={() => { clickFn(index) }}><span>Comment</span></i>
                   <i className="fa fa-trash commentArrow" onClick={() => { deletePost(index) }} ><span>Delete</span></i>
                 </div>
                 {item.clicked && <ShareAble posts={post} setpost={setPost} index={index} />}
               </div>
             ))}
-
+  
           </div>
         </div>
         <div className='RightSideBar'>
@@ -201,8 +232,9 @@ function Home() {
         </div>
       </div>
 
-    </div>
+    /* </div> */
   )
 }
+
 
 export default Home;

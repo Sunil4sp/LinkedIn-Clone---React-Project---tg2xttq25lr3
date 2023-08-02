@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../styles/newuser.css";
 import logo from "../Images/linkedin-logo.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const NewUser = () => {
 
@@ -27,6 +27,7 @@ const NewUser = () => {
       });
   }
 
+  const navigate = useNavigate();
   //methods for form submission button
   const registerFn = () => {
           //form submiited
@@ -36,6 +37,10 @@ const NewUser = () => {
           localStorage.setItem('users', JSON.stringify([...temp, formdata]));
           //store the response in a state variable
           setFormdata(initialData);
+
+          alert("User Registered"); //acknowledge user account creation
+          navigate("/login"); //navigate to login page
+
   }
 
   useEffect(() => {
