@@ -1,0 +1,129 @@
+.leftSideBar{
+    height: auto;
+    width: 24%;
+    font-family: sans-serif;
+}
+.upperDiv{
+    height: 45%;
+    width: 70%;
+    margin: 7% 21%;
+    font-size: 1rem;
+    border: 1px solid rgb(202, 212, 188);
+    border-radius: 10px;
+    background-color: #FFFFFF;   
+}
+
+.upperDiv h3{
+    margin: 7% 30%;
+    color: black;
+}
+
+ .connections{
+    margin: 4% 4%;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+}
+.connectionCount{
+    color: #0A66C2;
+    margin: auto;
+}
+
+.postCount{
+    color: #0A66C2;
+    margin: auto;
+}
+.growYour{
+    margin: 4% 4%;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+}
+.upperDiv .access{
+    margin: 10% 4%;
+    font-size: 0.8rem;
+}
+.upperDiv .bookmark{
+    margin: 10px 0px 0px 10px;
+}
+
+.camera{
+    height: 18%;
+    width: 45%;
+    border-radius: 70px;
+    background-color: white;
+    border: 1px solid aliceblue;
+    margin: 10% 35%;
+}
+
+.cameraIcon{
+    font-size: 23px;
+    margin: 20%;
+}
+.lowerDiv{
+    height: 45%;
+    width: 70%;
+    margin: 7% 21%;
+    font-size: 0.9rem;
+    border: 1px solid rgb(202, 212, 188);
+    border-radius: 10px;
+    background-color: #FFFFFF; 
+}
+.lowerDiv p{
+    margin: 9% 6%;
+    font-family: sans-serif;
+    padding: 5px;
+    font-weight: bolder;
+}
+.lowerDiv h5{
+    color: gray;
+    margin: 6% 6%;
+    padding: 5px;
+    font-weight: bolder;
+}
+.lowerDiv h5:hover{
+    border: 0 solid gainsboro;
+    background-color: rgba(0, 0, 0, 0.08);
+    border-radius: 10px;
+    cursor: pointer;
+    color: black;
+}
+
+@media screen and (min-width: 201px) and (max-width: 480px) {
+    .leftSideBar{
+        display: inline-block;
+        max-width: 100%;
+        margin: 7% 0 0 -5%;
+        width: 100%;
+    }
+    .upperDiv,
+    .lowerDiv {
+        width: 90%;
+        max-width: 100%;
+        margin-left: 10%;
+    }
+}
+
+@media screen and (min-width: 0px) and (max-width: 200px) {
+    .leftSideBar{
+        display: inline-block;
+        max-width: 100%;
+        margin: 7% 0 0 0;
+        width: 95%;
+    }
+    .upperDiv,
+    .lowerDiv {
+        width: 95%;
+        max-width: 100%;
+        margin-left: 5%;
+    }
+}
+
+@media screen and (min-width: 481px) and (max-width: 750px) { 
+    *{
+        font-size: 0.7rem;
+    }
+    .upperDiv h3{
+        font-size: 1.2rem;
+    }
+}

@@ -1,0 +1,22 @@
+.NetworkShare{
+    height: auto;
+    width: 99%;
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    margin: 4.25% 0;
+    border: 1px solid rgb(202, 212, 188);
+}
+.NetworkShare h3{
+    text-align: center;
+    font-size: 1rem;
+}
+
+.NetworkShare h5{
+    font-size: 0.8rem;
+}
+
+.NetworkShare button{
+    height: auto;
+    width: 15%;
+    border-radius: 20px;
+}

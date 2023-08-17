@@ -1,0 +1,520 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+ /* *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+} */
+
+.navbar{
+    position: sticky;
+    height: 13vh;
+    width: 100%;
+    max-width: 100%;
+    padding: 5px;
+}
+.loginLogo{
+    height: 12vh;
+    width: 13%;
+    float: left;
+    margin: 1% 5%;
+}
+
+.navbar .join{
+    float: right;
+    margin: 2% 0;
+    height: 8vh;
+    width: 8%;
+    border-radius: 25px;
+    border: 0;
+    background-color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+.navbar .sign{
+    margin: 2% 0 2% 60%;
+    height: 8vh;
+    width: 8%;
+    border-radius: 25px;
+    border: 1.5px solid transparent;
+    background-color: #fff;
+    color: #0A66C2;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+.divAfterNav{
+    height: auto;
+    width: 100%;
+    display: flex;
+    /* border: 1px solid green; */
+}
+.leftSide{
+    height: auto;
+    width: 50%;
+    /* border: 1px solid green; */
+}
+.leftSide p{
+    font-size: 1.7rem;
+    word-spacing: 5px;
+    margin: 2% 10%;
+    color: #8F5849;
+    font-family: sans-serif;
+    
+}
+input[type="email"],
+input[type="password"]{
+    height: 6vh;
+    width: 62%;
+    margin: 2% 13%;
+}
+
+.checkShowPassword{
+    width: 90%;
+    display: flex;
+    margin: 1% 5%;
+}
+.checkShowPassword label{
+    margin: 2%;
+}
+.checkShowPassword input{
+    margin: 2% 2% 2% 12%;
+}
+
+.leftSide .email,
+.password {
+    margin: 2% 13%;
+    font-family: sans-serif;
+}
+.leftSide .forPass{
+    font-size: 18px;
+    font-family: sans-serif;
+    margin: 10px 0px 10px 50px;
+    text-decoration: none;
+    color: #0A66C2;
+}
+.leftSide .signIn{
+    height: 7vh;
+    width: 45%;
+    border: 0;
+    font-size: 1.2rem;
+    background-color: #0A66C2;
+    border-radius: 25px;
+    color: #fff;
+    font-family: sans-serif;
+    margin: 1% 15% 3%;
+}
+.firsthr{
+    width: 25%;
+    margin-left: 12%;
+    /* margin-top: 19px; */
+}
+.secondhr{
+    width: 25%;
+    margin-left: 67%;
+    margin-top: -9px;
+}
+.orr{
+    margin-left: 50%;
+    margin-top: -9px;
+}
+.leftSide span{
+    margin: 2% 30%;
+}
+.line{
+    display: flex;
+    flex-direction: column;
+    margin: 2% 0 3%;
+}
+
+.newtoLinkedIn{
+    height: 7vh;
+    width: 45%;
+    border: 1.5px solid black;
+    border-radius: 25px;
+    font-family: sans-serif;
+    margin: 2% 15%;
+    background-color: #fff;
+    font-size: 1.2rem;
+}
+
+.newtoLinkedIn:hover{
+    background-color: gray;
+    font-weight: bolder;
+    border: none;
+}
+
+.rightWithImg{
+    height: auto;
+    width: 45%;
+}
+
+.rightWithImg img{
+    width: 95%;
+    margin-top: 5%;
+    height: auto;
+}
+
+@media screen and (min-width: 0px) and (max-width: 200px) {  
+    .navbar{
+        height: 15vh;
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        padding: 5px;
+    }
+    .loginLogo {
+        height: 10vh;
+        width:80%;
+        margin: 2% 5%;
+    }
+    .navbar .sign {
+        margin: 2% 5%;
+        height: 10vh;
+        width: 80%;
+        border: 1px solid transparent;
+        font-size: 1rem;
+    }
+    .navbar .join {
+        margin: 2% 10%;
+        height: 10vh;
+        width: 80%;
+        border: 1px solid transparent;
+        font-size: 1rem;
+    }
+    .linkHome {
+        width: 50%;
+        height: 10vh;
+    }
+    .loginLink{
+        width: 25%;
+        height: 10vh;
+    }
+    .newuserLink{
+        width: 25%;
+        height: 10vh;
+    }
+    .divAfterNav {
+        height: auto;
+        width: 100%;
+        max-width: 100%;
+    }
+    .leftSide {
+        height: auto;
+        width: 95%;
+        max-width: 100%;
+        margin: 2% 5%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .leftSide p{
+        font-size: 1.5rem;
+        margin: 0 1% 2% 15%;
+        display: block;
+    }
+    #username,
+    #password {
+        height: 6vh;
+        width: 62%;
+        margin: 2% 13%;
+        font-size: 1.5rem;
+    }
+
+    .leftSide label{
+        margin: 0 10% 0 15%;
+        font-size: 1.3rem;
+    }
+    .checkShowPassword{
+        width: 90%;
+        display: flex;
+        margin: 2% 5%;
+    }
+    .checkShowPassword label{
+        margin: 2%;
+    }
+    .checkShowPassword input{
+        margin: 2% 5% 2% 10%;
+    }
+    
+    .leftSide .signIn{
+        height: 5vh;
+        width: 54%;
+        font-size: 1.4rem;
+        margin: 5% 25%;
+    }
+    .leftSide .firsthr,
+    .secondhr{
+        display: none;
+    }
+    
+    .orr{
+        margin: 8% 43%;
+       font-size: 1.6rem;
+    }
+
+    .newtoLinkedIn
+    {
+        height: 5vh;
+        width: 50%;
+        margin: 2% 25%;
+        font-size: 0.7rem;
+        border: none;
+    }
+    .newtoLinkedIn:hover{
+        background-color: gray;
+        color: white;
+    }
+
+    .leftSide span{
+        margin: 2% 14%;
+    }
+
+    .rightWithImg {
+        display: none;
+    }
+
+}
+
+@media screen and (min-width: 201px) and (max-width: 480px) { 
+
+    .navbar{
+        height: 12vh;
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        padding: 5px;
+    }
+    .loginLogo {
+        height: 10vh;
+        width: 50%;
+        margin: 2% 5%;
+    }
+    .navbar .sign {
+        margin: 15% 0 5% 90%;
+        height: 5vh;
+        width: 50%;
+        border: 1px solid transparent;
+        font-size: 1rem;
+    }
+    .navbar .join {
+        margin: 15% 5%;
+        height: 5vh;
+        width: 50%;
+        border: 1px solid transparent;
+        font-size: 1rem;
+    }
+    .linkHome {
+        width: 50%;
+        height: 10vh;
+    }
+    .loginLink{
+        width: 25%;
+        height: 10vh;
+    }
+    .newuserLink{
+        width: 25%;
+        height: 10vh;
+    }
+    .divAfterNav {
+        height: auto;
+        width: 100%;
+        max-width: 100%;
+    }
+    .leftSide {
+        height: auto;
+        width: 95%;
+        max-width: 100%;
+        margin: 2% 5%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .leftSide p{
+        font-size: 1.5rem;
+        margin: 0 1% 2% 15%;
+        display: block;
+    }
+    #username,
+    #password {
+        height: 6vh;
+        width: 62%;
+        margin: 2% 13%;
+        font-size: 1.5rem;
+    }
+
+    .leftSide label{
+        margin: 0 10% 0 15%;
+        font-size: 1.3rem;
+    }
+    .checkShowPassword{
+        width: 90%;
+        display: flex;
+        margin: 2% 5%;
+    }
+    .checkShowPassword label{
+        margin: 2%;
+    }
+    .checkShowPassword input{
+        margin: 2% 2% 2% 12%;
+    }
+    
+    .leftSide .signIn{
+        height: 5vh;
+        width: 50%;
+        font-size: 1.4rem;
+        margin: 5% 17%;
+    }
+    .leftSide .firsthr,
+    .secondhr{
+        display: none;
+    }
+    
+    .orr{
+        margin: 8% 40%;
+       font-size: 1.3rem;
+    }
+
+    .newtoLinkedIn
+    {
+        height: 5vh;
+        width: 50%;
+        margin: 2% 17%;
+        font-size: 1.4rem;
+        border: none;
+    }
+    .newtoLinkedIn:hover{
+        background-color: gray;
+        color: white;
+    }
+
+    .leftSide span{
+        margin: 2% 33%;
+        font-size: 1rem;
+    }
+
+    .rightWithImg {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 481px) and (max-width: 750px) { 
+    .navbar{
+        height: 12vh;
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        padding: 5px;
+    }
+    .loginLogo {
+        height: 10vh;
+        width: 40%;
+        margin: 2% 5%;
+    }
+    .navbar .sign {
+        margin: 15% 0 5% 90%;
+        height: 5vh;
+        width: 50%;
+        border: 1px solid transparent;
+        font-size: 1rem;
+    }
+    .navbar .join {
+        margin: 15% 5%;
+        height: 5vh;
+        width: 50%;
+        border: 1px solid transparent;
+        font-size: 1rem;
+    }
+    .linkHome {
+        width: 50%;
+        height: 12vh;
+    }
+    .loginLink{
+        width: 25%;
+        height: 12vh;
+    }
+    .newuserLink{
+        width: 25%;
+        height: 12vh;
+    }
+    .divAfterNav {
+        height: auto;
+        width: 100%;
+        max-width: 100%;
+    }
+    .leftSide {
+        height: auto;
+        width: 95%;
+        max-width: 100%;
+        margin: 2% 5%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .leftSide p{
+        font-size: 1.5rem;
+        margin: 0 1% 2% 15%;
+        display: block;
+    }
+    #username,
+    #password {
+        height: 6vh;
+        width: 62%;
+        margin: 2% 13%;
+        font-size: 1.5rem;
+    }
+
+    .leftSide label{
+        margin: 0 10% 0 15%;
+        font-size: 1.3rem;
+    }
+    .checkShowPassword{
+        width: 90%;
+        display: flex;
+        margin: 2% 5%;
+    }
+    .checkShowPassword label{
+        margin: 2%;
+    }
+    .checkShowPassword input{
+        margin: 2% 2% 2% 12%;
+    }
+    
+    .leftSide .signIn{
+        height: 5vh;
+        width: 50%;
+        font-size: 1.4rem;
+        margin: 5% 17%;
+    }
+    .leftSide .firsthr,
+    .secondhr{
+        display: none;
+    }
+    
+    .orr{
+        margin: 8% 40%;
+       font-size: 1.3rem;
+    }
+
+    .leftSide .newtoLinkedIn
+    {
+        height: 5vh;
+        width: 50%;
+        margin: 2% 17%;
+        font-size: 1.4rem;
+        border: none;
+    }
+    .newtoLinkedIn:hover{
+        background-color: gray;
+        color: white;
+    }
+
+    .leftSide span{
+        margin: 2% 33%;
+        font-size: 1rem;
+    }
+
+    .rightWithImg {
+        display: none;
+    }
+}

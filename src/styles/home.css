@@ -1,3 +1,470 @@
+<<<<<<< HEAD
+*{
+    padding: 0;
+    font-size: 0.9rem;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.main{
+    width: 100%;
+    height: auto;
+    margin: auto;
+    left: 0;
+    right: 0;
+}
+
+.navStart{
+    min-height: 3rem;
+    position: sticky;
+    top: 1px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin: 0 0 0.1% 0; 
+    background-color: #fff;
+    border-bottom: 1px solid rgb(202, 212, 188);
+}
+
+.smallLogo{
+    height: auto;
+    width: 2.5%;
+    margin: 0 0px 0px 10%;
+}
+.input1{
+    height: 30px;
+    width: 25%;
+    margin: 0 0px 0px 2%;
+    border: 0;
+    background-color: aliceblue;
+    border-radius: 5px;
+}
+
+.faIcons {
+    margin: auto;
+    font-size: 0.9rem;
+    color: #666666;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+.faIcons p{
+    font-size: 0.9rem;
+    font-family: sans-serif;
+    text-decoration: none;
+}
+
+.homeIcon,
+.networkIcon,
+.jobsIcon,
+.msgIcon,
+.notificationsIcon,
+.meIcon{
+    font-size: 0.8rem;
+    color: #666666;
+}
+
+.meIcon{
+    margin-left: 4px;
+    width: 20px;
+}
+
+.navStart button{
+    height: 40px;
+    width: 4%;
+    border-radius: 15px;
+    border: 1px solid grey;
+    margin: 7px 0px 0px 5px;
+    background-color: #0A66C2;
+    color: #fff;
+}
+
+.rightSection{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 2% 0 15%;
+    width: 60%;
+    box-sizing: border-box;
+}
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 15%;
+    padding: 1%;
+}
+
+.network {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 25%;
+    padding: 1%;
+}
+
+.jobs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 15%;
+    padding: 1%;
+}
+.message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20%;
+    padding: 1%;
+}
+.notification{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20%;
+    padding: 1%;
+}
+.signout{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 10%;
+    padding: 1%;
+}
+
+.homeLink,
+.netLink,
+.jobLink,
+.msgLink,
+.notifyLink,
+.signoutLink
+{
+    text-decoration: none;
+}
+
+.homeLogo {
+    text-decoration: none;
+}
+
+.mainContainer{
+    height: auto;
+    min-height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #F3F2EF;
+    overflow-x: hidden;
+}
+
+.MiddleBar{
+    height: auto;
+    width: 40%;
+}
+
+.PostShare{
+    height: auto;
+    width: 99%;
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    margin: 4.25% 0;
+    border: 1px solid rgb(202, 212, 188);
+}
+.shareIcon{
+    font-size: 1.5rem;
+    color: grey;
+    margin: 5% 3% 4% 5%;
+}
+.PostShare input{
+    height: 4.5vh;
+    width: 60%;
+    border-radius: 20px;
+    border: 1px solid  rgb(140, 143, 135);
+    margin: -10px 0px 0px 0px;
+    padding: 5px 5px 5px 10px;
+}
+
+.PostShare button{
+    height: 6vh;
+    width: 16%;
+    border-radius: 15px;
+    background-color: #0A66C2;
+    border: 0;
+    color: #fff;
+    margin-left: 5px;
+    cursor: pointer;
+}
+.photoIcon {
+    font-size: 1.5rem; 
+    margin: 2% 5%;
+    color: #0A66C2;
+}
+.photoIcon .photos{
+    font-size: 0.85rem;
+    color: grey;
+}
+.videosIcon{
+    font-size: 1.5rem;  
+    margin: 2% 5%;
+    color: green;
+}
+.videosIcon p{
+    font-size: 0.85rem;
+    color: grey;
+}
+.eventsIcon{
+    font-size: 1.5rem; 
+    margin: 2% 5%;
+    color: orange;
+}
+.eventsIcon p{
+    font-size: 0.85rem;
+    color: grey;
+}
+.articleIcon{
+    font-size: 1.5rem;  
+    margin: 2% 5%;
+    color: red;
+}
+.articleIcon p{
+    font-size: 0.85rem;
+    color: grey;
+}
+
+.postDiv{
+    height: auto;
+    width: 98%;
+    border: 1px solid grey;
+    margin: auto;
+    border-radius: 20px;
+    background-color: #fff;
+}
+.postME{
+    font-size: 29px;
+    margin: 10px 0px 0px 20px;
+}
+.postDiv h3{
+    margin: 5px 0px 0px 20px;
+}
+.postDiv h4{
+    margin: 5px 0px 0px 20px;
+    padding-left: 15px;
+}
+
+.testingPara{
+    margin: 10px 0px 5px 20px;
+}
+.testingHeading{
+    margin: 5px 0px 80px 20px;
+}
+.likeArrow{
+    font-size: 25px;
+    margin: 10px 0px 10px 20px;
+    color: blue;
+}
+
+.commentArrow{
+    font-size: 25px;
+    margin: 10px 0px 10px 40px;
+}
+.commentArrow span{
+    font-size: 17px;
+    margin: 5px 0px 10px 0px;
+}
+
+.commentDiv{
+    height: 170px;
+    width: 93%;
+    border: 1px solid grey;
+    margin: 10px 0px 10px 17px;
+    border-radius: 20px;
+    background-color: #fff;
+    padding: 5px;
+}
+.commentDiv input{
+    height: 30px;
+    width: 70%;
+    border-radius: 10px;
+    padding-left: 10px;
+}
+
+.comntMe{
+    color: grey;
+    margin: 5px 0px 5px 10px;
+}
+.h5{
+    color: black;
+    margin: -13px 0px 5px 20px;
+
+}
+.showComnt{
+    margin: -4px 0px 5px 13px;
+}
+
+.loginOut{
+    margin-left: -16px;
+}
+
+.user-name{
+    text-decoration: none;
+}
+
+.comment-btn{
+    border-radius: 5px;
+}
+
+span{
+    font-size: 14px;
+    text-decoration: none;
+    color: black;
+}
+
+
+
+@media screen and (min-width: 201px) and (max-width: 480px) {
+    *{
+        font-size: 1rem;
+    }
+    .main{
+        position: relative;
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        align-content: flex-start;
+    }
+
+    .mainContainer{
+        display: inline-block;
+        margin-top: 3%;
+    }
+     
+    .navStart{
+        width: 100%;
+        max-width: 100%;
+        position: absolute;
+    }
+    
+    p {
+        display: none;
+    }
+
+    .MiddleBar{
+        display: inline-block;
+        max-width: 100%;
+        width: 100%;
+        margin: 5%;
+        font-size: 0.8rem;
+    }
+
+    .PostShare{
+        height: auto;
+        width: 90%;
+    }
+    .PostShare input{
+        height: auto;
+        width: 50%;
+    }
+
+    .PostShare button{
+        height: auto;
+        width: 19%;
+    }
+    .photoIcon,
+    .videosIcon,
+    .eventsIcon,
+    .articleIcon{
+        margin: 1% 8%;
+    }
+    
+}
+
+@media screen and (min-width: 0px) and (max-width: 200px) {
+
+    *{
+        font-size: 0.7rem;
+    }
+
+    .mainContainer{
+        display: inline-block;
+        margin-top: 3%;
+    }
+    .photoIcon,
+    .videosIcon,
+    .eventsIcon,
+    .articleIcon{
+        margin: 1% 9%;
+    }
+
+    p {
+        display: none;
+    }
+
+    .MiddleBar{
+        display: inline-block;
+        max-width: 100%;
+        width: 90%;
+        margin: 0% 5%;
+        /* font-size: 0.8rem; */
+    }
+
+    .PostShare{
+        height: auto;
+        width: 90%;
+        margin: 0 5%;
+    }
+    .PostShare input{
+        height: auto;
+        width: 45%;
+    }
+
+    .PostShare button{
+        height: auto;
+        width: 19%;
+    }
+    .photoIcon,
+    .videosIcon,
+    .eventsIcon,
+    .articleIcon{
+        margin: 1% 9%;
+        font-size: 0.6rem;
+    }
+}
+    
+
+@media screen and (max-width: 750px) and (min-width: 481px) {
+    
+    *{
+        font-size: 0.7rem;
+    }
+    .navStart p { 
+        font-size: 0.7rem; 
+    }   /* hide it elsewhere */
+    .navStart{
+        position: sticky;
+    }
+    .rightSection{
+        padding: 0 2% 0 0;
+    }
+    .photoIcon,
+    .videosIcon,
+    .eventsIcon,
+    .articleIcon{
+        margin: 1% 4%;
+        font-size: 0.6rem;
+    }
+
+    p {
+        font-size: 0.5rem;
+    }
+    .postDiv{
+        height: auto;
+        width: 98%;
+        margin: auto;
+    }
+  } 
+=======
 *{
     padding: 0;
     margin: 0;
@@ -480,3 +947,4 @@ span{
         width: 9%;
     } 
 }
+>>>>>>> bf76f83fbe40d6361d726c68f6a8852f428b8d64
