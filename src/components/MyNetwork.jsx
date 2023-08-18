@@ -1,12 +1,11 @@
-<<<<<<< HEAD
-import React, { useContext, useState } from "react";
+import React, { useContext/* , useState */ } from "react";
 import "../styles/MyNetwork.css";
 
 /* import { useNavigate } from "react-router-dom"; */
 import { DataAppContext } from "./DataApp";
 import NavBar from "./NavBar";
-import LeftSideBar from "./LeftSideBar";
-import RightSideBar from "./RightSideBar";
+/* import LeftSideBar from "./LeftSideBar";
+import RightSideBar from "./RightSideBar"; */
 
 
 const MyNetwork = () => {
@@ -45,14 +44,4 @@ const MyNetwork = () => {
   )
 }
 
-=======
-import React from 'react'
-
-const MyNetwork = () => {
-  return (
-    <div></div>
-  )
-}
-
->>>>>>> bf76f83fbe40d6361d726c68f6a8852f428b8d64
 export default MyNetwork;
