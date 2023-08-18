@@ -247,10 +247,11 @@ input[type="password"]{
     .secondhr{
         display: none;
     }
-    
+    .line{
+        display: none;
+    }
     .orr{
-        margin: 8% 43%;
-       font-size: 1.6rem;
+        display: none;
     }
 
     .newtoLinkedIn
@@ -369,10 +370,12 @@ input[type="password"]{
     .secondhr{
         display: none;
     }
-    
+    .line{
+        display: none;
+    }
+
     .orr{
-        margin: 8% 40%;
-       font-size: 1.3rem;
+        display: none;
     }
 
     .newtoLinkedIn
@@ -490,10 +493,13 @@ input[type="password"]{
     .secondhr{
         display: none;
     }
+
+    .line{
+        display: none;
+    }
     
     .orr{
-        margin: 8% 40%;
-       font-size: 1.3rem;
+       display: none;
     }
 
     .leftSide .newtoLinkedIn
