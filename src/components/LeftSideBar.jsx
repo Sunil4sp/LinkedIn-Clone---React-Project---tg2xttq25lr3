@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import Avatar from '@mui/material/Avatar';
 import { DataAppContext } from "./DataApp";
 import '../styles/LeftSideBar.css';
 
@@ -35,33 +36,42 @@ const LeftSideBar = () => {
         window.open("https://developers.google.com/");
       };
   return (
-    <div className='leftSideBar'>
-          <div className='upperDiv'>
-            <div className='camera'>
-              <i className="fa fa-camera cameraIcon"></i>
-
-            </div>
-            <h3 className='h3'>{name}</h3>
-            <hr></hr>
-            <p className='connections'>Who's viewed your profile &ensp;<h5 className='connectionCount'>30</h5></p>
-            
-            <p className='growYour'>Views on post &ensp;<h5 className='postCount'>1521</h5></p>
-
-            <hr></hr>
-            <p className='access'>Access exclusive Tools & insights</p>
-            {/* <hr></hr>
-            <i className="fa fa-bookmark bookmark">My Items</i> */}
-          </div>
-          <div className='lowerDiv'>
-            <p>Recent</p>
-            <h5 onClick={handleReactjs}>#reactJS</h5>
-            <h5 onClick={handleProgramming}>#programming</h5>
-            <h5 onClick={handleSoftwareEngineering}>#software engineering</h5>
-            <h5 onClick={handleDesign}>#design</h5>
-            <h5 onClick={handleDeveloper}>#developer</h5>
-          </div>
+    <div className="leftSideBar">
+      <div className="upperDiv">
+        <div className="camera">
+          {/* <i className="fa fa-camera cameraIcon"></i> */}
+          <Avatar
+            alt="Profile_pic"
+            src="/static/images/avatar/1.jpg"
+            sx={{ width: 56, height: 56 }}
+          />
         </div>
-  )
+        <h3 className="h3">{name}</h3>
+        <hr></hr>
+        <p className="connections">
+          Who's viewed your profile &ensp;
+          <h5 className="connectionCount">30</h5>
+        </p>
+
+        <p className="growYour">
+          Views on post &ensp;<h5 className="postCount">1521</h5>
+        </p>
+
+        <hr></hr>
+        <p className="access">Access exclusive Tools & insights</p>
+        {/* <hr></hr>
+            <i className="fa fa-bookmark bookmark">My Items</i> */}
+      </div>
+      <div className="lowerDiv">
+        <p>Recent</p>
+        <h5 onClick={handleReactjs}>#reactJS</h5>
+        <h5 onClick={handleProgramming}>#programming</h5>
+        <h5 onClick={handleSoftwareEngineering}>#software engineering</h5>
+        <h5 onClick={handleDesign}>#design</h5>
+        <h5 onClick={handleDeveloper}>#developer</h5>
+      </div>
+    </div>
+  );
 }
 
-export default LeftSideBar
+export default LeftSideBar;

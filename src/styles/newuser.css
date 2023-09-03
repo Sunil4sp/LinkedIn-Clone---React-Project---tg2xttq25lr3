@@ -73,11 +73,11 @@ body{
   font-size: 1rem;
 }
 
-@media screen and (min-width: 201px) and (max-width: 480px) { 
+@media screen and (min-width: 201px) and (max-width: 750px) { 
 
- *{
+ /* *{
     font-size: 0.7rem;
-  }
+  } */
 
   .newUserNav{
     height: 12vh;
@@ -120,9 +120,9 @@ body{
 
 @media screen and (min-width: 0px) and (max-width: 200px) { 
 
- *{
+ /* *{
   font-size: 0.5rem;
-  }
+  } */
  .newUserNav img{
   height: 10vh;
   width: 70%;
@@ -136,7 +136,7 @@ body{
   }
 }
 
-@media screen and (max-width: 750px) and (min-width: 481px) {
+/* @media screen and (max-width: 750px) and (min-width: 481px) {
   *{
     font-size: 0.8rem;
   }
@@ -147,4 +147,4 @@ body{
     padding: 2%;
   }
 
-}
+} */

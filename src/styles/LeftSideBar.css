@@ -6,7 +6,7 @@
 .upperDiv{
     height: 45%;
     width: 70%;
-    margin: 7% 21%;
+    margin: 12% 21% 5%;
     font-size: 1rem;
     border: 1px solid rgb(202, 212, 188);
     border-radius: 10px;
@@ -14,8 +14,9 @@
 }
 
 .upperDiv h3{
-    margin: 7% 30%;
+    margin: 7% 35%;
     color: black;
+    font-size: 1.1rem;
 }
 
  .connections{
@@ -48,17 +49,16 @@
 }
 
 .camera{
-    height: 18%;
-    width: 45%;
+    height: 22%;
+    width: 38%;
     border-radius: 70px;
-    background-color: white;
-    border: 1px solid aliceblue;
-    margin: 10% 35%;
+    margin: 10% 30%;
 }
 
 .cameraIcon{
     font-size: 23px;
     margin: 20%;
+    border-radius: 50%;
 }
 .lowerDiv{
     height: 45%;
@@ -89,19 +89,37 @@
     color: black;
 }
 
-@media screen and (min-width: 201px) and (max-width: 480px) {
+@media screen and (min-width: 201px) and (max-width: 750px) {
+    /* *{
+        font-size: 1rem;
+    } */
     .leftSideBar{
         display: inline-block;
         max-width: 100%;
-        margin: 7% 0 0 -5%;
+        margin: 0 0 0 -5%;
         width: 100%;
     }
-    .upperDiv,
+    .upperDiv{
+        width: 90%;
+        max-width: 100%;
+        margin: 11% 0 0 10%;
+    }
+    .upperDiv h3{
+        margin: 7% 43%;
+        color: black;
+        font-size: 1.1rem;
+    }
+    .camera{
+        border-radius: 50%;
+        margin: 10% 40%;
+    }
     .lowerDiv {
         width: 90%;
         max-width: 100%;
-        margin-left: 10%;
+        margin: 5% 0 0 10%;
     }
+
+
 }
 
 @media screen and (min-width: 0px) and (max-width: 200px) {
@@ -119,11 +137,9 @@
     }
 }
 
-@media screen and (min-width: 481px) and (max-width: 750px) { 
-    *{
-        font-size: 0.7rem;
-    }
+@media screen and (min-width: 201px) and (max-width: 750px) { 
+    
     .upperDiv h3{
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
 }

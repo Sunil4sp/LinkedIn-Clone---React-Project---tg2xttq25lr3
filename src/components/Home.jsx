@@ -30,7 +30,7 @@ const ShareAble = (props) => {
           Comment
         </button>
         {props.posts[props.index].coment.map((data) => (
-          <div>
+          <div className="comment-reply">
             <i className="fa fa-user-circle-o comntMe">
               <h5 className="h5">{props.name}</h5>
             </i>
@@ -51,6 +51,43 @@ function Home() {
   const [post, setPost] = useState([]);
   const [like, setLike] = useState(0);
   const [clicked, setClicked] = useState(false);
+
+  const [togglephoto, setTogglePhoto] = useState(false);
+  const [toggleevent, setToggleEvent] = useState(false);
+  const [togglewriteArticle, setToggleWriteArticle] = useState(false);
+
+  const handlePhotoToggle = () => {
+    setTogglePhoto(!togglephoto);
+    
+    if (toggleevent === true) {
+      setToggleEvent(false);
+    }
+    if (togglewriteArticle === true) {
+      setToggleWriteArticle(false);
+    }
+  }
+
+  const handleEventToggle = () => {
+    setToggleEvent(!toggleevent);
+    
+    if (togglephoto === true) {
+      setTogglePhoto(false);
+    }
+    if (togglewriteArticle === true) {
+      setToggleWriteArticle(false);
+    }
+  };
+
+   const handleWriteArticleToggle = () => {
+    setToggleWriteArticle(!togglewriteArticle);
+    
+    if (togglephoto === true) {
+      setTogglePhoto(false);
+    }
+    if (toggleevent === true) {
+      setToggleEvent(false);
+    }
+  };
 
   const name = appState.name;
   console.log(name);
@@ -95,6 +132,7 @@ function Home() {
     setPost([...tempArr]);
   };
 
+
   return (
     <div className="main">
       <>
@@ -104,30 +142,60 @@ function Home() {
           <LeftSideBar />
           <div className="MiddleBar">
             <div className="PostShare">
-              <i className="fa fa-user-circle-o shareIcon">
-                <h3>{name}</h3>
-              </i>
-              <input
-                type="search"
-                placeholder="Start Post"
-                onChange={(e) => setInput(e.target.value)}
-              />
-              <button onClick={submitPost}>Add Post</button>
+              <div className="user_profile">
+                <i className="fa fa-user-circle-o shareIcon"></i>
+                <form onSubmit={submitPost} className="form_submit">
+                  <input
+                    type="search"
+                    placeholder="Start Post"
+                    value={input}
+                    onChange={(e) => setInput(e.target.value)}
+                  />
+                </form>
+              </div>
               <br></br>
-              <i className="fa fa-picture-o photoIcon">
-                <p className="photos">Photos</p>
-              </i>
-              <i className="fa fa-video-camera videosIcon">
+              <div className="sections">
+                {togglephoto ? (
+                  <p className="working_on_div__pad">
+                    working on media feature
+                  </p>
+                ) : (
+                  ""
+                )}
+
+                {toggleevent ? (
+                  <p className="working_on_div__pad">
+                    working on event feature
+                  </p>
+                ) : (
+                  ""
+                )}
+                {togglewriteArticle ? (
+                  <p className="working_on_div__pad">
+                    working on write article
+                  </p>
+                ) : (
+                  ""
+                )}
+              </div>
+              <div className="share_box">
+                <div className="share_box-1" onClick={handlePhotoToggle}>
+                  <i className="fa fa-picture-o photoIcon"></i>
+                  <p className="photos">Media</p>
+                </div>
+                {/* <i className="fa fa-video-camera videosIcon"onClick={handleVideoToggle}>
                 <p className="video">Video</p>
-              </i>
-              <i className="fa fa-calendar eventsIcon">
-                <p className="events">Events</p>
-              </i>
-              <i className="fa fa-pencil-square-o articleIcon">
-                <p className="article">Article</p>
-              </i>
+              </i> */}
+                <div className="share_box-2" onClick={handleEventToggle}>
+                  <i className="fa fa-calendar eventsIcon"></i>
+                  <p className="events">Events</p>
+                </div>
+                <div className="share_box-3" onClick={handleWriteArticleToggle}>
+                  <i className="fa fa-pencil-square-o articleIcon"></i>
+                  <p className="article">Write Article</p>
+                </div>
+              </div>
             </div>
-            {/* <hr></hr> */}
             <div>
               {loginStatus &&
                 post.map((item, index) => (
@@ -135,32 +203,32 @@ function Home() {
                     <div className="postDiv">
                       <i className="fa fa-user-circle-o postME"></i>
                       <h3>{name}</h3>
-
-                      <hr></hr>
                       <h4 className="testingHeading">{item.msg}</h4>
-                      <hr></hr>
-                      <i
+                      
+                      <div className="shareDetail">
+                      <div className="like_button">
+                        <img src="https://static.licdn.com/sc/h/5zhd32fqi5pxwzsz78iui643e"
                         className="fa fa-thumbs-o-up likeArrow"
-                        onClick={handleClick}
-                      >
-                        <span>{like} Like</span>
-                      </i>
-                      <i
-                        className="fa fa-comments commentArrow"
-                        onClick={() => {
+                        onClick={handleClick}/>
+                        <span>Like</span>
+                      </div>
+                      
+                      <div className="comment" onClick={() => {
                           clickFn(index);
-                        }}
-                      >
+                        }}>
+                        <i
+                        className="fa fa-comments commentArrow"></i>
                         <span>Comment</span>
-                      </i>
-                      <i
-                        className="fa fa-trash commentArrow"
-                        onClick={() => {
+                      </div>
+                      
+                      <div className="deleteComment" onClick={() => {
                           deletePost(index);
-                        }}
-                      >
+                        }}>
+                        <i
+                        className="fa fa-trash commentArrow"></i>
                         <span>Delete</span>
-                      </i>
+                      </div>
+                      </div>
                     </div>
                     {item.clicked && (
                       <ShareAble posts={post} setpost={setPost} index={index} />

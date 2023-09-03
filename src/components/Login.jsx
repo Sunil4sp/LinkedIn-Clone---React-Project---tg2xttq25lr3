@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
 import {DataAppContext} from './DataApp';
 /* import '../styles/home.css'; */
 import '../styles/Login.css';
@@ -29,6 +29,9 @@ const Login = () => {
   
   const [showPassword, setShowPassword] = useState(false);
 
+  const [input, setInput] = useState('');
+  const inputRef = useRef(null);
+
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
   };
@@ -51,6 +54,8 @@ const Login = () => {
           let temp = JSON.parse(localStorage.getItem('users'));
 
           if(temp) {
+            setInput('');
+            inputRef.current.focus();
               for(let i=0 ; i<temp.length ; i++) {
                   console.log(temp[i].username, loginformdata.username);
                   if(temp[i].username === loginformdata.username) {
@@ -128,7 +133,8 @@ const Login = () => {
             id="username"
             placeholder="Email"
             value={loginformdata.username}
-            onChange={(e)=>updateData(e)}
+            onChange={(e)=>updateData(e)} 
+            ref={inputRef}
           />
           <br></br>
           <label htmlFor="Name" className="password">Password</label>
