@@ -17,7 +17,7 @@
 .navStart{
     min-height: 3rem;
     position: sticky;
-    top: 1px;
+    top: 0px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -342,10 +342,28 @@
     font-size: 14px;
     margin: 5px 0px 10px 0px;
 }
-
+.comment-profile-pic{
+    display: flex;
+    justify-content: space-between;
+}
+.profile-pic-comment{
+    display: flex;
+    flex-direction: column;
+    width: 15%;
+    height: auto;
+    padding: 0% 2%;
+}
+.profile-picture{
+    width: 7vh;
+    height: auto;
+}
+.profile-picture .comntMe{
+    color: grey;
+    margin: 3% 5%;
+}
 .commentDiv{
-    height: 35px;
-    width: 75%;
+    height: auto;
+    width: 85%;
     border: none;
     margin: 0;
     border-radius: 20px;
@@ -353,27 +371,32 @@
     padding: 5px;
 }
 .commentDiv input{
-    height: 30px;
-    width: 70%;
-    border-radius: 10px;
+    height: 7vh;
+    width: 95%;
+    border-radius: 20px;
     padding-left: 10px;
 }
 .comment-reply{
-    width: 90%;
+    width: 95%;
     height: auto;
+    display: flex;
 }
-
+.reply-profile{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+}
 .comntMe{
     color: grey;
-    margin: 5px 0px 5px 10px;
+    margin: 2% 10%;
 }
 .h5{
     color: black;
-    margin: -13px 0px 5px 20px;
-
+    margin: 2% 10%
 }
 .showComnt{
-    margin: -4px 0px 5px 13px;
+    margin: 2% 3%;
+    font-weight: bold;
 }
 
 .loginOut{
@@ -398,7 +421,7 @@ span{
 
 @media screen and (min-width: 201px) and (max-width: 750px) {
     *{
-        font-size: 1rem;
+        font-size: 1.15rem;
     }
     .main{
         position: relative;
@@ -452,7 +475,10 @@ span{
     .articleIcon{
         margin: 1% 8%;
     }
-    
+    .postDiv{
+        height: auto;
+        width: 90%;
+    }
 }
 
 @media screen and (min-width: 0px) and (max-width: 200px) {
@@ -486,8 +512,7 @@ span{
 
     .PostShare{
         height: auto;
-        width: 90%;
-        margin: 0 5%;
+        margin: 0 0 5%;
     }
     .PostShare input{
         height: auto;
@@ -504,6 +529,13 @@ span{
     .articleIcon{
         margin: 1% 9%;
         font-size: 0.6rem;
+    }
+    .postDiv{
+        height: auto;
+        margin-bottom: 5%;
+    }
+    span{
+        display: none;
     }
 }
     

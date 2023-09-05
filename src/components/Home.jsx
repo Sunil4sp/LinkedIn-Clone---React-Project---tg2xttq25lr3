@@ -9,35 +9,63 @@ import RightSideBar from "./RightSideBar";
 
 
 const ShareAble = (props) => {
-  const [inputs, setInputs] = useState("");
+  const localContext = useContext(DataAppContext);
+  const { appState } = localContext;
+  const name = appState.name;
 
-  const commentPost = () => {
+  const [showCommentBox, setShowCommentBox] = useState(true);
+  /* const [count, setCount] = useState(true); */
+  const [inputs, setInputs] = useState("");
+  
+  /* const toggleCommentBox = () => {
+    if (!count) {
+      setCount(!count); // Toggle the count state
+    }
+  }; */
+
+  const commentPost = (e) => {
+    e.preventDefault();
     let objs = { inputs };
     let tempArr = [...props.posts];
     tempArr[props.index].coment.push(objs);
     console.log(tempArr, "temparr");
     props.setpost(tempArr);
+    setInputs("");
+    setShowCommentBox(false);
   };
   return (
     <div>
+      <div className="comment-profile-pic">
+      {showCommentBox && (
+       <div className="profile-pic-comment">
+        <div className="profile-picture">
+          <i className="fa fa-user-circle-o comntMe"></i>
+        </div>        
+        <div className="profile-name">
+        <h5>{name}</h5></div>
+      </div>)}  
       <div className="commentDiv">
-        <input
-          type="text"
-          placeholder="Post Comment"
-          onChange={(e) => setInputs(e.target.value)}
-        />
-        <button className="comment-btn" onClick={commentPost}>
-          Comment
-        </button>
+      
+      {showCommentBox && (
+        <form onSubmit={commentPost} className="postComment">
+          <input
+            type="text"
+            placeholder="Post Comment"
+            value={inputs}
+            onChange={(e) => setInputs(e.target.value)}
+          />
+        </form>
+      )}
         {props.posts[props.index].coment.map((data) => (
           <div className="comment-reply">
-            <i className="fa fa-user-circle-o comntMe">
-              <h5 className="h5">{props.name}</h5>
-            </i>
+            <div className="reply-profile">
+              <i className="fa fa-user-circle-o comntMe"></i>
+              <h5 className="h5">{name}</h5>
+            </div>
             <p className="showComnt">{data.inputs}</p>
           </div>
         ))}
-      </div>
+      </div></div>
     </div>
   );
 };
@@ -100,12 +128,12 @@ function Home() {
     setClicked(clickedOnce);
   };
 
-  const clickFn = (index) => {
+  /* const clickFn = (index) => {
     console.log("clickfn");
     let list = [...post];
     list[index].clicked = true;
     setPost(list);
-  };
+  }; */
 
   const submitPost = (e) => {
     if (loginStatus) {
@@ -132,6 +160,7 @@ function Home() {
     setPost([...tempArr]);
   };
 
+  const [showComments, setShowComments] = useState(false);
 
   return (
     <div className="main">
@@ -206,16 +235,18 @@ function Home() {
                       <h4 className="testingHeading">{item.msg}</h4>
                       
                       <div className="shareDetail">
-                      <div className="like_button">
+                      <div className="like_button" onClick={handleClick}>
                         <img src="https://static.licdn.com/sc/h/5zhd32fqi5pxwzsz78iui643e"
                         className="fa fa-thumbs-o-up likeArrow"
-                        onClick={handleClick}/>
-                        <span>Like</span>
+                         alt="like_pic"/>
+                        <span>{like}Like</span>
                       </div>
                       
-                      <div className="comment" onClick={() => {
+                      <div className="comment" onClick={() => setShowComments(!showComments)}>
+                      {/* {() => {
                           clickFn(index);
-                        }}>
+                        }} */ }
+                      
                         <i
                         className="fa fa-comments commentArrow"></i>
                         <span>Comment</span>
@@ -229,10 +260,13 @@ function Home() {
                         <span>Delete</span>
                       </div>
                       </div>
-                    </div>
-                    {item.clicked && (
+                      {showComments && (
                       <ShareAble posts={post} setpost={setPost} index={index} />
-                    )}
+                      )}
+                     {/*  {item.clicked && (
+                      <ShareAble posts={post} setpost={setPost} index={index} />
+                    )} */}
+                    </div>
                   </div>
                 ))}
             </div>
