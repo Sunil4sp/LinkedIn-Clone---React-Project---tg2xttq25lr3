@@ -25,12 +25,11 @@
     width: 50%;
     height: 4vh;
     border-radius: 20px;
-    margin: 0 10%;
+    margin: 0 10% 2%;
     background-color: #fff;
 }
 .upperRight button:hover{
     background-color: gray;
-    height: 15%;
     font-weight: bolder;
 }
 .upperRight a{
@@ -62,6 +61,7 @@
 .lowerRight h4{
     margin: 5% 2%;
     text-align: center;
+    font-size: 1rem
 }
 .lowerRight a{
     margin: 10%;
@@ -71,6 +71,7 @@
     text-decoration: none;
     color: #666666;
     text-align: left;
+    font-size: 1rem;
 }
 
 @media screen and (min-width: 201px) and (max-width: 750px) {
@@ -99,14 +100,23 @@
     .upperRight p{
         display: block;
     }
-    .lowerRight h4{
+    .lowerRight .h4 > h4{
         margin: 5% 2%;
-        font-size: 0.8rem;
-        /* text-align: center; */
+        font-size: 1rem;
     }
-    .lowerRight a{
-        font-size: 0.7rem;
+    /* .lowerRight a{
+        font-size: 1rem;
         margin: 0.5% 25% 5%;
+    } */
+    .gitDiv{
+        font-size: 1rem;
+        margin: 0.5% 25% 5%;
+    }
+    .h4{
+        margin: 5%;
+    }
+    .git{
+        font-size: 1rem;
     }
 }
 

@@ -71,8 +71,12 @@ const RightSideBar = () => {
             <img src={imgTwoLadies} alt='pic'/>
           </div> */}
           <div className='lowerRight'>
-            <h4>Design and developed by Sunil Pal</h4>
-            <Link to='https://github.com/Sunil4sp/LinkedIn-Clone---React-Project---tg2xttq25lr3.git' target='_blank' className='git'>Github Project Link</Link>
+            <div className="h4">
+              <h4>Design and developed by Sunil Pal</h4>
+            </div>
+            <div className="gitDiv">
+              <Link to='https://github.com/Sunil4sp/LinkedIn-Clone---React-Project---tg2xttq25lr3.git' target='_blank' className='git'>Github Project Link</Link>
+            </div>
           </div>
         </div>
   )

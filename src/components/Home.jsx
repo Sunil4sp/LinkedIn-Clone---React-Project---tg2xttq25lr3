@@ -62,7 +62,7 @@ const ShareAble = (props) => {
               <i className="fa fa-user-circle-o comntMe"></i>
               <h5 className="h5">{name}</h5>
             </div>
-            <p className="showComnt">{data.inputs}</p>
+            <span className="showComnt">{data.inputs}</span>
           </div>
         ))}
       </div></div>
@@ -185,24 +185,24 @@ function Home() {
               <br></br>
               <div className="sections">
                 {togglephoto ? (
-                  <p className="working_on_div__pad">
+                  <span className="working_on_div__pad">
                     working on media feature
-                  </p>
+                  </span>
                 ) : (
                   ""
                 )}
 
                 {toggleevent ? (
-                  <p className="working_on_div__pad">
+                  <span className="working_on_div__pad">
                     working on event feature
-                  </p>
+                  </span>
                 ) : (
                   ""
                 )}
                 {togglewriteArticle ? (
-                  <p className="working_on_div__pad">
+                  <span className="working_on_div__pad">
                     working on write article
-                  </p>
+                  </span>
                 ) : (
                   ""
                 )}
