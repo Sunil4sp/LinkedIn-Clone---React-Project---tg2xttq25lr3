@@ -6,7 +6,7 @@ const MyJob = () => {
   return (
     <div>
       <NavBar />
-      <div className="span-center">
+      <div className="span-center-Myjob">
           <span>Page under construction</span>
         </div>
     </div>

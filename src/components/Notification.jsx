@@ -6,7 +6,7 @@ const Notification = () => {
   return (
     <div>
         <NavBar />
-        <div className="span-center">
+        <div className="span-center-Notification">
           <span>Page under construction</span>
         </div>
     </div>

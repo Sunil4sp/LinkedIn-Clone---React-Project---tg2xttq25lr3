@@ -21,12 +21,12 @@
     border-radius: 20px;
 } */
 
-.span-center{
+.span-center-Network{
     margin: 10% 30%;
     width: 500px;
     height: auto;
     text-align: center;
 }
-.span-center span{
+.span-center-Network span{
     font-size: 2rem;
 }
