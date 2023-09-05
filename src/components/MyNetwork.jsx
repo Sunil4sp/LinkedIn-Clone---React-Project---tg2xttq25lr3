@@ -22,7 +22,10 @@ const MyNetwork = () => {
       <>
         {" "}
         <NavBar />
-        <span>Page under construction</span>
+        <div className="span-center">
+          <span>Page under construction</span>
+        </div>
+        
         {/* <div className="mainContainer">
           <LeftSideBar />
           <div className="MiddleBar">

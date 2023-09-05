@@ -5,7 +5,9 @@ const Messaging = () => {
   return (
     <div>
       <NavBar />
-      <span>Page under Construction</span>
+      <div className="span-center">
+          <span>Page under construction</span>
+        </div>
     </div>
   )
 }

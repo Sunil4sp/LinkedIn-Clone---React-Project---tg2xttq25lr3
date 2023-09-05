@@ -1,0 +1,9 @@
+.span-center{
+    margin: 10% 30%;
+    width: 500px;
+    height: auto;
+    text-align: center;
+}
+.span-center span{
+    font-size: 2rem;
+}

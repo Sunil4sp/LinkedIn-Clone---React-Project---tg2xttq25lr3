@@ -1,11 +1,14 @@
-import React from 'react'
+import React from 'react';
 import NavBar from './NavBar';
+import '../styles/MyJob.css';
 
 const MyJob = () => {
   return (
     <div>
       <NavBar />
-      <span>Page Under Construction</span>
+      <div className="span-center">
+          <span>Page under construction</span>
+        </div>
     </div>
   )
 }
