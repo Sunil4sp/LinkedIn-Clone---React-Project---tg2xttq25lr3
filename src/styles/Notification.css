@@ -1,9 +1,26 @@
-.span-center-Notification{
+.span-center-Message{
     margin: 10% 30%;
-    width: 500px;
+    width: 50%;
     height: auto;
     text-align: center;
 }
-.span-center-Notification span{
+.page_under_construction{
     font-size: 2rem;
+}
+
+@media screen and (min-width: 201px) and (max-width: 750px) {
+    .span-center-Message{
+        width: 95%;
+        margin: 50% 3%;
+    }
+}
+
+
+@media screen and (min-width: 0px) and (max-width: 200px) {
+
+    .span-center-Message{
+        width: 95%;
+        margin: 50% 3%;
+    }
+
 }

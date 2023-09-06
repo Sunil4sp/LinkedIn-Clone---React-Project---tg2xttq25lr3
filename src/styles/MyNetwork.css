@@ -1,32 +1,26 @@
-/* .NetworkShare{
-    height: auto;
-    width: 99%;
-    background-color: #FFFFFF;
-    border-radius: 15px;
-    margin: 4.25% 0;
-    border: 1px solid rgb(202, 212, 188);
-}
-.NetworkShare h3{
-    text-align: center;
-    font-size: 1rem;
-}
-
-.NetworkShare h5{
-    font-size: 0.8rem;
-}
-
-.NetworkShare button{
-    height: auto;
-    width: 15%;
-    border-radius: 20px;
-} */
-
-.span-center-Network{
+.span-center-Message{
     margin: 10% 30%;
-    width: 500px;
+    width: 50%;
     height: auto;
     text-align: center;
 }
-.span-center-Network span{
+.page_under_construction{
     font-size: 2rem;
+}
+
+@media screen and (min-width: 201px) and (max-width: 750px) {
+    .span-center-Message{
+        width: 95%;
+        margin: 50% 3%;
+    }
+}
+
+
+@media screen and (min-width: 0px) and (max-width: 200px) {
+
+    .span-center-Message{
+        width: 95%;
+        margin: 50% 3%;
+    }
+
 }

@@ -22,8 +22,8 @@ const MyNetwork = () => {
       <>
         {" "}
         <NavBar />
-        <div className="span-center-Network">
-          <span>Page under construction</span>
+        <div className="span-center-Message">
+          <span className='page_under_construction'>Page under construction</span>
         </div>
         
         {/* <div className="mainContainer">
