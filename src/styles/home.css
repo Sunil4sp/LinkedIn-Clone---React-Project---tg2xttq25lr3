@@ -1,6 +1,5 @@
 *{
     padding: 0;
-    /* font-size: 1rem; */
     box-sizing: border-box;
     font-family: sans-serif;
     color: #666666;
@@ -435,7 +434,7 @@ span{
 
     .mainContainer{
         display: inline-block;
-        margin-top: 3%;
+        margin-top: 4%;
     }
      
     .navStart{
