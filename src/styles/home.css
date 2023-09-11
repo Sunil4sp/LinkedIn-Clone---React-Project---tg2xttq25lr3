@@ -2,7 +2,8 @@
     padding: 0;
     box-sizing: border-box;
     font-family: sans-serif;
-    color: #666666;
+    /* background-color: white; */
+/*     color: #666666; */
 }
 
 .main{
@@ -37,6 +38,7 @@
     border: 0;
     background-color: aliceblue;
     border-radius: 5px;
+    padding-left: 5px;
 }
 
 .faIcons {
@@ -280,8 +282,7 @@
 .postDiv{
     height: auto;
     width: 98%;
-    border: 1px solid grey;
-    /* margin: auto; */
+    border: 1px solid rgb(202, 212, 188);
     border-radius: 20px;
     background-color: #fff;
 }
@@ -312,7 +313,7 @@
 .shareDetail{
     display: flex;
     width: 100%;
-    justify-content: center;
+    justify-content: space-between;
 }
 .like_button{
     display: flex;

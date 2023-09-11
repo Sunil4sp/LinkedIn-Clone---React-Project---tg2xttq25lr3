@@ -14,14 +14,9 @@ const ShareAble = (props) => {
   const name = appState.name;
 
   const [showCommentBox, setShowCommentBox] = useState(true);
-  /* const [count, setCount] = useState(true); */
+  const [showCommenting, setShowCommenting] = useState(true);
   const [inputs, setInputs] = useState("");
   
-  /* const toggleCommentBox = () => {
-    if (!count) {
-      setCount(!count); // Toggle the count state
-    }
-  }; */
 
   const commentPost = (e) => {
     e.preventDefault();
@@ -32,18 +27,23 @@ const ShareAble = (props) => {
     props.setpost(tempArr);
     setInputs("");
     setShowCommentBox(false);
+    /* setShowCommenting(false); */
   };
   return (
     <div>
-      <div className="comment-profile-pic">
-      {showCommentBox && (
+      {/* {showCommenting && ( */}
+      <div className="comment-profile-pic"/*  onClick={() => setShowCommenting(showCommenting)} */>
+       {showCommentBox && ( 
        <div className="profile-pic-comment">
         <div className="profile-picture">
           <i className="fa fa-user-circle-o comntMe"></i>
-        </div>        
+        </div> 
+              
         <div className="profile-name">
-        <h5>{name}</h5></div>
-      </div>)}  
+          <h5>{name}</h5>
+        </div>
+      </div> 
+       )}
       <div className="commentDiv">
       
       {showCommentBox && (
@@ -65,7 +65,9 @@ const ShareAble = (props) => {
             <span className="showComnt">{data.inputs}</span>
           </div>
         ))}
-      </div></div>
+      </div>
+      </div>
+      {/* )} */}
     </div>
   );
 };
@@ -128,12 +130,12 @@ function Home() {
     setClicked(clickedOnce);
   };
 
-  /* const clickFn = (index) => {
+  const clickFn = (index) => {
     console.log("clickfn");
     let list = [...post];
     list[index].clicked = true;
     setPost(list);
-  }; */
+  };
 
   const submitPost = (e) => {
     if (loginStatus) {
@@ -161,6 +163,11 @@ function Home() {
   };
 
   const [showComments, setShowComments] = useState(false);
+  const [count, setCount] = useState(0);
+
+  const handleShowComment = () =>{
+      setShowComments(!showComments);
+  }
 
   return (
     <div className="main">
@@ -212,9 +219,6 @@ function Home() {
                   <i className="fa fa-picture-o photoIcon"></i>
                   <p className="photos">Media</p>
                 </div>
-                {/* <i className="fa fa-video-camera videosIcon"onClick={handleVideoToggle}>
-                <p className="video">Video</p>
-              </i> */}
                 <div className="share_box-2" onClick={handleEventToggle}>
                   <i className="fa fa-calendar eventsIcon"></i>
                   <p className="events">Events</p>
@@ -242,10 +246,10 @@ function Home() {
                         <span>{like}Like</span>
                       </div>
                       
-                      <div className="comment" onClick={() => setShowComments(!showComments)}>
-                      {/* {() => {
+                      <div className="comment" onClick={handleShowComment}>
+                      {/* onClick={() => {
                           clickFn(index);
-                        }} */ }
+                        }} > */}
                       
                         <i
                         className="fa fa-comments commentArrow"></i>

@@ -105,9 +105,20 @@ const Login = () => {
   return (
     <div>
       <nav className="navbar">
-        <Link to='/home' className="linkHome"><img className="loginLogo" src={linkedInLogo} alt="logo" /></Link>
+      <div className="linkHome">
+        <Link to='/home'/*  className="linkHome" */><img className="loginLogo" src={linkedInLogo} alt="logo" /></Link>
+      </div>
+      <div className="signin_signout">
+        <div className="newuserLink">
+          <Link to='/newuser' /* className="newuserLink" */><button className="join">Join Now{" "}</button></Link>
+        </div>
+        <div className="loginLink">
+        <Link to='/login'/*  className="loginLink" */ active><button className="sign">Sign in{" "}</button></Link>
+      </div> 
+      </div>
+        {/* <Link to='/home' className="linkHome"><img className="loginLogo" src={linkedInLogo} alt="logo" /></Link>
         <Link to='/login' className="loginLink" active><button className="sign">Sign in{" "}</button></Link>
-        <Link to='/newuser' className="newuserLink"><button className="join">Join Now{" "}</button></Link>
+        <Link to='/newuser' className="newuserLink"><button className="join">Join Now{" "}</button></Link> */}
         {/* <i className="fa fa-cc-discover discover">
           <p>Discover</p>
         </i>
@@ -126,25 +137,35 @@ const Login = () => {
         <div className="leftSide">
           <p>Welcome to your professional community</p>
           <br></br>
-          <label htmlFor="Name" className="email">Email or phone</label>
+          <label htmlFor="username" className="email">Email or phone</label>
           <br></br>
           <input
             type="email"
             id="username"
+            className="username-login"
             placeholder="Email"
-            value={loginformdata.username}
+            /* value={loginformdata.username} */
             onChange={(e)=>updateData(e)} 
             ref={inputRef}
           />
           <br></br>
-          <label htmlFor="Name" className="password">Password</label>
+          <label htmlFor="password" className="password">Password</label>
           <br></br>
+          {/* <input
+            type={showPassword ? 'text' : 'password'}
+            id="password-login"
+            placeholder="Password"
+            value={loginformdata.password}
+            style={{ height: showPassword && '9%', width: '62%', margin: '2% 13% 2% 13%'}}
+            onChange={(e)=>updateData(e)}
+          /> */}
           <input
             type={showPassword ? 'text' : 'password'}
             id="password"
             placeholder="Password"
-            value={loginformdata.password}
-            style={{ height: showPassword && '9%', width: '62%', margin: '2% 13% 2% 13%'}}
+            /* value={loginformdata.password} */
+            /* style={{ height: showPassword && '9%', width: '62%', margin: '3% 1%'}} */
+            className={`password-login ${showPassword ? 'showPassword' : ''}`}
             onChange={(e)=>updateData(e)}
           />
           <br></br>

@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import Avatar from '@mui/material/Avatar';
 import { DataAppContext } from "./DataApp";
 import '../styles/LeftSideBar.css';
+import profile_pic from '../Images/profile.jpg';
 
 const LeftSideBar = () => {
 
@@ -41,10 +42,11 @@ const LeftSideBar = () => {
         <div className="camera">
           {/* <i className="fa fa-camera cameraIcon"></i> */}
           <Avatar
-            alt="Profile_pic"
-            src="/static/images/avatar/1.jpg"
+            alt="Sunil Pal"
+            src= {<profile_pic />}
             sx={{ width: 56, height: 56 }}
           />
+          {/* <img class="avatar avatar-xl" src="Images/profile.jpg" alt='Profile_pic' /> */}
         </div>
         <h3 className="h3">{name}</h3>
         <hr></hr>

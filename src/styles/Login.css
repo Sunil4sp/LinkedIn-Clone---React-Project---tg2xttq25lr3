@@ -10,20 +10,42 @@
     height: 13vh;
     width: 100%;
     max-width: 100%;
-    padding: 5px;
-}
-.loginLogo{
-    height: 12vh;
-    width: 13%;
-    float: left;
-    margin: 1% 5%;
+    padding: 2px 16px 0 16px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    margin: 1% 0;
 }
 
-.navbar .join{
-    float: right;
+.linkHome{
+    width: 25%;
+}
+
+.signin_signout{
+    width: 35%;
+    display: flex;
+    justify-content: center;
+}
+
+.loginLink{
+    width: 24%;
+}
+
+.newuserLink{
+    width: 24%;
+}
+.loginLogo{
+    height: 10vh;
+    width: 75%;
+    float: left;
+    margin: 2% 5%;
+}
+
+.join{
+    /* float: right; */
     margin: 2% 0;
-    height: 8vh;
-    width: 8%;
+    height: 9vh;
+    width: 50%;
     border-radius: 25px;
     border: 0;
     background-color: #fff;
@@ -31,12 +53,15 @@
     font-weight: 600;
     cursor: pointer;
 }
-.navbar .sign{
-    margin: 2% 0 2% 60%;
-    height: 8vh;
-    width: 8%;
+.join:hover{
+    background-color: lightgray;
+}
+.sign{
+    margin: 2% 0 2% 20%;
+    height: 9vh;
+    width: 50%;
     border-radius: 25px;
-    border: 1.5px solid transparent;
+    border: 1px solid blue;
     background-color: #fff;
     color: #0A66C2;
     font-size: 1rem;
@@ -47,6 +72,8 @@
     height: auto;
     width: 100%;
     display: flex;
+    background-color: white;
+    padding: 24px 16px 0 16px;
     /* border: 1px solid green; */
 }
 .leftSide{
@@ -62,11 +89,26 @@
     font-family: sans-serif;
     
 }
-input[type="email"],
+/* input[type="email"],
 input[type="password"]{
     height: 6vh;
     width: 62%;
     margin: 2% 13%;
+    border-radius: 6px;
+} */
+.username-login{
+    height: 6vh;
+    width: 62%;
+    margin: 2% 13%;
+    border-radius: 6px;
+    padding-left: 5px;
+}
+.password-login{
+    height: 6vh;
+    width: 62%;
+    margin: 2% 13%;
+    border-radius: 6px;
+    padding-left: 5px;
 }
 
 .checkShowPassword{
@@ -95,14 +137,14 @@ input[type="password"]{
 }
 .leftSide .signIn{
     height: 7vh;
-    width: 45%;
+    width: 62%;
     border: 0;
-    font-size: 1.2rem;
+    font-size: 14px;
     background-color: #0A66C2;
     border-radius: 25px;
     color: #fff;
     font-family: sans-serif;
-    margin: 1% 15% 3%;
+    margin: 1% 12% 3%;
 }
 .firsthr{
     width: 25%;
@@ -129,13 +171,13 @@ input[type="password"]{
 
 .newtoLinkedIn{
     height: 7vh;
-    width: 45%;
-    border: 1.5px solid black;
+    width: 62%;
+    border: 1px solid black;
     border-radius: 25px;
     font-family: sans-serif;
-    margin: 2% 15%;
+    margin: 2% 12%;
     background-color: #fff;
-    font-size: 1.2rem;
+    font-size: 14px;
 }
 
 .newtoLinkedIn:hover{
@@ -155,27 +197,28 @@ input[type="password"]{
     height: auto;
 }
 
-@media screen and (min-width: 0px) and (max-width: 200px) {  
+@media screen and (min-width: 0px) and (max-width: 239px) {  
     .navbar{
-        height: 15vh;
+        height: 12vh;
         width: 100%;
         max-width: 100%;
         display: flex;
         padding: 5px;
+        background-color: white;
     }
     .loginLogo {
         height: 10vh;
         width:80%;
         margin: 2% 5%;
     }
-    .navbar .sign {
+    .sign {
         margin: 2% 5%;
         height: 10vh;
         width: 80%;
         border: 1px solid transparent;
         font-size: 1rem;
     }
-    .navbar .join {
+    .join {
         margin: 2% 10%;
         height: 10vh;
         width: 80%;
@@ -198,6 +241,7 @@ input[type="password"]{
         height: auto;
         width: 100%;
         max-width: 100%;
+        background-color: white;
     }
     .leftSide {
         height: auto;
@@ -213,8 +257,8 @@ input[type="password"]{
         margin: 0 1% 2% 15%;
         display: block;
     }
-    #username,
-    #password {
+    #username-login,
+    #password-login {
         height: 6vh;
         width: 62%;
         margin: 2% 13%;
@@ -243,7 +287,7 @@ input[type="password"]{
         font-size: 1.4rem;
         margin: 5% 25%;
     }
-    .leftSide .firsthr,
+    .line .firsthr,
     .secondhr{
         display: none;
     }
@@ -277,50 +321,57 @@ input[type="password"]{
 
 }
 
-@media screen and (min-width: 201px) and (max-width: 750px) { 
+@media screen and (min-width: 240px) and (max-width: 750px) { 
 
     .navbar{
         height: 12vh;
-        width: 100%;
-        max-width: 100%;
         display: flex;
-        padding: 5px;
+        background-color: white;
+    }
+    .signin_signout {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
     }
     .loginLogo {
-        height: 10vh;
-        width: 50%;
+        height: 47px;
+        width: 60%;
         margin: 2% 5%;
     }
-    .navbar .sign {
-        margin: 15% 0 5% 90%;
-        height: 5vh;
-        width: 50%;
-        border: 1px solid transparent;
-        font-size: 1rem;
+    .sign {
+        margin: 2% 5% 0 25%;
+        height: 8vh;
+        width: 70%;
+        font-size: 16px;
     }
-    .navbar .join {
-        margin: 15% 5%;
-        height: 5vh;
-        width: 50%;
+    .join {
+        margin: 2% 5% 0 10%;
+        height: 8vh;
+        width: 90%;
         border: 1px solid transparent;
-        font-size: 1rem;
+        font-size: 16px;
+    }
+    .join:hover{
+        background-color: lightgray;
     }
     .linkHome {
         width: 50%;
         height: 10vh;
     }
     .loginLink{
-        width: 25%;
-        height: 10vh;
+        width: 50%;
+        height: 50px;
     }
     .newuserLink{
-        width: 25%;
-        height: 10vh;
+        width: 40%;
+        height: 50px;
     }
     .divAfterNav {
         height: auto;
         width: 100%;
         max-width: 100%;
+        background-color: white;
     }
     .leftSide {
         height: auto;
@@ -332,59 +383,79 @@ input[type="password"]{
         align-items: flex-start;
     }
     .leftSide p{
-        font-size: 1.5rem;
-        margin: 0 1% 2% 15%;
+        font-size: 24px;
+        font-weight: 300;
+        margin: 0 1% 2% 0;
         display: block;
+        color: rgb(143, 88, 73)
     }
-    #username,
-    #password {
-        height: 6vh;
-        width: 62%;
-        margin: 2% 13%;
-        font-size: 1.5rem;
+    #username-login {
+        height: 10vh;
+        width: 97%;
+        margin: 1%;
+        font-size: 1rem;
+    }
+    #password-login {
+        height: 10vh;
+        width: 97%;
+        margin: 1%;
+        font-size: 1rem;
     }
 
-    .leftSide label{
-        margin: 0 10% 0 15%;
-        font-size: 1.3rem;
+    .leftSide .email,
+    .password{
+        margin: 0 10% 0 0;
+        font-size: 1rem;
     }
     .checkShowPassword{
         width: 90%;
         display: flex;
-        margin: 2% 5%;
+        margin: 2% 0;
     }
     .checkShowPassword label{
         margin: 2%;
+        font-size: 1rem;
     }
     .checkShowPassword input{
-        margin: 2% 2% 2% 12%;
+        margin: 2% 2%;
     }
     
     .leftSide .signIn{
-        height: 5vh;
-        width: 50%;
-        font-size: 1.4rem;
-        margin: 5% 17%;
+        height: 9vh;
+        width: 75%;
+        font-size: 1rem;
+        margin: 1% 12% 10%;
     }
-    .leftSide .firsthr,
-    .secondhr{
-        display: none;
-    }
+    
     .line{
-        display: none;
+        display: flex;
+        width: 97%;
+        margin: 2%;
+        justify-content: space-around;
     }
 
+    .hr1{
+        display: block;
+    }
     .orr{
-        display: none;
+        display: block;
     }
 
+    .hr2{
+        display: block;
+    }
+    .secondhr {
+        width: 25%;
+        margin-left: 67%;
+        margin-top: -17px;
+    }
     .newtoLinkedIn
     {
-        height: 5vh;
-        width: 50%;
-        margin: 2% 17%;
-        font-size: 1.4rem;
-        border: none;
+        height: 9vh;
+        width: 97%;
+        margin: 2% 0;
+        font-size: 1rem;
+        border: 1px solid black;
     }
     .newtoLinkedIn:hover{
         background-color: gray;

@@ -37,7 +37,7 @@ const NavBar = () => {
   return (
     
     <nav className='navStart'>
-        <img className='smallLogo' src={smallLogo} alt='small-logo'/>
+        {/* <Link to="/home"> */}<img className='smallLogo' src={smallLogo} alt='small-logo'/>{/* </Link> */}
         <input className='input1' type="search" placeholder='Search'/>
 
         <div className="rightSection">
