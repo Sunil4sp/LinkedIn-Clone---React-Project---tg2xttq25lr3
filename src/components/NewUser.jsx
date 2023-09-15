@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../styles/newuser.css";
 import logo from "../Images/linkedin-logo.png";
 import { Link, useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 const NewUser = () => {
 
@@ -14,18 +15,13 @@ const NewUser = () => {
   //state object for formdata
   const [formdata, setFormdata] = useState(initialData);
 
-  /* const [isFormValidated, setIsFormValidated] = useState(false); */
-
   //state variable to check form submission status
   const [status, setStatus] = useState(false);
+  const { register, handleSubmit, formState, setError } = useForm();
 
   //method to update each key of state object
   const updateDataAndSubmit = (e) => {
     
-      /* const { name, username, password } = formdata;
-      window.localStorage.setItem("name", name);
-      window.localStorage.setItem("username", username);
-      window.localStorage.setItem("password", password); */
       console.log(/* e.target.id, */ e.target.value);
 
       let tempObj = {};
@@ -34,33 +30,24 @@ const NewUser = () => {
           ...formdata, ...tempObj
       });
   }
-      /* e.preventDefault();
-      const form = e.currentTarget;
-
-      if (!form.checkValidity()) {
-        setIsFormValidated(true);
-        return;
-      }*/
-      
-        
-  
-        /* console.log(e.target.id, e.target.value);
-        let tempObj = {};
-        tempObj[e.target.id] = e.target.value.trim();
-        setFormdata({
-            ...formdata, ...tempObj
-        });
-        alert("User Created. Kindly login.");
-        navigate("/login"); // Navigate to the login page  */ 
+       
 
   const navigate = useNavigate();
   //methods for form submission button
-  const registerFn = () => {
-          //form submiited
+  const registerFn = (e) => {
+          // Check if the email and password meet your validation criteria here.
+        if (!e.username || !e.password) {
+          setError("username", { type: "required", message: "Email is required" });
+          setError("password", { type: "required", message: "Password is required" });
+          return;
+        }
+        console.log(e);
+
+          //form submitted
           setStatus(true);
           //call api for form submission - POST - Submit Data - formdata/localstorage
           let temp = JSON.parse(localStorage.getItem('users')) || [];
-          localStorage.setItem('users', JSON.stringify([...temp, formdata]));
+          localStorage.setItem('users', JSON.stringify([...temp, e]));
           //store the response in a state variable
           setFormdata(initialData);
 
@@ -74,15 +61,6 @@ const NewUser = () => {
       console.log(JSON.parse(temp));
   }, [status])
 
-  /* useEffect(() => {
-    if (status) {
-      const { name, username, password } = formdata;
-      window.localStorage.setItem("name", name);
-      window.localStorage.setItem("username", username);
-      window.localStorage.setItem("password", password);
-    }
-  }, [status, formdata]); */
-  
 
   return (
     <div className="newuser_main">
@@ -93,19 +71,16 @@ const NewUser = () => {
         <p>Make the most of your professional life</p>
       </div>
       <div className="formDiv">
-      {/* <form
-          onSubmit= {registerFn}
-           noValidate
-          className={isFormValidated ? "was-validated" : ""} 
-        > */}
+      <form onSubmit={handleSubmit(registerFn)}>
         <label htmlFor="name">Name<font color="red">*</font></label>
         <input
           type="text"
           id="name"
           className="name"
           onChange={(e)=>updateDataAndSubmit(e)} 
+          {...register("name", { required: true })}
           /* value={formdata.name} */
-          required 
+          required
         />
         <label htmlFor="username">Email or Username<font color="red">*</font></label>
         <br></br>
@@ -114,9 +89,13 @@ const NewUser = () => {
           id="username"
           className="username"
           onChange={(e)=>updateDataAndSubmit(e)}
-          /* value={formdata.username} */
+          {...register("username", { required: true, pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,})}
           required
+          /* value={formdata.username} */
         />
+        {formState.errors.username && (
+            <p id="error-message">Email Address should be complete</p>
+          )}
         <br></br>
         <label htmlFor="password">Password (6 or more characters)<font color="red">*</font></label>
         <br></br>
@@ -125,17 +104,21 @@ const NewUser = () => {
           id="password"
           className="password"
           onChange={updateDataAndSubmit}
+          {...register("password", { required: true, minLength: 6,})}
           /* value={formdata.password} */
           required
         /> 
+        {formState.errors.password && (
+            <p id="error-message-password">Password should be minimum 6 characters </p>
+          )}
         <br></br>
         <p>
           By clicking Agree & Join, you agree to the LinkedIn
           <span> User Agreement, Privacy Policy,</span> and
           <span> Cookie Policy.</span>
         </p>
-        <button onClick={registerFn}>Agree & Join</button>
-        {/* </form> */}
+        <button type="submit" onClick={registerFn}>Agree & Join</button>
+        </form>
         <h4>
           Already on Linkedln?
           <Link to='/login'>Sign in</Link>

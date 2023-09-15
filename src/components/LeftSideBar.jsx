@@ -43,7 +43,7 @@ const LeftSideBar = () => {
           {/* <i className="fa fa-camera cameraIcon"></i> */}
           <Avatar
             alt="Sunil Pal"
-            src= {<profile_pic />}
+            src= {profile_pic}
             sx={{ width: 56, height: 56 }}
           />
           {/* <img class="avatar avatar-xl" src="Images/profile.jpg" alt='Profile_pic' /> */}

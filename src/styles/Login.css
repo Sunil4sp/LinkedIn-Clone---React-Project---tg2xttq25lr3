@@ -196,6 +196,11 @@ input[type="password"]{
     margin-top: 5%;
     height: auto;
 }
+#validation-email_password{
+    font-size: 11px;
+    color: red;
+    margin: -1% 14%;
+}
 
 @media screen and (min-width: 0px) and (max-width: 239px) {  
     .navbar{
@@ -420,11 +425,12 @@ input[type="password"]{
         margin: 2% 2%;
     }
     
-    .leftSide .signIn{
+    .signIn{
         height: 9vh;
         width: 75%;
         font-size: 1rem;
         margin: 1% 12% 10%;
+        cursor: pointer;
     }
     
     .line{

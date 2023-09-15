@@ -6,7 +6,8 @@ import { DataAppContext } from "./DataApp";
 import NavBar from "./NavBar";
 import LeftSideBar from "./LeftSideBar";
 import RightSideBar from "./RightSideBar";
-
+import Avatar from '@mui/material/Avatar';
+import profile_pic from '../Images/profile.jpg';
 
 const ShareAble = (props) => {
   const localContext = useContext(DataAppContext);
@@ -14,7 +15,7 @@ const ShareAble = (props) => {
   const name = appState.name;
 
   const [showCommentBox, setShowCommentBox] = useState(true);
-  const [showCommenting, setShowCommenting] = useState(true);
+/*   const [showCommenting, setShowCommenting] = useState(true); */
   const [inputs, setInputs] = useState("");
   
 
@@ -36,7 +37,12 @@ const ShareAble = (props) => {
        {showCommentBox && ( 
        <div className="profile-pic-comment">
         <div className="profile-picture">
-          <i className="fa fa-user-circle-o comntMe"></i>
+          {/* <i className="fa fa-user-circle-o comntMe"></i> */}
+          <Avatar
+                  alt="Sunil Pal"
+                  src= {profile_pic}
+                  sx={{ width: 36, height: 36 }}
+                />
         </div> 
               
         <div className="profile-name">
@@ -59,7 +65,12 @@ const ShareAble = (props) => {
         {props.posts[props.index].coment.map((data) => (
           <div className="comment-reply">
             <div className="reply-profile">
-              <i className="fa fa-user-circle-o comntMe"></i>
+              {/* <i className="fa fa-user-circle-o comntMe"></i> */}
+              {/* <Avatar
+                  alt="Sunil Pal"
+                  src= {profile_pic}
+                  sx={{ width: 30, height: 30 }}
+                /> */}
               <h5 className="h5">{name}</h5>
             </div>
             <span className="showComnt">{data.inputs}</span>
@@ -130,12 +141,12 @@ function Home() {
     setClicked(clickedOnce);
   };
 
-  const clickFn = (index) => {
+/*   const clickFn = (index) => {
     console.log("clickfn");
     let list = [...post];
     list[index].clicked = true;
     setPost(list);
-  };
+  }; */
 
   const submitPost = (e) => {
     if (loginStatus) {
@@ -163,7 +174,6 @@ function Home() {
   };
 
   const [showComments, setShowComments] = useState(false);
-  const [count, setCount] = useState(0);
 
   const handleShowComment = () =>{
       setShowComments(!showComments);
@@ -179,7 +189,12 @@ function Home() {
           <div className="MiddleBar">
             <div className="PostShare">
               <div className="user_profile">
-                <i className="fa fa-user-circle-o shareIcon"></i>
+                {/* <i className="fa fa-user-circle-o shareIcon"></i> */}
+                <Avatar
+                  alt="Sunil Pal"
+                  src= {profile_pic}
+                  sx={{ width: 36, height: 36 }}
+                />
                 <form onSubmit={submitPost} className="form_submit">
                   <input
                     type="search"
@@ -234,8 +249,13 @@ function Home() {
                 post.map((item, index) => (
                   <div>
                     <div className="postDiv">
-                      <i className="fa fa-user-circle-o postME"></i>
-                      <h3>{name}</h3>
+                      {/* <i className="fa fa-user-circle-o postME"></i> */}
+                      <Avatar
+                        alt="Sunil Pal"
+                        src= {profile_pic}
+                        sx={{ width: 36, height: 36 }}
+                      />
+                      {/* <h3>{name}</h3> */}
                       <h4 className="testingHeading">{item.msg}</h4>
                       
                       <div className="shareDetail">
@@ -247,9 +267,6 @@ function Home() {
                       </div>
                       
                       <div className="comment" onClick={handleShowComment}>
-                      {/* onClick={() => {
-                          clickFn(index);
-                        }} > */}
                       
                         <i
                         className="fa fa-comments commentArrow"></i>
@@ -267,9 +284,7 @@ function Home() {
                       {showComments && (
                       <ShareAble posts={post} setpost={setPost} index={index} />
                       )}
-                     {/*  {item.clicked && (
-                      <ShareAble posts={post} setpost={setPost} index={index} />
-                    )} */}
+                     
                     </div>
                   </div>
                 ))}

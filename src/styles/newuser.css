@@ -30,16 +30,16 @@
   margin: 0 0 2% 0;
 }
 .formDiv{
-  height: 75vh;
+  height: auto;
   border-radius: 10px;
   width: 50%;
   margin: 0% 25%;
-  padding-top: 3%;
+  padding-top: 1.5%;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
   background-color: #fff;
 }
 .formDiv label{
-  margin: 0% 6%;
+  margin: 1% 6%;
   font-size: 16px;
   color: grey;
   padding: 2% 0%;
@@ -54,7 +54,7 @@
 .formDiv p{
   font-size: 0.9rem;
   color: grey;
-  margin: 0 2% 5%;
+  margin: 2% 2% 5%;
   text-align: center;
 }
 .formDiv p span{
@@ -72,14 +72,27 @@
   margin-left: 5%;
 }
 .formDiv h4{
-  margin: 3% 33%;
+  margin: 3% 23%;
   font-size: 0.9rem;
+  padding-bottom: 15px;
 }
 
 .formDiv a{
   text-decoration: none;
   color: gray;
   font-size: 1rem;
+}
+#error-message{
+  font-size: 11px;
+  color: red;
+  position: absolute;
+  margin: -1% 25% 0 3%;
+}
+#error-message-password{
+  font-size: 11px;
+  color: red;
+  position: absolute;
+  margin: -1% 35% 0 3%;
 }
 
 @media screen and (min-width: 240px) and (max-width: 750px) { 

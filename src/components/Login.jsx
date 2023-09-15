@@ -1,8 +1,9 @@
-import React, { useState, useEffect, useContext, useRef } from "react";
+import React, { useState, useContext } from "react";
 import {DataAppContext} from './DataApp';
 /* import '../styles/home.css'; */
 import '../styles/Login.css';
 
+import { useForm } from 'react-hook-form';
 import linkedInLogo from "../Images/linkedin-logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import menAndLap from "../Images/menwithlap.svg";
@@ -10,6 +11,7 @@ import menAndLap from "../Images/menwithlap.svg";
 
 const Login = () => {
   
+
   const initialData = {
       username: '',
       password: '',
@@ -19,9 +21,10 @@ const Login = () => {
   const [loginformdata, setFormdata] = useState(initialData);
 
   //state variable to check form submission status
-  const [loginstatus, setStatus] = useState(false);
+  /* const [loginstatus, setLoginStatus] = useState(false); */
 
-  const [loginApiFailStatus, setLoginApiFailStatus] = useState(false);
+  /* const [loginApiFailStatus, setLoginApiFailStatus] = useState(false); */
+  const [loginFailed, setLoginFailed] = useState(false);
 
   const localContext = useContext(DataAppContext);
 
@@ -29,19 +32,57 @@ const Login = () => {
   
   const [showPassword, setShowPassword] = useState(false);
 
-  const [input, setInput] = useState('');
-  const inputRef = useRef(null);
+  /* const [input, setInput] = useState(''); */
+  /* const inputRef = useRef(null); */
 
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
   };
 
+  const [email, setEmail] = useState(''); // useState to store Email address of the user
+  const [password, setPassword] = useState(''); // useState to store Password
+  /*const [emailVal, setEmailVal] = useState(true);
+  const [passwordVal, setPasswordVal] = useState(true); */
+
+  const { register, handleSubmit, formState: { errors } } = useForm();
+
+  /* const onSubmit = (values) => alert(JSON.stringify(values, null, 2)); */
+
+  function validateForm(e) {
+
+    if (!e.username || !e.password) {
+      setLoginFailed(true);
+      return false;
+    }
+    return true;
+    // Check if the Email is an Empty string or not.
+
+    /* if (email.length === 0) {
+      setEmailVal(false);
+      return
+    }
+
+    // check if the password follows constraints or not.
+    // if password length is less than 6 characters, alert invalid form.
+
+    if (password.length < 6) {
+      setPasswordVal(false);
+      return
+    } */
+  }
 
   //method to update each key of state object
   const updateData = (e) => {
       console.log(e.target.id, e.target.value);
       let tempObj = {};
       tempObj[e.target.id] = e.target.value.trim();
+      if (e.target.id === 'username') {
+        setEmail(e.target.value.trim());
+        e.target.focus();
+      } else if (e.target.id === 'password') {
+        setPassword(e.target.value.trim());
+        e.target.focus();
+      }
       setFormdata({
           ...loginformdata, ...tempObj
       });
@@ -49,25 +90,51 @@ const Login = () => {
   }
 
   //methods for form submission button
-  const loginFn = () => {
-          
-          let temp = JSON.parse(localStorage.getItem('users'));
-
-          if(temp) {
-            setInput('');
-            inputRef.current.focus();
+  const loginFn = (e) => {
+        
+        if (validateForm(e)) {
+          const users = JSON.parse(localStorage.getItem("users"));
+    
+          if (users) {
+            const user = users.find(
+              (user) =>
+                user.username === e.username && user.password === e.password
+            );
+            console.log(user);
+    
+            if (user) {
+              // Set context variable
+              const obj = {
+                ...localContext.appState,
+                loginStatus: true, //true means logged in
+                username: user.email,
+                name: user.name,
+              };
+              localContext.setAppState(obj);
+              // Navigate to the home page
+              navigate("/home");
+            } else {
+              setLoginFailed(true);
+            }
+          } else {
+            setLoginFailed(true);
+          }
+        }
+            /* let loginSuccess = false;
+            /* inputRef.current.focus();
               for(let i=0 ; i<temp.length ; i++) {
                   console.log(temp[i].username, loginformdata.username);
-                  if(temp[i].username === loginformdata.username) {
+                  if(temp[i].username === email) {
                       console.log('Inside first if - ', i)
-                      if(temp[i].password === loginformdata.password) {
+                      if(temp[i].password === password) {
                           console.log('Inside 2nd if - ', i)
-                          setStatus(true);
+                          setLoginStatus(true);
+                          loginSuccess = true;
                           //set context varibale
                           let obj = {
                               ...localContext.appState,
                               loginStatus: true, //true means logged in
-                              username: loginformdata.username,
+                              username: email,
                               name: temp[i].name,
                           };
                           localContext.setAppState(obj);
@@ -75,8 +142,11 @@ const Login = () => {
                           //navigate page to home
                           navigate('/home');
                           console.log('line no 71');
+                          break;
                       }
-                      else {
+                    }
+                  } */
+                       /* {
                           setLoginApiFailStatus(true);
                       }
                   }
@@ -87,17 +157,24 @@ const Login = () => {
           }
           else {
               setLoginApiFailStatus(true);
+          } */
+          /* if (!loginSuccess) {
+            // Set loginFailed to true if login was not successful
+            setLoginFailed(true);
           }
-          setFormdata(initialData);
-  
-  }
+        } else {
+          setLoginFailed(true);
+        }
+          setFormdata(initialData); */
+
+  };
     
   
-  useEffect(() => {
+/*   useEffect(() => {
       let temp = localStorage.getItem('users');
       console.log(JSON.parse(temp));
       
-  }, [loginstatus])
+  }, [loginstatus]) */
 
   const joinNow = () =>{
     navigate('/newuser');
@@ -137,7 +214,9 @@ const Login = () => {
         <div className="leftSide">
           <p>Welcome to your professional community</p>
           <br></br>
-          <label htmlFor="username" className="email">Email or phone</label>
+
+          <form onSubmit={handleSubmit(loginFn)}>
+          <label htmlFor="username" className="email">Email or phone<font color="red">*</font></label>
           <br></br>
           <input
             type="email"
@@ -145,29 +224,25 @@ const Login = () => {
             className="username-login"
             placeholder="Email"
             /* value={loginformdata.username} */
-            onChange={(e)=>updateData(e)} 
-            ref={inputRef}
+             onChange={(e)=>updateData(e)} 
+            /*ref={inputRef} */
+            {...register("username", { required: true, pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i })}
           />
+          {errors.username && <p id="validation-email_password">Email Address cannot be empty or should match email pattern</p>}
           <br></br>
-          <label htmlFor="password" className="password">Password</label>
+          <label htmlFor="password" className="password">Password<font color="red">*</font></label>
           <br></br>
-          {/* <input
-            type={showPassword ? 'text' : 'password'}
-            id="password-login"
-            placeholder="Password"
-            value={loginformdata.password}
-            style={{ height: showPassword && '9%', width: '62%', margin: '2% 13% 2% 13%'}}
-            onChange={(e)=>updateData(e)}
-          /> */}
+          
           <input
             type={showPassword ? 'text' : 'password'}
             id="password"
             placeholder="Password"
             /* value={loginformdata.password} */
-            /* style={{ height: showPassword && '9%', width: '62%', margin: '3% 1%'}} */
             className={`password-login ${showPassword ? 'showPassword' : ''}`}
             onChange={(e)=>updateData(e)}
+            {...register("password", { required: true, minLength: 6,})}
           />
+          {errors.password && (<p id="validation-email_password">Password should be minimum 6 characters</p>)}
           <br></br>
           <div className="checkShowPassword">
             <input
@@ -188,20 +263,22 @@ const Login = () => {
           </Link> 
 
           <br></br>*/}
-          <button className="signIn" onClick={loginFn}>
+          <button type="submit" className="signIn"/*  onClick={loginFn} */>
             Sign in
           </button>
-          {loginstatus && <div className="alert alert-success" role="alert">
+          </form>
+          {/* {loginstatus && <div className="alert alert-success" role="alert">
                 {alert("Successfully Logged In")}
                 {/* <h2>Successfully Logged In</h2> */}
-                </div>
-            }
+                {/* </div>
+            }  */}
 
-            {loginApiFailStatus &&  <div className="alert alert-danger" role="alert">         
+            {loginFailed &&  <div className="alert alert-danger" role="alert">         
               {alert("Login Failed !")}
+              {/* Login Failed! */}
               </div>
             }
-
+        
           <div className="line">
             <hr className="firsthr"></hr>
             <div className="orr">or</div>
