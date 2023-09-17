@@ -1,19 +1,18 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import smallLogo from '../Images/smallLogo.png'
 import '../styles/home.css';
 import '../styles/Login.css';
 import { Link } from 'react-router-dom';
-/*import Container from "react-bootstrap/Container";
-import Col from 'react-bootstrap/Col';
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar"; */
 import { useNavigate } from "react-router-dom";
 import { DataAppContext } from "./DataApp";
+import Autocomplete from "@material-ui/lab/Autocomplete";
+import TextField from "@mui/material/TextField";
+/* import List from "./List"; */
+import data from "../mock_backend/ListData.json";
 
 const NavBar = () => {
     const localContext = useContext(DataAppContext);
     const { appState, setAppState } = localContext;
-    /* const { username, loginStatus } = appState; */
 
     const name = appState.name;
     console.log(name);
@@ -33,12 +32,75 @@ const NavBar = () => {
           name:''
         });
       };
-  
+
+    const [inputText, setInputText] = useState("");
+    /* const optionTexts = data.map((item) => item.text); */
+
+    let inputHandler = (e) => {
+    //convert input text to lower case
+    var lowerCase = e.target.value.toLowerCase();
+    setInputText(lowerCase);
+    };
+
+  // Calculate filteredData based on inputText
+  /* const filteredData = data.filter((item) => {
+    if (inputText === '') {
+      return null; // Return all items if inputText is empty
+    } else {
+      return item.text.toLowerCase().includes(inputText);
+    }
+  }); */
+
+  const optionTexts = data.reduce((result, item) => {
+    if (inputText === '' || item.text.toLowerCase().includes(inputText)) {
+      result.push(item.text); // Map: Extract text property
+    }
+    return result; // Filter: Keep or exclude items based on condition
+  }, []);
+      
   return (
     
     <nav className='navStart'>
         {/* <Link to="/home"> */}<img className='smallLogo' src={smallLogo} alt='small-logo'/>{/* </Link> */}
-        <input className='input1' type="search" placeholder='Search'/>
+        <Autocomplete
+        id='autocomplete'
+        style={{width: '20%'}}
+        freeSolo
+        autoComplete
+        autoHighlight
+        options={optionTexts}
+        value={inputText}
+        inputValue={inputText}
+        onChange={(e, newValue) => setInputText(newValue)}
+        renderInput={(params) => (
+          <>
+          <TextField
+          id='text-field'
+              /* id="outlined-basic" */
+              /* variant="outlined" */
+              onChange={inputHandler}
+              placeholder="Search"
+              {...params}
+            />
+            {/* <List input={inputText} data={filteredData} /> */} </>
+        )}
+      />
+      
+        {/* <button>
+        <i className="fa fa-search"></i>
+        </button> */}
+        {/* <input className='input1' type="search"  placeholder='Search' onChange={inputHandler} /> */}
+        {/*<div className="searchbox">
+        <div className="search">
+           <TextField
+            id="outlined-basic"
+            onChange={inputHandler}
+            variant="outlined"
+            fullWidth
+            label="Search"
+          />
+        </div
+       </div> */}
 
         <div className="rightSection">
         <div className="home">
@@ -74,7 +136,7 @@ const NavBar = () => {
         <div className="signout">
           <Link onClick={logoutFn} to='/login' className='signoutLink'>
             <i className="fa fa-user-circle-o faIcons"></i>
-            <p className='meIcon'>Logout</p>
+            <p className='meIcon'>Me</p>
           </Link>
         </div>
           {/* <Navbar variant="light">

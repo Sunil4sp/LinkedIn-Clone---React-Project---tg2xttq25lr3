@@ -1,6 +1,5 @@
 import React, { useState, useContext } from "react";
 import {DataAppContext} from './DataApp';
-/* import '../styles/home.css'; */
 import '../styles/Login.css';
 
 import { useForm } from 'react-hook-form';
@@ -9,8 +8,9 @@ import { Link, useNavigate } from "react-router-dom";
 import menAndLap from "../Images/menwithlap.svg";
 
 
-const Login = () => {
+const Login = ({ handleLoading }) => {
   
+  /* console.log("Type of handleLoading:", typeof handleLoading); */
 
   const initialData = {
       username: '',
@@ -21,9 +21,7 @@ const Login = () => {
   const [loginformdata, setFormdata] = useState(initialData);
 
   //state variable to check form submission status
-  /* const [loginstatus, setLoginStatus] = useState(false); */
-
-  /* const [loginApiFailStatus, setLoginApiFailStatus] = useState(false); */
+  
   const [loginFailed, setLoginFailed] = useState(false);
 
   const localContext = useContext(DataAppContext);
@@ -32,17 +30,13 @@ const Login = () => {
   
   const [showPassword, setShowPassword] = useState(false);
 
-  /* const [input, setInput] = useState(''); */
-  /* const inputRef = useRef(null); */
-
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
   };
 
   const [email, setEmail] = useState(''); // useState to store Email address of the user
   const [password, setPassword] = useState(''); // useState to store Password
-  /*const [emailVal, setEmailVal] = useState(true);
-  const [passwordVal, setPasswordVal] = useState(true); */
+
 
   const { register, handleSubmit, formState: { errors } } = useForm();
 
@@ -55,20 +49,6 @@ const Login = () => {
       return false;
     }
     return true;
-    // Check if the Email is an Empty string or not.
-
-    /* if (email.length === 0) {
-      setEmailVal(false);
-      return
-    }
-
-    // check if the password follows constraints or not.
-    // if password length is less than 6 characters, alert invalid form.
-
-    if (password.length < 6) {
-      setPasswordVal(false);
-      return
-    } */
   }
 
   //method to update each key of state object
@@ -86,21 +66,21 @@ const Login = () => {
       setFormdata({
           ...loginformdata, ...tempObj
       });
-      /* handleInput(); */
   }
 
   //methods for form submission button
   const loginFn = (e) => {
-        
+    
         if (validateForm(e)) {
           const users = JSON.parse(localStorage.getItem("users"));
-    
+          /* setLoginFailed(false); */
           if (users) {
             const user = users.find(
               (user) =>
                 user.username === e.username && user.password === e.password
             );
             console.log(user);
+            
     
             if (user) {
               // Set context variable
@@ -111,15 +91,21 @@ const Login = () => {
                 name: user.name,
               };
               localContext.setAppState(obj);
+              console.log("Login successful");
+              setLoginFailed(false);
+              handleLoading();
               // Navigate to the home page
               navigate("/home");
             } else {
+              console.log("Login failed");
               setLoginFailed(true);
             }
           } else {
+            console.log("No user data found");
             setLoginFailed(true);
           }
         }
+      };
             /* let loginSuccess = false;
             /* inputRef.current.focus();
               for(let i=0 ; i<temp.length ; i++) {
@@ -167,7 +153,6 @@ const Login = () => {
         }
           setFormdata(initialData); */
 
-  };
     
   
 /*   useEffect(() => {
@@ -263,7 +248,7 @@ const Login = () => {
           </Link> 
 
           <br></br>*/}
-          <button type="submit" className="signIn"/*  onClick={loginFn} */>
+          <button type="submit" className="signIn" onClick={loginFn}>
             Sign in
           </button>
           </form>

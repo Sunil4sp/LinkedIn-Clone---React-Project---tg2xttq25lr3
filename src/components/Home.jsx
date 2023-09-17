@@ -9,6 +9,7 @@ import RightSideBar from "./RightSideBar";
 import Avatar from '@mui/material/Avatar';
 import profile_pic from '../Images/profile.jpg';
 
+
 const ShareAble = (props) => {
   const localContext = useContext(DataAppContext);
   const { appState } = localContext;
@@ -83,7 +84,7 @@ const ShareAble = (props) => {
   );
 };
 
-function Home() {
+function Home({loading}) {
   const localContext = useContext(DataAppContext);
   const { appState } = localContext;
   const { loginStatus } = appState;
@@ -180,6 +181,23 @@ function Home() {
   }
 
   return (
+    <>
+    {loading && (
+        <div class="loading-screen">
+          <div class="loading-animation">
+            {/* <img
+              src="https://image.flaticon.com/icons/svg/1409/1409945.svg"
+              alt=""
+              class="logo"
+            /> */}
+            <p className="loading__text">
+              Linked<span className="logo_text">in</span>
+            </p>
+            <div class="loading-bar"></div>
+          </div>
+        </div>
+      )}
+    {!loading && (  
     <div className="main">
       <>
         {" "}
@@ -294,6 +312,8 @@ function Home() {
         </div>
       </>
     </div>
+    )}
+    </>
   );
 }
 

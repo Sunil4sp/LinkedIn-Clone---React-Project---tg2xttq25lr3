@@ -11,6 +11,7 @@ const LeftSideBar = () => {
     /* const { loginStatus } = appState; */
 
     const name = appState.name;
+/*     const username = appState.username; */
     console.log(name);
 
     const handleDesign = () => {
@@ -49,6 +50,7 @@ const LeftSideBar = () => {
           {/* <img class="avatar avatar-xl" src="Images/profile.jpg" alt='Profile_pic' /> */}
         </div>
         <h3 className="h3">{name}</h3>
+        {/* <h5>{username}</h5> */}
         <hr></hr>
         <p className="connections">
           Who's viewed your profile &ensp;

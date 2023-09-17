@@ -100,7 +100,7 @@
 
   .newuser_main {
     background-color: white;
-    width: 530px;
+    width: 70%;
     height: 653px;
     margin: auto;
     left: 0;
@@ -160,7 +160,8 @@
   .newuser_main{
     background-color: white;
     /* width: 500px; */
-    width: 530px;
+    width: 100%;
+    max-width: 100%;
     height: 532px;
     margin: auto;
     left: 0;

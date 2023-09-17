@@ -7,7 +7,7 @@ const MyJob = () => {
     <div>
       <NavBar />
       <div className="span-center-Message">
-          <span className='page_under_construction'>Page under construction</span>
+          <span className='page_under_construction'>Jobs Page under construction</span>
         </div>
     </div>
   )

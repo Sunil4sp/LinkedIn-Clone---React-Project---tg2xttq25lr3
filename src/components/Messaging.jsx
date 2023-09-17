@@ -7,7 +7,7 @@ const Messaging = () => {
     <div>
       <NavBar />
       <div className="span-center-Message">
-          <span className='page_under_construction'>Page under construction</span>
+          <span className='page_under_construction'>Messaging Page under construction</span>
         </div>
     </div>
   )
