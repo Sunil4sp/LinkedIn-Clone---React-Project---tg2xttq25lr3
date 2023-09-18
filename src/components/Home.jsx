@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
 import "../styles/home.css";
-
 import { useNavigate } from "react-router-dom";
 import { DataAppContext } from "./DataApp";
 import NavBar from "./NavBar";
@@ -8,7 +7,7 @@ import LeftSideBar from "./LeftSideBar";
 import RightSideBar from "./RightSideBar";
 import Avatar from '@mui/material/Avatar';
 import profile_pic from '../Images/profile.jpg';
-
+import smallLogo from '../Images/smallLogo.png';
 
 const ShareAble = (props) => {
   const localContext = useContext(DataAppContext);
@@ -93,7 +92,6 @@ function Home({loading}) {
   const [post, setPost] = useState([]);
   const [like, setLike] = useState(0);
   const [clicked, setClicked] = useState(false);
-
   const [togglephoto, setTogglePhoto] = useState(false);
   const [toggleevent, setToggleEvent] = useState(false);
   const [togglewriteArticle, setToggleWriteArticle] = useState(false);
@@ -183,17 +181,17 @@ function Home({loading}) {
   return (
     <>
     {loading && (
-        <div class="loading-screen">
-          <div class="loading-animation">
+        <div className="loading-screen">
+          <div className="loading-animation">
             {/* <img
               src="https://image.flaticon.com/icons/svg/1409/1409945.svg"
               alt=""
               class="logo"
             /> */}
             <p className="loading__text">
-              Linked<span className="logo_text">in</span>
+              Linked<img src={smallLogo} className="logo_text" alt="in" />
             </p>
-            <div class="loading-bar"></div>
+            <div className="loading-bar"></div>
           </div>
         </div>
       )}

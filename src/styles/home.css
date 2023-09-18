@@ -515,6 +515,9 @@ ul li {
   .loading__text{
     font-size: 36px;
   }
+  .logo_text{
+    height: 30px;
+  }
   .error_post_div{
     color: rgb(248, 61, 61);
     text-align: center;

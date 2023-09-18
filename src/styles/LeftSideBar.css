@@ -28,11 +28,13 @@
 .connectionCount{
     color: #0A66C2;
     margin: auto;
+    font-weight: bolder;
 }
 
 .postCount{
     color: #0A66C2;
     margin: auto;
+    font-weight: bolder;
 }
 .growYour{
     margin: 4% 4%;

@@ -34,29 +34,29 @@ const NavBar = () => {
       };
 
     const [inputText, setInputText] = useState("");
-    /* const optionTexts = data.map((item) => item.text); */
+    const [optionTexts, setOptionTexts] = useState([]);
 
     let inputHandler = (e) => {
     //convert input text to lower case
-    var lowerCase = e.target.value.toLowerCase();
+    /* var lowerCase = e.target.value.toLowerCase(); */
+    const lowerCase = (e.target.value || '').toLowerCase();
     setInputText(lowerCase);
-    };
 
-  // Calculate filteredData based on inputText
-  /* const filteredData = data.filter((item) => {
-    if (inputText === '') {
-      return null; // Return all items if inputText is empty
-    } else {
-      return item.text.toLowerCase().includes(inputText);
-    }
-  }); */
+    // Calculate filteredTexts based on inputText
+    const filteredTexts = data
+      .filter((item) => item.text.toLowerCase().includes(lowerCase))
+      .map((item) => item.text);
 
-  const optionTexts = data.reduce((result, item) => {
+    // Update the options
+    setOptionTexts(filteredTexts);
+  };
+    
+  /* const optionTexts = data.reduce((result, item) => {
     if (inputText === '' || item.text.toLowerCase().includes(inputText)) {
       result.push(item.text); // Map: Extract text property
     }
     return result; // Filter: Keep or exclude items based on condition
-  }, []);
+  }, []); */
       
   return (
     
@@ -71,13 +71,13 @@ const NavBar = () => {
         options={optionTexts}
         value={inputText}
         inputValue={inputText}
+        defaultValue={[]}
+        getOptionLabel={(option) => option}
         onChange={(e, newValue) => setInputText(newValue)}
         renderInput={(params) => (
           <>
           <TextField
           id='text-field'
-              /* id="outlined-basic" */
-              /* variant="outlined" */
               onChange={inputHandler}
               placeholder="Search"
               {...params}

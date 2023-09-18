@@ -1,12 +1,11 @@
 import React, { useState, useContext } from "react";
 import {DataAppContext} from './DataApp';
 import '../styles/Login.css';
-
 import { useForm } from 'react-hook-form';
 import linkedInLogo from "../Images/linkedin-logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import menAndLap from "../Images/menwithlap.svg";
-
+import Modal from 'react-modal';
 
 const Login = ({ handleLoading }) => {
   
@@ -23,22 +22,17 @@ const Login = ({ handleLoading }) => {
   //state variable to check form submission status
   
   const [loginFailed, setLoginFailed] = useState(false);
-
   const localContext = useContext(DataAppContext);
-
-  const navigate = useNavigate();
-  
   const [showPassword, setShowPassword] = useState(false);
-
+  const [email, setEmail] = useState(''); // useState to store Email address of the user
+  const [password, setPassword] = useState(''); // useState to store Password
+  const { register, handleSubmit, formState: { errors } } = useForm();
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  
+  const navigate = useNavigate();
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
   };
-
-  const [email, setEmail] = useState(''); // useState to store Email address of the user
-  const [password, setPassword] = useState(''); // useState to store Password
-
-
-  const { register, handleSubmit, formState: { errors } } = useForm();
 
   /* const onSubmit = (values) => alert(JSON.stringify(values, null, 2)); */
 
@@ -69,9 +63,10 @@ const Login = ({ handleLoading }) => {
   }
 
   //methods for form submission button
-  const loginFn = (e) => {
+  const loginFn = async(e) => {
     
         if (validateForm(e)) {
+          try {
           const users = JSON.parse(localStorage.getItem("users"));
           /* setLoginFailed(false); */
           if (users) {
@@ -79,7 +74,7 @@ const Login = ({ handleLoading }) => {
               (user) =>
                 user.username === e.username && user.password === e.password
             );
-            console.log(user);
+            console.log(user,e.username,user.username);
             
     
             if (user) {
@@ -87,13 +82,15 @@ const Login = ({ handleLoading }) => {
               const obj = {
                 ...localContext.appState,
                 loginStatus: true, //true means logged in
-                username: user.email,
+                username: user.username,
                 name: user.name,
+                password: user.password,
               };
               localContext.setAppState(obj);
-              console.log("Login successful");
               setLoginFailed(false);
+              console.log("Login successful", obj);
               handleLoading();
+
               // Navigate to the home page
               navigate("/home");
             } else {
@@ -104,6 +101,17 @@ const Login = ({ handleLoading }) => {
             console.log("No user data found");
             setLoginFailed(true);
           }
+        } catch (error) {
+          console.error("An error occurred during login:", error);
+          setLoginFailed(true);
+        } 
+        }/* else {
+          // Set loginFailed to true when form validation fails
+          console.log("Validation Failed");
+          setLoginFailed(true);
+        } */
+        if (loginFailed) {
+          setModalIsOpen(true);
         }
       };
             /* let loginSuccess = false;
@@ -161,23 +169,33 @@ const Login = ({ handleLoading }) => {
       
   }, [loginstatus]) */
 
+  const handleCloseModal = () => {
+    setModalIsOpen(false);
+  };
+
   const joinNow = () =>{
     navigate('/newuser');
   }
   return (
     <div>
       <nav className="navbar">
-      <div className="linkHome">
-        <Link to='/home'/*  className="linkHome" */><img className="loginLogo" src={linkedInLogo} alt="logo" /></Link>
-      </div>
-      <div className="signin_signout">
-        <div className="newuserLink">
-          <Link to='/newuser' /* className="newuserLink" */><button className="join">Join Now{" "}</button></Link>
+        <div className="linkHome">
+          <Link to="/home" /*  className="linkHome" */>
+            <img className="loginLogo" src={linkedInLogo} alt="logo" />
+          </Link>
         </div>
-        <div className="loginLink">
-        <Link to='/login'/*  className="loginLink" */ active><button className="sign">Sign in{" "}</button></Link>
-      </div> 
-      </div>
+        <div className="signin_signout">
+          <div className="newuserLink">
+            <Link to="/newuser" /* className="newuserLink" */>
+              <button className="join">Join Now </button>
+            </Link>
+          </div>
+          <div className="loginLink">
+            <Link to="/login" /*  className="loginLink" */ active="true">
+              <button className="sign">Sign in </button>
+            </Link>
+          </div>
+        </div>
         {/* <Link to='/home' className="linkHome"><img className="loginLogo" src={linkedInLogo} alt="logo" /></Link>
         <Link to='/login' className="loginLink" active><button className="sign">Sign in{" "}</button></Link>
         <Link to='/newuser' className="newuserLink"><button className="join">Join Now{" "}</button></Link> */}
@@ -201,83 +219,103 @@ const Login = ({ handleLoading }) => {
           <br></br>
 
           <form onSubmit={handleSubmit(loginFn)}>
-          <label htmlFor="username" className="email">Email or phone<font color="red">*</font></label>
-          <br></br>
-          <input
-            type="email"
-            id="username"
-            className="username-login"
-            placeholder="Email"
-            /* value={loginformdata.username} */
-             onChange={(e)=>updateData(e)} 
-            /*ref={inputRef} */
-            {...register("username", { required: true, pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i })}
-          />
-          {errors.username && <p id="validation-email_password">Email Address cannot be empty or should match email pattern</p>}
-          <br></br>
-          <label htmlFor="password" className="password">Password<font color="red">*</font></label>
-          <br></br>
-          
-          <input
-            type={showPassword ? 'text' : 'password'}
-            id="password"
-            placeholder="Password"
-            /* value={loginformdata.password} */
-            className={`password-login ${showPassword ? 'showPassword' : ''}`}
-            onChange={(e)=>updateData(e)}
-            {...register("password", { required: true, minLength: 6,})}
-          />
-          {errors.password && (<p id="validation-email_password">Password should be minimum 6 characters</p>)}
-          <br></br>
-          <div className="checkShowPassword">
+            <label htmlFor="username" className="email">
+              Email or phone<font color="red">*</font>
+            </label>
+            <br></br>
             <input
-            type= "checkbox"
-            checked={showPassword} 
-            onChange={toggleShowPassword}
-          />
-            <label htmlFor="showPassword">Show Password</label>
-          </div>
-          
-          
-          
-          <br></br>
+              type="email"
+              id="username"
+              className="username-login"
+              placeholder="Email"
+              /* value={loginformdata.username} */
+              onChange={(e) => updateData(e)}
+              /*ref={inputRef} */
+              {...register("username", {
+                required: true,
+                pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+              })}
+            />
+            {errors.username && (
+              <p id="validation-email_password">
+                Email Address cannot be empty or should match email pattern
+              </p>
+            )}
+            <br></br>
+            <label htmlFor="password" className="password">
+              Password<font color="red">*</font>
+            </label>
+            <br></br>
 
-          {/* <br></br> */}
-          {/* <Link className="forPass">
+            <input
+              type={showPassword ? "text" : "password"}
+              id="password"
+              placeholder="Password"
+              /* value={loginformdata.password} */
+              className={`password-login ${showPassword ? "showPassword" : ""}`}
+              onChange={(e) => updateData(e)}
+              {...register("password", { required: true, minLength: 6 })}
+            />
+            {errors.password && (
+              <p id="validation-email_password">
+                Password should be minimum 6 characters
+              </p>
+            )}
+            <br></br>
+            <div className="checkShowPassword">
+              <input
+                type="checkbox"
+                checked={showPassword}
+                onChange={toggleShowPassword}
+              />
+              <label htmlFor="showPassword">Show Password</label>
+            </div>
+
+            <br></br>
+
+            {/* <br></br> */}
+            {/* <Link className="forPass">
             Forgot password?
           </Link> 
 
           <br></br>*/}
-          <button type="submit" className="signIn" onClick={loginFn}>
-            Sign in
-          </button>
+            <button type="submit" className="signIn" onClick={loginFn}>
+              Sign in
+            </button>
           </form>
           {/* {loginstatus && <div className="alert alert-success" role="alert">
                 {alert("Successfully Logged In")}
                 {/* <h2>Successfully Logged In</h2> */}
-                {/* </div>
+          {/* </div>
             }  */}
 
-            {loginFailed &&  <div className="alert alert-danger" role="alert">         
-              {alert("Login Failed !")}
-              {/* Login Failed! */}
+          {/* {loginFailed &&  <div className="alert alert-danger" role="alert">         
+              {/* {alert("Login Failed !")} */}
+          {/* Login Failed!
               </div>
-            }
-        
+            } */}
+          <Modal isOpen={modalIsOpen} onClose={handleCloseModal} ariaHideApp={false} backdropOpacity={1} className="validation-modal">
+            <div className="modalDiv">
+              <h1>Login failed</h1>
+              <p>Please check your username and password and try again.</p>
+              <button onClick={handleCloseModal}>Close</button>
+            </div>
+          </Modal>
+
           <div className="line">
             <hr className="firsthr"></hr>
             <div className="orr">or</div>
             <hr className="secondhr"></hr>
           </div>
-          
+
           <br></br>
           <span>New to Linkedln?</span>
           <button className="newtoLinkedIn" onClick={joinNow}>
-           Join now
+            Join now
           </button>
         </div>
         <div className="rightWithImg">
-          <img src={menAndLap} alt="pic"/>
+          <img src={menAndLap} alt="pic" />
         </div>
       </div>
     </div>

@@ -54,11 +54,11 @@ const LeftSideBar = () => {
         <hr></hr>
         <p className="connections">
           Who's viewed your profile &ensp;
-          <h5 className="connectionCount">30</h5>
+          <span className="connectionCount">30</span>
         </p>
 
         <p className="growYour">
-          Views on post &ensp;<h5 className="postCount">1521</h5>
+          Views on post &ensp;<span className="postCount">1521</span>
         </p>
 
         <hr></hr>
