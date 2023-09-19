@@ -7,8 +7,8 @@ import { useNavigate } from "react-router-dom";
 import { DataAppContext } from "./DataApp";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import TextField from "@mui/material/TextField";
-/* import List from "./List"; */
 import data from "../mock_backend/ListData.json";
+import Modal from 'react-modal';
 
 const NavBar = () => {
     const localContext = useContext(DataAppContext);
@@ -20,12 +20,14 @@ const NavBar = () => {
     const navigate = useNavigate();
 
     const logoutFn = () => {
-        //update context variable
-        navigate("/login");
-        //get the name variable from the appState object
+        
+        
         //display the user's name in a logout message
-        alert(`Logout successful. Goodbye ${name}!`);
-        setAppState({
+        /* alert(`Logout successful. Goodbye ${name}!`); */
+
+        navigate("/login");
+        //update context variable
+        setAppState({   //get the name variable from the appState object
           ...appState,
           loginStatus: false,
           username: "",
@@ -35,6 +37,7 @@ const NavBar = () => {
 
     const [inputText, setInputText] = useState("");
     const [optionTexts, setOptionTexts] = useState([]);
+    const [modalIsOpen, setModalIsOpen] = useState(false);
 
     let inputHandler = (e) => {
     //convert input text to lower case
@@ -49,14 +52,13 @@ const NavBar = () => {
 
     // Update the options
     setOptionTexts(filteredTexts);
+    };
+
+  const handleCloseModal = () => {
+    setModalIsOpen(false);
+    /* navigate("/login"); */
+    logoutFn();
   };
-    
-  /* const optionTexts = data.reduce((result, item) => {
-    if (inputText === '' || item.text.toLowerCase().includes(inputText)) {
-      result.push(item.text); // Map: Extract text property
-    }
-    return result; // Filter: Keep or exclude items based on condition
-  }, []); */
       
   return (
     
@@ -82,25 +84,9 @@ const NavBar = () => {
               placeholder="Search"
               {...params}
             />
-            {/* <List input={inputText} data={filteredData} /> */} </>
+          </>
         )}
       />
-      
-        {/* <button>
-        <i className="fa fa-search"></i>
-        </button> */}
-        {/* <input className='input1' type="search"  placeholder='Search' onChange={inputHandler} /> */}
-        {/*<div className="searchbox">
-        <div className="search">
-           <TextField
-            id="outlined-basic"
-            onChange={inputHandler}
-            variant="outlined"
-            fullWidth
-            label="Search"
-          />
-        </div
-       </div> */}
 
         <div className="rightSection">
         <div className="home">
@@ -134,32 +120,18 @@ const NavBar = () => {
           </Link>
         </div>
         <div className="signout">
-          <Link onClick={logoutFn} to='/login' className='signoutLink'>
+          <Link onClick={() => {setModalIsOpen(true)}}  /*to='/login' */ className='signoutLink'>
             <i className="fa fa-user-circle-o faIcons"></i>
-            <p className='meIcon'>Me</p>
+            <p className='meIcon' onClick={() => {setModalIsOpen(true)}}>Me</p>
           </Link>
+          <Modal isOpen={modalIsOpen} onClose={handleCloseModal} ariaHideApp={false} backdropOpacity={1} className="validation-modal">
+            <div className="modalDiv">
+              <h1>Logout Successful</h1>
+              <p>Goodbye {name} !</p>
+              <button onClick={handleCloseModal}>Close</button>
+            </div>
+          </Modal>
         </div>
-          {/* <Navbar variant="light">
-          <Container>
-          <Nav className="me-auto">
-            {loginStatus ? (
-              <>
-                <Nav.Link onClick={logoutFn}><i className="fa fa-sign-out" aria-hidden="true">Logout </i></Nav.Link>&ensp;&ensp;&ensp;
-                {loginStatus && <Nav.Link className='user-name'> Hi {name} !</Nav.Link>}
-              </>
-            ) : (
-              <>
-                <Nav.Link>
-                  <Link to="/login"><i className="fa fa-sign-in" aria-hidden="true"><p className='meIcon'>Login</p></i></Link>
-                </Nav.Link>
-                <Nav.Link>
-                  <Link to="/newuser"><i className="fa fa-user-plus" aria-hidden="true"><p className='meIcon'>Register</p></i></Link>
-                </Nav.Link>
-              </>
-            )}
-          </Nav>
-        </Container>
-      </Navbar> */}
       </div> 
       </nav>
       

@@ -2,8 +2,6 @@
     padding: 0;
     box-sizing: border-box;
     font-family: sans-serif;
-    /* background-color: white; */
-/*     color: #666666; */
 }
 
 .main{
@@ -31,15 +29,6 @@
     width: auto;
     margin: 0 1% 0 10%;
 }
-/* .input1{
-    height: 30px;
-    width: 20%;
-    margin: 0 0px 0px 1%;
-    border: 0;
-    background-color: aliceblue;
-    border-radius: 5px;
-    padding-left: 5px;
-} */
 
 .faIcons {
     margin: auto;
@@ -137,15 +126,7 @@
     padding: 1%;
     text-decoration: none;
 }
-/* .home:hover,
-.network:hover,
-.jobs:hover,
-.message:hover,
-.notification:hover,
-.signout:hover{
-    color: black; 
-    border-radius: 20px;
-} */
+
 .homeLink,
 .netLink,
 .jobLink,
@@ -225,41 +206,28 @@
     color: #0A66C2;
     cursor: pointer;
 }
-/* .photoIcon .photos{
-    font-size: 0.85rem;
-    color: grey;
-} */
+
 .videosIcon{
     font-size: 1.5rem;  
     margin: 2% 5%;
     color: green;
     cursor: pointer;
 }
-/* .videosIcon p{
-    font-size: 0.85rem;
-    color: grey;
-} */
+
 .eventsIcon{
     font-size: 1.5rem; 
     margin: 2% 5%;
     color: orange;
     cursor: pointer;
 }
-/* .eventsIcon p{
-    font-size: 0.85rem;
-    color: grey;
-    text-align: center;
-} */
+
 .articleIcon{
     font-size: 1.5rem;  
     margin: 2% 5%;
     color: red;
     cursor: pointer;
 }
-/* .articleIcon p{
-    font-size: 0.85rem;
-    color: grey;
-} */
+
 
 .sections{
     color: rgb(95, 95, 97);
@@ -411,10 +379,7 @@
     width: 20%;
     margin: 2%;
 }
-/* .comntMe{
-    color: grey;
-    margin: 2% 10%;
-} */
+
 .h5{
     color: black;
     margin: 2% 10%
@@ -441,18 +406,7 @@ span{
     text-decoration: none;
     color: black;
 }
-/* .searchbox{
-    display: flex;
-    height: 100vh;
-    width: 100%;
-    align-items: center;
-    flex-direction: column;
-    row-gap: 20px;
-}
 
-.search {
-    width: 30%;
-} */
 
 ul li {
     list-style-type: none;
@@ -658,10 +612,4 @@ ul li {
     }
 }
     
-
-/* @media screen and (min-width: 751px) and (max-width: 876px) {
-    
-    .navStart p { 
-        font-size: 10px; 
-    }   
-  } */ 
+ 

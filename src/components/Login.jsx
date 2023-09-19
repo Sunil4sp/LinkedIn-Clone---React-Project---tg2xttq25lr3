@@ -9,7 +9,6 @@ import Modal from 'react-modal';
 
 const Login = ({ handleLoading }) => {
   
-  /* console.log("Type of handleLoading:", typeof handleLoading); */
 
   const initialData = {
       username: '',
@@ -105,69 +104,12 @@ const Login = ({ handleLoading }) => {
           console.error("An error occurred during login:", error);
           setLoginFailed(true);
         } 
-        }/* else {
-          // Set loginFailed to true when form validation fails
-          console.log("Validation Failed");
-          setLoginFailed(true);
-        } */
+        }
         if (loginFailed) {
           setModalIsOpen(true);
         }
       };
-            /* let loginSuccess = false;
-            /* inputRef.current.focus();
-              for(let i=0 ; i<temp.length ; i++) {
-                  console.log(temp[i].username, loginformdata.username);
-                  if(temp[i].username === email) {
-                      console.log('Inside first if - ', i)
-                      if(temp[i].password === password) {
-                          console.log('Inside 2nd if - ', i)
-                          setLoginStatus(true);
-                          loginSuccess = true;
-                          //set context varibale
-                          let obj = {
-                              ...localContext.appState,
-                              loginStatus: true, //true means logged in
-                              username: email,
-                              name: temp[i].name,
-                          };
-                          localContext.setAppState(obj);
-                          console.log('line no 69');
-                          //navigate page to home
-                          navigate('/home');
-                          console.log('line no 71');
-                          break;
-                      }
-                    }
-                  } */
-                       /* {
-                          setLoginApiFailStatus(true);
-                      }
-                  }
-                  else {
-                      setLoginApiFailStatus(true);
-                  }
-              }
-          }
-          else {
-              setLoginApiFailStatus(true);
-          } */
-          /* if (!loginSuccess) {
-            // Set loginFailed to true if login was not successful
-            setLoginFailed(true);
-          }
-        } else {
-          setLoginFailed(true);
-        }
-          setFormdata(initialData); */
-
-    
-  
-/*   useEffect(() => {
-      let temp = localStorage.getItem('users');
-      console.log(JSON.parse(temp));
-      
-  }, [loginstatus]) */
+            
 
   const handleCloseModal = () => {
     setModalIsOpen(false);
@@ -196,21 +138,7 @@ const Login = ({ handleLoading }) => {
             </Link>
           </div>
         </div>
-        {/* <Link to='/home' className="linkHome"><img className="loginLogo" src={linkedInLogo} alt="logo" /></Link>
-        <Link to='/login' className="loginLink" active><button className="sign">Sign in{" "}</button></Link>
-        <Link to='/newuser' className="newuserLink"><button className="join">Join Now{" "}</button></Link> */}
-        {/* <i className="fa fa-cc-discover discover">
-          <p>Discover</p>
-        </i>
-        <i className="fa fa-users discover ">
-          <p>People</p>
-        </i>
-        <i className="fa fa-youtube-play discover">
-          <p>Learning</p>
-        </i>
-        <i className="fa fa-briefcase discover">
-          <p>Jobs</p>
-        </i> */}
+        
       </nav>
 
       <div className="divAfterNav">
@@ -273,27 +201,12 @@ const Login = ({ handleLoading }) => {
 
             <br></br>
 
-            {/* <br></br> */}
-            {/* <Link className="forPass">
-            Forgot password?
-          </Link> 
-
-          <br></br>*/}
+            
             <button type="submit" className="signIn" onClick={loginFn}>
               Sign in
             </button>
           </form>
-          {/* {loginstatus && <div className="alert alert-success" role="alert">
-                {alert("Successfully Logged In")}
-                {/* <h2>Successfully Logged In</h2> */}
-          {/* </div>
-            }  */}
-
-          {/* {loginFailed &&  <div className="alert alert-danger" role="alert">         
-              {/* {alert("Login Failed !")} */}
-          {/* Login Failed!
-              </div>
-            } */}
+          
           <Modal isOpen={modalIsOpen} onClose={handleCloseModal} ariaHideApp={false} backdropOpacity={1} className="validation-modal">
             <div className="modalDiv">
               <h1>Login failed</h1>

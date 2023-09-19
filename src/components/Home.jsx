@@ -33,11 +33,11 @@ const ShareAble = (props) => {
   return (
     <div>
       {/* {showCommenting && ( */}
-      <div className="comment-profile-pic"/*  onClick={() => setShowCommenting(showCommenting)} */>
+      <div className="comment-profile-pic">
        {showCommentBox && ( 
        <div className="profile-pic-comment">
         <div className="profile-picture">
-          {/* <i className="fa fa-user-circle-o comntMe"></i> */}
+          
           <Avatar
                   alt="Sunil Pal"
                   src= {profile_pic}
@@ -65,12 +65,6 @@ const ShareAble = (props) => {
         {props.posts[props.index].coment.map((data) => (
           <div className="comment-reply">
             <div className="reply-profile">
-              {/* <i className="fa fa-user-circle-o comntMe"></i> */}
-              {/* <Avatar
-                  alt="Sunil Pal"
-                  src= {profile_pic}
-                  sx={{ width: 30, height: 30 }}
-                /> */}
               <h5 className="h5">{name}</h5>
             </div>
             <span className="showComnt">{data.inputs}</span>
@@ -78,7 +72,6 @@ const ShareAble = (props) => {
         ))}
       </div>
       </div>
-      {/* )} */}
     </div>
   );
 };
@@ -140,12 +133,6 @@ function Home({loading}) {
     setClicked(clickedOnce);
   };
 
-/*   const clickFn = (index) => {
-    console.log("clickfn");
-    let list = [...post];
-    list[index].clicked = true;
-    setPost(list);
-  }; */
 
   const submitPost = (e) => {
     if (loginStatus) {
@@ -183,11 +170,6 @@ function Home({loading}) {
     {loading && (
         <div className="loading-screen">
           <div className="loading-animation">
-            {/* <img
-              src="https://image.flaticon.com/icons/svg/1409/1409945.svg"
-              alt=""
-              class="logo"
-            /> */}
             <p className="loading__text">
               Linked<img src={smallLogo} className="logo_text" alt="in" />
             </p>
@@ -205,7 +187,6 @@ function Home({loading}) {
           <div className="MiddleBar">
             <div className="PostShare">
               <div className="user_profile">
-                {/* <i className="fa fa-user-circle-o shareIcon"></i> */}
                 <Avatar
                   alt="Sunil Pal"
                   src= {profile_pic}
@@ -265,7 +246,6 @@ function Home({loading}) {
                 post.map((item, index) => (
                   <div>
                     <div className="postDiv">
-                      {/* <i className="fa fa-user-circle-o postME"></i> */}
                       <Avatar
                         alt="Sunil Pal"
                         src= {profile_pic}
