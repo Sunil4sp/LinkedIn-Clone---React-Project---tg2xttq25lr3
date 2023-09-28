@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/card.css';
 import posts from "../mock_backend/Posts";
 

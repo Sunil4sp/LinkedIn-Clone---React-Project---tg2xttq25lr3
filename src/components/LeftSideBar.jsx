@@ -11,8 +11,8 @@ const LeftSideBar = () => {
     /* const { loginStatus } = appState; */
 
     const name = appState.name;
-/*     const username = appState.username; */
-    console.log(name);
+/*     const username = appState.username; 
+    console.log(name);*/
 
     const handleDesign = () => {
         window.open(
@@ -43,6 +43,7 @@ const LeftSideBar = () => {
         <div className="camera">
           {/* <i className="fa fa-camera cameraIcon"></i> */}
           <Avatar
+            id="avatar"
             alt="Sunil Pal"
             src= {profile_pic}
             sx={{ width: 56, height: 56 }}
@@ -67,7 +68,7 @@ const LeftSideBar = () => {
             <i className="fa fa-bookmark bookmark">My Items</i> */}
       </div>
       <div className="lowerDiv">
-        <p>Recent</p>
+        <p id='lowerDiv recent'>Recent</p>
         <h5 onClick={handleReactjs}>#reactJS</h5>
         <h5 onClick={handleProgramming}>#programming</h5>
         <h5 onClick={handleSoftwareEngineering}>#software engineering</h5>

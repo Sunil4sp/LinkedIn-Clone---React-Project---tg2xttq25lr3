@@ -5,7 +5,7 @@
     text-align: center;
 }
 .page_under_construction{
-    font-size: 2rem;
+    font-size: 1.2rem;
 }
 
 @media screen and (min-width: 201px) and (max-width: 750px) {
@@ -15,12 +15,10 @@
     }
 }
 
-
 @media screen and (min-width: 0px) and (max-width: 200px) {
 
     .span-center-Message{
         width: 95%;
         margin: 50% 3%;
     }
-
 }

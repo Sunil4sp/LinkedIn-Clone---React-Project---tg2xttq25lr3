@@ -6,7 +6,7 @@
 .upperDiv{
     height: 45%;
     width: 70%;
-    margin: 12% 21% 5%;
+    margin: 9% 21% 5%;
     font-size: 1rem;
     border: 1px solid rgb(202, 212, 188);
     border-radius: 10px;
@@ -14,9 +14,9 @@
 }
 
 .upperDiv h3{
-    margin: 7% 35%;
+    margin: 0 30% 7%;
     color: black;
-    font-size: 1.1rem;
+    font-size: 20px;
 }
 
  .connections{
@@ -29,12 +29,14 @@
     color: #0A66C2;
     margin: auto;
     font-weight: bolder;
+    font-size: 15px;
 }
 
 .postCount{
     color: #0A66C2;
     margin: auto;
     font-weight: bolder;
+    font-size: 15px;
 }
 .growYour{
     margin: 4% 4%;
@@ -54,7 +56,7 @@
     height: 22%;
     width: 38%;
     border-radius: 70px;
-    margin: 10% 30%;
+    margin: 10% 34% 5%;
 }
 
 .cameraIcon{
@@ -91,7 +93,7 @@
     color: black;
 }
 
-@media screen and (min-width: 201px) and (max-width: 750px) {
+@media screen and (min-width: 581px) and (max-width: 750px) {
     /* *{
         font-size: 1rem;
     } */
@@ -102,46 +104,64 @@
         width: 100%;
     }
     .upperDiv{
-        width: 90%;
+        width: 100%;
         max-width: 100%;
-        margin: 11% 0 0 10%;
+        margin: 60px 0 0 5%;
     }
     .upperDiv h3{
-        margin: 7% 43%;
+        margin: 5% 40%;
         color: black;
-        font-size: 1.1rem;
+        font-size: 24px;
     }
     .camera{
         border-radius: 50%;
-        margin: 10% 40%;
+        margin: 5% 40%;
     }
     .lowerDiv {
-        width: 90%;
+        width: 100%;
         max-width: 100%;
-        margin: 5% 0 0 10%;
+        margin: 5% 0 0 5%;
+        display: none;
     }
-
-
+    #avatar{
+        width: 100px;
+        height: 100px;
+    }
 }
 
-@media screen and (min-width: 0px) and (max-width: 200px) {
+@media screen and (min-width: 0px) and (max-width: 580px) {
     .leftSideBar{
         display: inline-block;
         max-width: 100%;
-        margin: 7% 0 0 0;
-        width: 95%;
+        margin: 0;
+        width: 100%;
     }
-    .upperDiv,
-    .lowerDiv {
-        width: 95%;
+    .upperDiv{
+        width: 100%;
         max-width: 100%;
-        margin-left: 5%;
+        margin: 13% 0 0;
+    }
+    .lowerDiv {
+        width: 100%;
+        max-width: 100%;
+        margin: 4% 0 0;
+        display: none;
+    }
+    #lowerDiv recent{
+        display: block;
+    }
+    .camera{
+        border-radius: 50%;
+        margin: 5% 40%;
+    }
+    #avatar{
+        width: 70px;
+        height: 70px;
+    }
+    .upperDiv h3{
+        margin: 5% 38%;
+        color: black;
+        font-size: 20px;
     }
 }
 
-@media screen and (min-width: 201px) and (max-width: 750px) { 
-    
-    .upperDiv h3{
-        font-size: 1.1rem;
-    }
-}

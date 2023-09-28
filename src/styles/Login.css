@@ -5,7 +5,7 @@
     box-sizing: border-box;
 } */
 
-.navbar{
+.login-navbar{
     position: sticky;
     height: 13vh;
     width: 100%;
@@ -35,7 +35,7 @@
     width: 24%;
 }
 .loginLogo{
-    height: 10vh;
+    height: 7vh;
     width: 75%;
     float: left;
     margin: 2% 5%;
@@ -43,9 +43,9 @@
 
 .join{
     /* float: right; */
-    margin: 2% 0;
-    height: 9vh;
-    width: 50%;
+    margin: 25% 0;
+    height: 5vh;
+    width: 7vw;
     border-radius: 25px;
     border: 0;
     background-color: #fff;
@@ -57,9 +57,9 @@
     background-color: lightgray;
 }
 .sign{
-    margin: 2% 0 2% 20%;
-    height: 9vh;
-    width: 50%;
+    margin: 25% 0 2% 20%;
+    height: 5vh;
+    width: 7vw;
     border-radius: 25px;
     border: 1px solid blue;
     background-color: #fff;
@@ -222,10 +222,20 @@ input[type="password"]{
     width: 6vw;
     height: 5vh;
     border-radius: 15px;
+    margin-bottom: 15px;
+}
+
+.modalDiv h1 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.modal_close{
+    margin-bottom: 15px;
 }
 
 @media screen and (min-width: 0px) and (max-width: 239px) {  
-    .navbar{
+    .login-navbar{
         height: 12vh;
         width: 100%;
         max-width: 100%;
@@ -350,7 +360,7 @@ input[type="password"]{
 
 @media screen and (min-width: 240px) and (max-width: 750px) { 
 
-    .navbar{
+    .login-navbar{
         height: 12vh;
         display: flex;
         background-color: white;
@@ -416,14 +426,17 @@ input[type="password"]{
         display: block;
         color: rgb(143, 88, 73)
     }
-    #username-login {
-        height: 10vh;
+    .form{
+        width: 97%;
+    }
+    .username-login {
+        height: 8vh;
         width: 97%;
         margin: 1%;
         font-size: 1rem;
     }
-    #password-login {
-        height: 10vh;
+    .password-login {
+        height: 8vh;
         width: 97%;
         margin: 1%;
         font-size: 1rem;
@@ -447,11 +460,11 @@ input[type="password"]{
         margin: 2% 2%;
     }
     
-    .signIn{
-        height: 9vh;
+    .leftSide .signIn{
+        height: 8vh;
         width: 75%;
-        font-size: 1rem;
-        margin: 1% 12% 10%;
+        font-size: 1.2rem;
+        margin: 1% 15% 10%;
         cursor: pointer;
     }
     
@@ -479,7 +492,7 @@ input[type="password"]{
     }
     .newtoLinkedIn
     {
-        height: 9vh;
+        height: 8vh;
         width: 97%;
         margin: 2% 0;
         font-size: 1rem;
@@ -498,8 +511,73 @@ input[type="password"]{
     .rightWithImg {
         display: none;
     }
+
+    .validation-modal{
+        width: 70%;
+        height: 40%;
+        text-align: center;
+        margin: 16% 12%;
+    }
+    .modalDiv{
+        border-radius: 10px;
+        width: 50vw;
+        height: 20vh;
+        margin: 40% 18%;
+        padding-top: 4.25%;
+        background-color: white;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    }
+    
+    .modalDiv button{
+        width: 16vw;
+        height: 5vh;
+        border-radius: 15px;
+        font-size: 1rem;
+    }
+    .modalDiv h1{
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+    .modal_close{
+        display: block;
+        margin-bottom: 10px;
+        font-size: 1rem;
+    }
 }
 
+@media screen and (min-width: 0px) and (max-width: 260px) { 
+    .validation-modal{
+        width: 70%;
+        height: 40%;
+        text-align: center;
+        margin: 50% 14%;
+    }
+    .modalDiv{
+        border-radius: 10px;
+        width: 70vw;
+        height: 20vh;
+        margin: 40% 3%;
+        padding-top: 4.25%;
+        background-color: white;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    }
+    
+    .modalDiv button{
+        width: 28vw;
+        height: 5vh;
+        border-radius: 15px;
+        font-size: 1rem;
+    }
+    .modalDiv h1{
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+    .modal_close{
+        display: block;
+        margin-bottom: 15px;
+        font-size: 1rem;
+    }
+}
 /* @media screen and (min-width: 481px) and (max-width: 750px) { 
     .navbar{
         height: 12vh;

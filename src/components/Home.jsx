@@ -122,8 +122,8 @@ function Home({loading}) {
     }
   };
 
-  const name = appState.name;
-  console.log(name);
+/*  const name = appState.name;
+   console.log(name); */
 
   const navigate = useNavigate();
 

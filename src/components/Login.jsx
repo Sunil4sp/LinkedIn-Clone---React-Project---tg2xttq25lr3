@@ -120,7 +120,7 @@ const Login = ({ handleLoading }) => {
   }
   return (
     <div>
-      <nav className="navbar">
+      <nav className="login-navbar">
         <div className="linkHome">
           <Link to="/home" /*  className="linkHome" */>
             <img className="loginLogo" src={linkedInLogo} alt="logo" />
@@ -146,7 +146,7 @@ const Login = ({ handleLoading }) => {
           <p>Welcome to your professional community</p>
           <br></br>
 
-          <form onSubmit={handleSubmit(loginFn)}>
+          <form onSubmit={handleSubmit(loginFn)} className="form">
             <label htmlFor="username" className="email">
               Email or phone<font color="red">*</font>
             </label>

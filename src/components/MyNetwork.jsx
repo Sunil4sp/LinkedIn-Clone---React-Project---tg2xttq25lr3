@@ -14,8 +14,8 @@ const MyNetwork = () => {
   const { appState } = localContext;
   const { loginStatus } = appState;
 
-  const name = appState.name;
-  console.log(name);
+  /* const name = appState.name;
+  console.log(name); */
 
   return (
     <div className="main">

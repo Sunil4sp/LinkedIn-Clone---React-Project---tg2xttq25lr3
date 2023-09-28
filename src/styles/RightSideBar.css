@@ -7,7 +7,7 @@
 .upperRight{
     height: auto;
     width: 75%;
-    margin: 12% 7% 0;
+    margin: 9% 7% 0;
     padding: 1%;
     border: 1px solid rgb(202, 212, 188);
     border-radius: 10px;
@@ -80,7 +80,7 @@
     font-size: 14px;
 }
 
-@media screen and (min-width: 201px) and (max-width: 750px) {
+@media screen and (min-width: 581px) and (max-width: 750px) {
     /* *{
         font-size: 1.2rem;
     } */
@@ -93,10 +93,10 @@
 
     .upperRight,
     .lowerRight{
-        width: 90%;
+        width: 100%;
         max-width: 100%;
         height: auto;
-        margin: 0 5%;
+        margin: 0;
     }
 
     .lowerRight{
@@ -126,9 +126,9 @@
     }
 }
 
-@media screen and (min-width: 0px) and (max-width: 200px) { 
+@media screen and (min-width: 0px) and (max-width: 580px) { 
     .RightSideBar {
-        width: 90%;
+        width: 100%;
         max-width: 100%;
         height: auto;
         display: inline-block;
@@ -136,10 +136,10 @@
 
     .upperRight,
     .lowerRight{
-        width: 90%;
+        width: 100%;
         max-width: 100%;
         height: auto;
-        margin: 0 10%;
+        margin: 0;
     }
 
     .lowerRight{
@@ -150,19 +150,15 @@
         display: block;
     }
     .lowerRight a{
-        font-size: 0.6rem;
+        font-size: 14px;
         margin: 25%;
     }
 
 }
 
-/* @media screen and (max-width: 750px) and (min-width: 481px) {
+/* @media screen and (max-width: 992px) {
 
-    .upperRight h5{
-        font-size: 0.8rem;
-     }
-     .upperRight button {
-        width: 55%;
-        height: 6vh;
-     }
+    .RightSideBar{
+        display: none;
+    }
 } */

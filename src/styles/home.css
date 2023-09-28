@@ -23,11 +23,13 @@
     background-color: #fff;
     border-bottom: 1px solid rgb(202, 212, 188);
 }
-
+.navLogo{
+    margin: 3px 1% 0 10%;
+}
 .smallLogo{
     height: 33px;
     width: auto;
-    margin: 0 1% 0 10%;
+    margin: 0 1% 0 -65%;
 }
 
 .faIcons {
@@ -77,7 +79,7 @@
     align-items: center;
     justify-content: center;
     padding: 0 2% 0 10%;
-    width: 50%;
+    width: 70%;
     margin-left: 15%;
     box-sizing: border-box;
 }
@@ -172,7 +174,7 @@
     width: 99%;
     background-color: #FFFFFF;
     border-radius: 15px;
-    margin: 7% 0 4.25%;
+    margin: 5.5% 0 4.25%;
     border: 1px solid rgb(202, 212, 188);
 }
 .shareIcon{
@@ -227,7 +229,6 @@
     color: red;
     cursor: pointer;
 }
-
 
 .sections{
     color: rgb(95, 95, 97);
@@ -407,7 +408,6 @@ span{
     color: black;
 }
 
-
 ul li {
     list-style-type: none;
     font-size: 10px;
@@ -417,12 +417,12 @@ ul li {
     width: 20%; 
     padding: 0 3px;
     margin: 0 3px; 
-    border-color: lightblue; 
 }
 #text-field{
     height: 3em;
     padding: 0 3px;
     margin: -2px;
+    border-radius: 5px;
 }
 .loading-screen{
     position: fixed;
@@ -492,7 +492,7 @@ ul li {
   }
 
 
-@media screen and (min-width: 201px) and (max-width: 750px) {
+@media screen and (min-width: 581px) and (max-width: 750px) {
     *{
         font-size: 1.15rem;
     }
@@ -508,15 +508,20 @@ ul li {
 
     .mainContainer{
         display: inline-block;
-        margin-top: 4%;
+        margin-top: 2%;
     }
      
     .navStart{
         width: 100%;
         max-width: 100%;
         position: absolute;
+        height: 6vh;
     }
-    
+
+    .navLogo {
+        margin: 3px 0 0 5%;
+    }
+
     p {
         display: none;
     }
@@ -525,13 +530,13 @@ ul li {
         display: inline-block;
         max-width: 100%;
         width: 100%;
-        margin: 0 5% 2%;
+        margin: 0;
         font-size: 0.8rem;
     }
 
     .PostShare{
         height: auto;
-        width: 90%;
+        width: 100%;
     }
     .PostShare input{
         height: auto;
@@ -552,18 +557,61 @@ ul li {
         height: auto;
         width: 90%;
     }
+    .rightSection{
+        margin-left: 3%;
+        width: 80%;
+        padding: 0;
+    }
+     .home, .network, .jobs, .message, .notification, .signout {
+        width: 17%;
+        padding: 0 ;
+    }
+
+    /*.homeIcon, .networkIcon, .jobsIcon, .msgIcon, .notificationsIcon, .meIcon {
+        font-size: 12px;
+        color: #666666;
+        text-decoration: none;
+    } */
+    .faIcons {
+        font-size: 24px;
+    }
+
+   /* .search{
+    position: 'fixed';
+    top: '17px';
+    left: '100px';
+    right: '20px';
+    background-Color: 'lightblue';
+    z-index: '999';  /* Set a high z-index value 
+   } */
 }
 
-@media screen and (min-width: 0px) and (max-width: 200px) {
+@media screen and (min-width: 281px) and (max-width: 580px) {
 
-    *{
+    /* *{
         font-size: 0.8rem;
+    } */
+    .navStart{
+        overflow: auto;
     }
 
     .mainContainer{
         display: inline-block;
-        margin-top: 3%;
+        margin-top: -8%;
     }
+
+    /* .rightSection{
+        margin-left: 2%;
+        width: 80%;
+        padding: 0;
+    } */
+    .faIcons {
+        font-size: 18px;
+    }
+    .navLogo{
+        margin: 3px 0.5% 0 8%;
+    }
+
     .photoIcon,
     .videosIcon,
     .eventsIcon,
@@ -578,18 +626,18 @@ ul li {
     .MiddleBar{
         display: inline-block;
         max-width: 100%;
-        width: 90%;
-        margin: 0% 5%;
+        width: 100%;
+        margin: 0;
         /* font-size: 0.8rem; */
     }
 
     .PostShare{
         height: auto;
-        margin: 0 0 5%;
+        margin: 5% 0;
     }
     .PostShare input{
-        height: auto;
-        width: 45%;
+        height: 6vh;
+        width: 90%;
     }
 
     .PostShare button{
@@ -601,15 +649,182 @@ ul li {
     .eventsIcon,
     .articleIcon{
         margin: 1% 9%;
-        font-size: 0.6rem;
+        font-size: 1.6rem;
     }
     .postDiv{
         height: auto;
         margin-bottom: 5%;
     }
-    span{
+    /* span{
         display: none;
+    } */
+    /* .search{
+        top: 5px;
+    } */
+}
+   
+@media screen and (max-width: 280px){
+
+.navStart{
+    width: 100%;
+    max-width: 100%;
+    position: sticky;
+    height: 6vh;
+}
+
+.navLogo {
+    margin: 3px -10px 0 10%;
+}
+
+.mainContainer{
+    display: inline-block;
+    margin-top: -10%;
+}
+
+.rightSection{
+    margin-left: 3%;
+    padding: 0;
+    width: 90%;
+    height: auto;
+}
+.faIcons {
+    font-size: 15px;
+}
+
+/* .photoIcon,
+.videosIcon,
+.eventsIcon,
+.articleIcon{
+    margin: 1% 9%;
+} */
+
+p {
+    display: none;
+}
+
+.MiddleBar{
+    display: inline-block;
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+    /* font-size: 0.8rem; */
+}
+
+.PostShare{
+    height: auto;
+    margin: 5% 0;
+}
+.PostShare input{
+    height: 6vh;
+    width: 90%;
+}
+
+.PostShare button{
+    height: auto;
+    width: 19%;
+}
+.photoIcon,
+.videosIcon,
+.eventsIcon,
+.articleIcon{
+    margin: 1% 9%;
+    font-size: 1.6rem;
+}
+.postDiv{
+    height: auto;
+    margin-bottom: 5%;
+}
+.faIcons {
+    font-size: 18px;
+}
+}
+
+@media screen and (min-width: 1025px){
+
+    .rightSection{
+        margin-left: 15%;
+    }
+    .search{
+        margin-left: 1%;
+        width: 90%;
     }
 }
-    
- 
+
+@media screen and (max-width: 1024px) and (min-width: 441px){
+
+    .main-search-div{
+        margin-left: -2%;
+    }
+    .search{
+        position: fixed;
+        width: 15%;
+        z-index: 999;
+        top: 8px;
+        background-color: #EDF3F8;
+        transition: width 0.3s ease-in-out;
+    }
+    .search-expanded{
+        position: fixed;
+        width: 80%;
+        z-index: 999;
+        top: 8px;
+        background-color: #EDF3F8;
+        transition: width 0.3s ease-in-out;
+    }
+    .rightSection{
+        margin-left: 3%;
+        width: 80%;
+        padding: 0;
+        overflow: auto;
+    }
+
+    .faIcons {
+        font-size: 24px;
+    }
+    /* .search-icon{
+        width: 20%;
+    } */
+}
+
+@media screen and (max-width: 440px){
+
+    .navStart{
+        position: sticky;
+        overflow: hidden;
+    }
+    .search {
+        position:fixed;
+        width: 15%;
+        z-index: 999;
+        top: 5px;
+        background-color: #EDF3F8;
+        transition: width 0.3s ease-in-out;
+    }
+    .search-expanded{
+        position: fixed;
+        z-index: 999;
+        top: 5px;
+        background-color: #EDF3F8;
+        width: 80%;
+        transition: width 0.3s ease-in-out;
+    }
+    .main-search-div{
+        margin-left: -4%;
+    }
+    .search-icon{
+        width: 25%;
+        position: fixed;
+        z-index: 999;
+        top: 5px;
+        background-color: #EDF3F8;
+        transition: width 0.3s ease-in-out;
+    }
+    .rightSection{
+        margin-left: 24%;
+        width: 80%;
+        padding: 0;
+    }
+    .faIcons {
+        font-size: 18px;
+    }
+}
