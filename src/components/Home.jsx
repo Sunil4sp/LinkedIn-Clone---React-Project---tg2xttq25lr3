@@ -246,27 +246,28 @@ function Home({loading}) {
                 post.map((item, index) => (
                   <div>
                     <div className="postDiv">
-                      <Avatar
-                        alt="Sunil Pal"
-                        src= {profile_pic}
-                        sx={{ width: 36, height: 36 }}
-                      />
-                      {/* <h3>{name}</h3> */}
-                      <h4 className="testingHeading">{item.msg}</h4>
-                      
+                      <div className="postMsg">
+                        <Avatar
+                          alt="Sunil Pal"
+                          src= {profile_pic}
+                          sx={{ width: 36, height: 36 }}
+                        />
+                        {/* <h3>{name}</h3> */}
+                        <h4 className="testingHeading">{item.msg}</h4>
+                      </div>
                       <div className="shareDetail">
                       <div className="like_button" onClick={handleClick}>
                         <img src="https://static.licdn.com/sc/h/5zhd32fqi5pxwzsz78iui643e"
                         className="fa fa-thumbs-o-up likeArrow"
                          alt="like_pic"/>
-                        <span>{like}Like</span>
+                        <span className="shareDetail-like">{like}Like</span>
                       </div>
                       
                       <div className="comment" onClick={handleShowComment}>
                       
                         <i
                         className="fa fa-comments commentArrow"></i>
-                        <span>Comment</span>
+                        <span className="shareDetail-comment">Comment</span>
                       </div>
                       
                       <div className="deleteComment" onClick={() => {
@@ -274,7 +275,7 @@ function Home({loading}) {
                         }}>
                         <i
                         className="fa fa-trash commentArrow"></i>
-                        <span>Delete</span>
+                        <span className="shareDetail-delete">Delete</span>
                       </div>
                       </div>
                       {showComments && (

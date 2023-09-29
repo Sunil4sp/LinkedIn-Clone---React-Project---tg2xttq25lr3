@@ -237,6 +237,7 @@
     text-align: center;
     padding: 20px;
     font-size: 1.2rem;
+    margin: 0 20%;
   }
 
   .share_box{
@@ -288,16 +289,22 @@
     color: black;
 }
 .postDiv h4{
-    margin: 5px 0px 0px 20px;
-    padding-left: 15px;
+    margin: 0 0 0 10px;
+}
+.postMsg{
+    width: 95%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 3px 0 0 5px;
 }
 
 .testingPara{
     margin: 10px 0px 5px 20px;
 }
-.testingHeading{
+/* .testingHeading{
     margin: 5px 0px 80px 20px;
-}
+} */
 .likeArrow{
     font-size: 25px;
     margin: 5%;
@@ -388,6 +395,8 @@
 .showComnt{
     margin: 2% 3%;
     color: #201f1f;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 .loginOut{
@@ -412,6 +421,14 @@ ul li {
     list-style-type: none;
     font-size: 10px;
 } 
+
+.shareDetail-like,
+.shareDetail-comment,
+.shareDetail-delete{
+    font-weight: bolder;
+    font-size: 14px;
+}
+
 #autocomplete{
     height: 19px;
     width: 20%; 
@@ -514,7 +531,7 @@ ul li {
     .navStart{
         width: 100%;
         max-width: 100%;
-        position: absolute;
+        position: fixed;
         height: 6vh;
     }
 
@@ -537,10 +554,12 @@ ul li {
     .PostShare{
         height: auto;
         width: 100%;
+        border-radius: 4px;
+        margin: 3.5% 0 4.25%;
     }
     .PostShare input{
-        height: auto;
-        width: 50%;
+        height: 7vh;
+        width: 90%;
     }
 
     .PostShare button{
@@ -555,7 +574,14 @@ ul li {
     }
     .postDiv{
         height: auto;
-        width: 90%;
+        width: 100%;
+        border-radius: 4px;
+    }
+    .postMsg{
+        width: 70%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
     }
     .rightSection{
         margin-left: 3%;
@@ -567,23 +593,14 @@ ul li {
         padding: 0 ;
     }
 
-    /*.homeIcon, .networkIcon, .jobsIcon, .msgIcon, .notificationsIcon, .meIcon {
-        font-size: 12px;
-        color: #666666;
-        text-decoration: none;
-    } */
     .faIcons {
         font-size: 24px;
     }
-
-   /* .search{
-    position: 'fixed';
-    top: '17px';
-    left: '100px';
-    right: '20px';
-    background-Color: 'lightblue';
-    z-index: '999';  /* Set a high z-index value 
-   } */
+    .showComnt {
+        margin: 3%;
+        font-size: 18px;
+        font-weight: bold;
+    }
 }
 
 @media screen and (min-width: 281px) and (max-width: 580px) {
@@ -592,6 +609,7 @@ ul li {
         font-size: 0.8rem;
     } */
     .navStart{
+
         overflow: auto;
     }
 
@@ -634,6 +652,7 @@ ul li {
     .PostShare{
         height: auto;
         margin: 5% 0;
+        border-radius: 4px;
     }
     .PostShare input{
         height: 6vh;
@@ -654,13 +673,20 @@ ul li {
     .postDiv{
         height: auto;
         margin-bottom: 5%;
+        width: 100%;
+        border-radius: 4px;
     }
-    /* span{
-        display: none;
-    } */
-    /* .search{
-        top: 5px;
-    } */
+    .loading__text{
+        display: block;
+    }
+    .showComnt {
+        margin: 3%;
+        font-size: 14px;
+        font-weight: bold;
+    }
+    .commentDiv input {
+        height: 6vh;
+    }
 }
    
 @media screen and (max-width: 280px){
@@ -713,6 +739,7 @@ p {
 .PostShare{
     height: auto;
     margin: 5% 0;
+    border-radius: 4px;
 }
 .PostShare input{
     height: 6vh;
@@ -733,9 +760,16 @@ p {
 .postDiv{
     height: auto;
     margin-bottom: 5%;
+    border-radius: 4px;
 }
 .faIcons {
     font-size: 18px;
+}
+.loading__text{
+    display: block;
+}
+.commentDiv input {
+    height: 5vh;
 }
 }
 
@@ -752,27 +786,32 @@ p {
 
 @media screen and (max-width: 1024px) and (min-width: 441px){
 
+    /* .navStart{
+        position: fixed;
+        overflow: hidden;
+    } */
+
     .main-search-div{
         margin-left: -2%;
     }
     .search{
         position: fixed;
-        width: 15%;
+        width: 25%;
         z-index: 999;
-        top: 8px;
+        top: 5px;
         background-color: #EDF3F8;
         transition: width 0.3s ease-in-out;
     }
     .search-expanded{
         position: fixed;
-        width: 80%;
+        width: 85%;
         z-index: 999;
-        top: 8px;
+        top: 5px;
         background-color: #EDF3F8;
         transition: width 0.3s ease-in-out;
     }
     .rightSection{
-        margin-left: 3%;
+        margin-left: 25%;
         width: 80%;
         padding: 0;
         overflow: auto;
@@ -781,9 +820,17 @@ p {
     .faIcons {
         font-size: 24px;
     }
-    /* .search-icon{
-        width: 20%;
-    } */
+    .search-icon{
+        width: 25%;
+        position: fixed;
+        z-index: 999;
+        top: 5px;
+        background-color: #EDF3F8;
+        transition: width 0.3s ease-in-out;
+    }
+    .loading__text{
+        display: block;
+    }
 }
 
 @media screen and (max-width: 440px){
@@ -794,7 +841,7 @@ p {
     }
     .search {
         position:fixed;
-        width: 15%;
+        width: 25%;
         z-index: 999;
         top: 5px;
         background-color: #EDF3F8;
@@ -805,11 +852,8 @@ p {
         z-index: 999;
         top: 5px;
         background-color: #EDF3F8;
-        width: 80%;
+        width: 85%;
         transition: width 0.3s ease-in-out;
-    }
-    .main-search-div{
-        margin-left: -4%;
     }
     .search-icon{
         width: 25%;
@@ -819,6 +863,9 @@ p {
         background-color: #EDF3F8;
         transition: width 0.3s ease-in-out;
     }
+    .main-search-div{
+        margin-left: -4%;
+    }
     .rightSection{
         margin-left: 24%;
         width: 80%;
@@ -826,5 +873,8 @@ p {
     }
     .faIcons {
         font-size: 18px;
+    }
+    .loading__text{
+        display: block;
     }
 }

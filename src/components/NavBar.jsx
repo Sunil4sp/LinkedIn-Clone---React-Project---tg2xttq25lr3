@@ -136,12 +136,12 @@ const NavBar = () => {
           {isSearchBarVisible ? (
             <div
               /* className="search" */
-              className={`search${isSearchBarExpanded ? '-expanded' : '-icon'}`}
+              className={`search${!isSearchBarExpanded ? '-icon' : '-expanded'}`}
               /* style={{
                 width: !isSearchBarExpanded ? "80%" : null,
               }} */
               ref={searchBarRef}
-            > {console.log(isSearchBarExpanded)}
+            > 
               <Autocomplete
                 id="autocomplete" 
                 /* autoComplete */

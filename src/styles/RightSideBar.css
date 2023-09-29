@@ -96,7 +96,8 @@
         width: 100%;
         max-width: 100%;
         height: auto;
-        margin: 0;
+        margin: 4% 0 0;
+        border-radius: 4px;
     }
 
     .lowerRight{
@@ -104,16 +105,23 @@
     }
 
     .upperRight p{
+
         display: block;
+    }
+    .upperRight h5 {
+        margin: 3% 7%;
+        font-size: 1rem;
+    }
+    .upperRight button {
+        width: 70%;
+        height: 7vh;
+        margin: 0 15% 2%;
+        font-size: 16px;
     }
     .lowerRight .h4 > h4{
         margin: 5% 2%;
         font-size: 1rem;
     }
-    /* .lowerRight a{
-        font-size: 1rem;
-        margin: 0.5% 25% 5%;
-    } */
     .gitDiv{
         font-size: 1rem;
         margin: 0.5% 25% 5%;
@@ -140,6 +148,7 @@
         max-width: 100%;
         height: auto;
         margin: 0;
+        border-radius: 4px;
     }
 
     .lowerRight{
@@ -147,13 +156,23 @@
     }
 
     .upperRight p{
+        margin: 3% 16%;
         display: block;
     }
     .lowerRight a{
         font-size: 14px;
         margin: 25%;
     }
-
+    .upperRight h5 {
+        margin: 3% 7%;
+        font-size: 1rem;
+    }
+    .upperRight button {
+        width: 70%;
+        height: 7vh;
+        margin: 0 15% 2%;
+        font-size: 16px;
+    }
 }
 
 /* @media screen and (max-width: 992px) {
