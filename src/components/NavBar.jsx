@@ -58,7 +58,6 @@ const NavBar = () => {
       setSelectedOption(newValue);
       setInputText(newValue);
       setIsSearchBarExpanded(true)
-      console.log(isSearchBarExpanded);
     };
 
     const handleCloseModal = () => {
@@ -74,12 +73,10 @@ const NavBar = () => {
       if (screenWidth <= 1024) {
         setIsSearchBarVisible(false);
         setIsSearchBarExpanded(false);
-        console.log(isSearchBarVisible,isSearchBarExpanded);
       } else {
         /* setIsSearchBarExpanded(true); */
         setIsSearchBarVisible(true);
         setIsSearchBarExpanded(true);
-        console.log(isSearchBarVisible,isSearchBarExpanded);
       }
     }
 
@@ -94,7 +91,6 @@ const NavBar = () => {
   const toggleSearchBar = () => {
     setIsSearchBarVisible(!isSearchBarVisible);
     setIsSearchBarExpanded(!isSearchBarExpanded);
-    console.log(isSearchBarVisible,isSearchBarExpanded);
   };
 
   useEffect(() => {
@@ -136,7 +132,7 @@ const NavBar = () => {
           {isSearchBarVisible ? (
             <div
               /* className="search" */
-              className={`search${!isSearchBarExpanded ? '-icon' : '-expanded'}`}
+              className={`search${!isSearchBarExpanded ? '-expanded' : '-icon'}`}
               /* style={{
                 width: !isSearchBarExpanded ? "80%" : null,
               }} */
