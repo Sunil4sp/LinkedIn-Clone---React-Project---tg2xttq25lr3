@@ -161,7 +161,7 @@
     display: flex;
     justify-content: center;
     background-color: #F3F2EF;
-    overflow-x: hidden;
+    overflow: auto;
 }
 
 .MiddleBar{
@@ -433,13 +433,16 @@ ul li {
     height: 19px;
     width: 20%; 
     padding: 0 3px;
-    margin: 0 3px; 
+    margin: 0 3px;
+    font-size: 10px;
+    overflow: visible;
 }
 #text-field{
     height: 3em;
     padding: 0 3px;
     margin: -2px;
     border-radius: 5px;
+    font-size: 10px;
 }
 .loading-screen{
     position: fixed;
@@ -465,7 +468,7 @@ ul li {
     background: #cfcfcf;
     margin-top: 22px;
     position: relative;
-    overflow: hidden;
+    overflow: auto;
   }
 
   @keyframes bluebar{
@@ -609,7 +612,6 @@ ul li {
         font-size: 0.8rem;
     } */
     .navStart{
-
         overflow: auto;
     }
 
@@ -618,11 +620,6 @@ ul li {
         margin-top: -8%;
     }
 
-    /* .rightSection{
-        margin-left: 2%;
-        width: 80%;
-        padding: 0;
-    } */
     .faIcons {
         font-size: 18px;
     }
@@ -653,6 +650,7 @@ ul li {
         height: auto;
         margin: 5% 0;
         border-radius: 4px;
+        width: 100%;
     }
     .PostShare input{
         height: 6vh;
@@ -810,16 +808,6 @@ p {
         background-color: #EDF3F8;
         transition: width 0.3s ease-in-out;
     }
-    .rightSection{
-        margin-left: 25%;
-        width: 80%;
-        padding: 0;
-        overflow: auto;
-    }
-
-    .faIcons {
-        font-size: 24px;
-    }
     .search-icon{
         width: 25%;
         position: fixed;
@@ -828,6 +816,15 @@ p {
         background-color: #EDF3F8;
         transition: width 0.3s ease-in-out;
     }
+    .rightSection{
+        margin-left: 25%;
+        width: 80%;
+        padding: 0;
+        overflow: auto;
+    }
+    .faIcons {
+        font-size: 24px;
+    }
     .loading__text{
         display: block;
     }
@@ -835,10 +832,10 @@ p {
 
 @media screen and (max-width: 440px){
 
-    .navStart{
+    /* .navStart{
         position: sticky;
         overflow: hidden;
-    }
+    } */
     .search {
         position:fixed;
         /* width: 25%; */

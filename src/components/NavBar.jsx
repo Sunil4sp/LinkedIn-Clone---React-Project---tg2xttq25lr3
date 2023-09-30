@@ -132,7 +132,7 @@ const NavBar = () => {
           {isSearchBarVisible ? (
             <div
               /* className="search" */
-              className={`search${!isSearchBarExpanded ? '-expanded' : '-icon'}`}
+              className={`search${!isSearchBarExpanded ? '-icon' : ''}`}
               /* style={{
                 width: !isSearchBarExpanded ? "80%" : null,
               }} */
@@ -143,10 +143,7 @@ const NavBar = () => {
                 /* autoComplete */
                 autoHighlight
                 options= {optionTexts}
-                value={selectedOption}/* {inputText} */
-                /* inputValue={inputText}
-                defaultValue={[]}
-                getOptionLabel={(option) => option} */       
+                value={selectedOption}     
                 onChange={handleOptionSelect}
                  renderInput={(params) => (
                   <>
@@ -155,10 +152,7 @@ const NavBar = () => {
                       onChange={inputHandler}
                       placeholder="Search"
                        {...params}
-                       style={{fontSize: '12px'}}
-                      /* InputProps={{
-                        ...params.InputProps,
-                      }} */
+                       /* style={{fontSize: '12px'} }*/
                     />
                   </>
                   )}
@@ -172,7 +166,7 @@ const NavBar = () => {
                 onClick={toggleSearchBar}
                 style={{ cursor: "pointer" }}
               />
-              ) : null}
+              ) : ''}
             </div>
           )}
         </div>
