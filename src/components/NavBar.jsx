@@ -39,24 +39,38 @@ const NavBar = () => {
     const searchBarRef = useRef(null);
     const [selectedOption, setSelectedOption] = useState(null);
 
+    useEffect(() => {
+      // Fetch data from ListData.json
+      fetch('/mock_backend/ListData.json') // Replace with the actual path to your JSON file
+        .then((response) => response.json())
+        .then((data) => {
+          // Extract the text property from the JSON data and set it as optionTexts
+          const textArray = data.map((item) => item.text);
+          setOptionTexts(textArray);
+        })
+        .catch((error) => {
+          console.error('Error fetching data:', error);
+        });
+    }, []);
+
     let inputHandler = (e) => {
     //convert input text to lower case
     const lowerCase = (e.target.value || '').toLowerCase();
     setInputText(lowerCase);
-    console.log(lowerCase);
     
     // Calculate filteredTexts based on inputText
-    const filteredTexts = data
+    /* const filteredTexts = data
       .filter((item) => item.text.toLowerCase().includes(lowerCase))
       .map((item) => item.text);
 
     // Update the options
-    setOptionTexts(filteredTexts);
+    setOptionTexts(filteredTexts); */
     };
 
-    const handleOptionSelect = (event, newValue) => {
-      setSelectedOption(newValue);
-      setInputText(newValue);
+    const handleOptionSelect = /* (event, newValue) */ (selectedOption) => {
+      /* event.preventDefault();
+      setSelectedOption(newValue); */
+      setInputText(selectedOption);
       setIsSearchBarExpanded(true)
     };
 
@@ -104,17 +118,15 @@ const NavBar = () => {
         ){ 
           // Clicked outside the search bar, hide it and close the Autocomplete dropdown.
           setIsSearchBarExpanded(false);
-          /* setIsSearchBarVisible(false); */
-          console.log(isSearchBarVisible,isSearchBarExpanded);
+          /* setIsSearchBarVisible(false); 
+          console.log(isSearchBarVisible,isSearchBarExpanded);*/
           }
       };
 
     if (isSearchBarVisible && isSearchBarExpanded) {
       document.addEventListener('click', handleClickOutside);
-      console.log(isSearchBarVisible,isSearchBarExpanded);
     } else {
-      document.removeEventListener('click', handleClickOutside);
-      console.log(isSearchBarVisible,isSearchBarExpanded);
+      document.removeEventListener('click', handleClickOutside);;
     }
 
     return () => {
@@ -131,16 +143,13 @@ const NavBar = () => {
         <div className='main-search-div' style={{ position: "relative" }}>
           {isSearchBarVisible ? (
             <div
-              /* className="search" */
-              className={`search${!isSearchBarExpanded ? '-icon' : ''}`}
-              /* style={{
-                width: !isSearchBarExpanded ? "80%" : null,
-              }} */
+              className={`search${!isSearchBarExpanded ? '-icon' : '-expanded'}`}
               ref={searchBarRef}
             > 
-              <Autocomplete
+              {/* <Autocomplete
+                name="autocomplete"
                 id="autocomplete" 
-                /* autoComplete */
+                autoComplete
                 autoHighlight
                 options= {optionTexts}
                 value={selectedOption}     
@@ -152,17 +161,40 @@ const NavBar = () => {
                       onChange={inputHandler}
                       placeholder="Search"
                        {...params}
-                       /* style={{fontSize: '12px'} }*/
                     />
                   </>
                   )}
-                    /> 
+                    /> */}
+                    {/* <form onSubmit={handleOptionSelect}> */}
+                    <input 
+                    type="search" 
+                    name="autcomplete" 
+                    id="text-field" /* options= {optionTexts} */ 
+                    autoComplete='true'
+                    value={inputText}
+                    placeholder='Search'      
+                    onChange={inputHandler} />
+                    {inputText && (
+                    <div /* className="search-options" */>
+                      {data
+                        .filter((item) => item.text.toLowerCase().includes(inputText))
+                        .map((item, index) => (
+                          <div
+                            key={index}
+                            className="search-option"
+                            onClick={() => handleOptionSelect(item.text)}
+                          >
+                            {item.text}
+                          </div>
+                        ))}
+                        </div>
+                      )}
+                {/*onChange={handleOptionSelect}*/}{/*  </form> */}
             </div>
           ) : (
-            <div>{/*  className="search-icon"> */}
+            <div>
               {!isSearchBarExpanded ? (
               <SearchOutlinedIcon
-                /* id="search-icon" */
                 onClick={toggleSearchBar}
                 style={{ cursor: "pointer" }}
               />
