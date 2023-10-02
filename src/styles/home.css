@@ -864,7 +864,7 @@ p {
     }
     .search-expanded{
         position: fixed;
-        z-index: 999;
+        z-index: 1000;
         top: 10px;
         background-color: #EDF3F8;
         width: 85%;
