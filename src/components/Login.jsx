@@ -41,6 +41,12 @@ const Login = ({ handleLoading }) => {
       setLoginFailed(true);
       return false;
     }
+    // Check if the username contains a dot (.)
+    /* if (e.username.includes('.')) {
+      // Username contains a dot, show validation error
+      setLoginFailed(true);
+      return false;
+    } */
     return true;
   }
 
@@ -161,7 +167,7 @@ const Login = ({ handleLoading }) => {
               /*ref={inputRef} */
               {...register("username", {
                 required: true,
-                pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                pattern: /^(?!.*\.\..*)[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
               })}
             />
             {errors.username && (
