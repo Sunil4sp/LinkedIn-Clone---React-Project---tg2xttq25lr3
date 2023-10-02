@@ -511,12 +511,24 @@ ul li {
     margin-left: 10px;
     /* width: 320px; */
   }
+  .search-options{
+    width: -webkit-fill-available;
+    position: absolute;
+    z-index: 1;
+    top: 33px;
+  }
   .search-option {
     font-size: 14px;
     font-weight: bold;
+    width: inherit;
+    padding: 5px;
     border: 0.5px dashed lightgray;
-    background-color: #EDF3F8 /* You can customize the background color */
+    background-color: #EDF3F8 
   }
+  .search-option.selected {
+    background-color: #007BFF; 
+    color: #fff; 
+}
 
 
 @media screen and (min-width: 581px) and (max-width: 750px) {

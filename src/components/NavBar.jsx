@@ -5,8 +5,8 @@ import '../styles/Login.css';
 import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import { DataAppContext } from "./DataApp";
-import Autocomplete from "@material-ui/lab/Autocomplete";
-import TextField from "@mui/material/TextField";
+/* import Autocomplete from "@material-ui/lab/Autocomplete";
+import TextField from "@mui/material/TextField"; */
 import data from "../mock_backend/ListData.json";
 import Modal from 'react-modal';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
@@ -37,7 +37,7 @@ const NavBar = () => {
     const [isSearchBarVisible, setIsSearchBarVisible] = useState(false);
     const [isSearchBarExpanded, setIsSearchBarExpanded] = useState(false);
     const searchBarRef = useRef(null);
-    const [selectedOption, setSelectedOption] = useState(null);
+    /* const [selectedOption, setSelectedOption] = useState(null); */
 
     useEffect(() => {
       // Fetch data from ListData.json
@@ -68,10 +68,9 @@ const NavBar = () => {
     };
 
     const handleOptionSelect = /* (event, newValue) */ (selectedOption) => {
-      /* event.preventDefault();
-      setSelectedOption(newValue); */
+      /*setSelectedOption(newValue); */
       setInputText(selectedOption);
-      setIsSearchBarExpanded(true)
+      setIsSearchBarExpanded(true);
     };
 
     const handleCloseModal = () => {
@@ -143,7 +142,7 @@ const NavBar = () => {
         <div className='main-search-div' style={{ position: "relative" }}>
           {isSearchBarVisible ? (
             <div
-              className={`search${!isSearchBarExpanded ? '-icon' : '-expanded'} ${isSearchBarExpanded ? 'search-expanded' : ''}`}
+              className={`search${!isSearchBarExpanded ? '-icon' : '-expanded'}`}
               ref={searchBarRef}
             > 
               {/* <Autocomplete
@@ -169,13 +168,15 @@ const NavBar = () => {
                     <input 
                     type="search" 
                     name="autcomplete" 
-                    id="text-field" /* options= {optionTexts} */ 
-                    autoComplete='true'
+                    id="text-field" 
+                    autoComplete='off'
                     value={inputText}
                     placeholder='Search'      
-                    onChange={inputHandler} />
+                    onChange={inputHandler}
+                   />
+                    
                     {inputText && (
-                    <div /* className="search-options" */>
+                    <div className="search-options" /* style={{ position: 'absolute', zIndex: 1, top: '33px' } */>
                       {data
                         .filter((item) => item.text.toLowerCase().includes(inputText))
                         .map((item, index) => (
@@ -189,7 +190,6 @@ const NavBar = () => {
                         ))}
                         </div>
                       )}
-                {/*onChange={handleOptionSelect}*/}{/*  </form> */}
             </div>
           ) : (
             <div>
@@ -198,7 +198,7 @@ const NavBar = () => {
                 onClick={toggleSearchBar}
                 style={{ cursor: "pointer" }}
               />
-              ) : ''}
+              ) : ('')}
             </div>
           )}
         </div>
