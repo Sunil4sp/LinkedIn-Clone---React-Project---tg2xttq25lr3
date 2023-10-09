@@ -1,7 +1,7 @@
 .post {
     background-color: white;
     padding: 15px;
-    margin-bottom: 10px;
+    margin: 10px 0;
     border-radius: 10px;
 }
 
@@ -32,7 +32,7 @@
     width: 70px;
   }
   .account__avatar--img {
-    background-image: url("./../assets/profile.jpg");
+    background-image: url("../Images/profile.jpg");
     background-size: contain;
     background-repeat: no-repeat;
     border-radius: 100%;

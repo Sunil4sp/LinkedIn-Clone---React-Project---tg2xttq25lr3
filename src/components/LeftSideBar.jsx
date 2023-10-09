@@ -40,6 +40,7 @@ const LeftSideBar = () => {
   return (
     <div className="leftSideBar">
       <div className="upperDiv">
+        <div className="upperDiv_profile">
         <div className="camera">
           {/* <i className="fa fa-camera cameraIcon"></i> */}
           <Avatar
@@ -51,6 +52,7 @@ const LeftSideBar = () => {
           {/* <img class="avatar avatar-xl" src="Images/profile.jpg" alt='Profile_pic' /> */}
         </div>
         <h3 className="h3">{name}</h3>
+        </div>
         {/* <h5>{username}</h5> */}
         <hr></hr>
         <p className="connections">
@@ -62,8 +64,8 @@ const LeftSideBar = () => {
           Views on post &ensp;<span className="postCount">1521</span>
         </p>
 
-        <hr></hr>
-        <p className="access">Access exclusive Tools & insights</p>
+       {/*  <hr></hr> */}
+        {/* <p className="access">Access exclusive Tools & insights</p> */}
         {/* <hr></hr>
             <i className="fa fa-bookmark bookmark">My Items</i> */}
       </div>

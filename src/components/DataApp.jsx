@@ -5,7 +5,7 @@ export const DataAppContext = React.createContext();
 const DataApp = (props) => {
 
     const initialState = {
-        loginStatus: false, //false means not logged in
+        loginStatus: !!localStorage.getItem('user'), //false means not logged in
         name: '',   //name
         username: '', //username
         password:'', //password
@@ -14,7 +14,7 @@ const DataApp = (props) => {
 
     useEffect(() => {
         console.log('Context Data - ', appState);
-    })
+    }, [appState])
 
     return (
         <>

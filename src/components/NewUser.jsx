@@ -10,6 +10,7 @@ const NewUser = () => {
       name: '',
       username: '',
       password: '',
+      isRefreshing: false,
   }
 
   //state object for formdata
@@ -22,7 +23,7 @@ const NewUser = () => {
   //method to update each key of state object
   const updateDataAndSubmit = (e) => {
     
-      console.log(/* e.target.id, */ e.target.value);
+      console.log(e.target.value);
 
       let tempObj = {};
       tempObj[e.target.id] = e.target.value.trim();
@@ -79,7 +80,6 @@ const NewUser = () => {
           className="name"
           onChange={(e)=>updateDataAndSubmit(e)} 
           {...register("name", { required: true })}
-          /* value={formdata.name} */
           required
         />
         <label htmlFor="username">Email or Username<font color="red">*</font></label>
@@ -91,7 +91,6 @@ const NewUser = () => {
           onChange={(e)=>updateDataAndSubmit(e)}
           {...register("username", { required: true, pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,})}
           required
-          /* value={formdata.username} */
         />
         {formState.errors.username && (
             <p id="error-message">Email Address should be complete</p>
@@ -105,7 +104,6 @@ const NewUser = () => {
           className="password"
           onChange={updateDataAndSubmit}
           {...register("password", { required: true, minLength: 6,})}
-          /* value={formdata.password} */
           required
         /> 
         {formState.errors.password && (

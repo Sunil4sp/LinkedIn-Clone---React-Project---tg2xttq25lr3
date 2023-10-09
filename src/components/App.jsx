@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './Login';
 import Home from './Home';
 import NewUser from './NewUser';
-
+import Refresh from './Refresh';
 import MyNetwork from './MyNetwork';
 import MyJob from './MyJob';
 import Messaging from './Messaging';
@@ -22,6 +22,7 @@ const App = () => {
   return (
     <div id="main">
     <BrowserRouter>
+        {/* <Refresh /> */}
 				<Routes>
 					<Route path="/home" element={<Home loading={loading} />}/>
           <Route path='/navbar' element={<NavBar />}/>

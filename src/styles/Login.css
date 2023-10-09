@@ -527,6 +527,7 @@ input[type="password"]{
         padding-top: 4.25%;
         background-color: white;
         box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+        border: none;
     }
     
     .modalDiv button{
@@ -534,6 +535,7 @@ input[type="password"]{
         height: 5vh;
         border-radius: 15px;
         font-size: 1rem;
+        border: none;
     }
     .modalDiv h1{
         font-size: 1.2rem;

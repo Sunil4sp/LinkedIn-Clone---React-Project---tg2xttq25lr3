@@ -4,13 +4,20 @@
     font-family: sans-serif;
 }
 .upperDiv{
-    height: 45%;
+    height: auto;
     width: 70%;
     margin: 9% 21% 5%;
+    padding: 5% 0;
     font-size: 1rem;
     border: 1px solid rgb(202, 212, 188);
     border-radius: 10px;
     background-color: #FFFFFF;   
+}
+.upperDiv_profile{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .upperDiv h3{
@@ -53,10 +60,10 @@
 }
 
 .camera{
-    height: 22%;
-    width: 38%;
+    height: auto;
+    width: auto;
     border-radius: 70px;
-    margin: 10% 34% 5%;
+    margin: 5% 0;
 }
 
 .cameraIcon{
@@ -65,9 +72,10 @@
     border-radius: 50%;
 }
 .lowerDiv{
-    height: 45%;
+    height: auto;
     width: 70%;
     margin: 7% 21%;
+    padding: 5% 0;
     font-size: 0.9rem;
     border: 1px solid rgb(202, 212, 188);
     border-radius: 10px;
@@ -110,13 +118,14 @@
         border-radius: 4px;
     }
     .upperDiv h3{
-        margin: 5% 40%;
+        margin: 0;
         color: black;
-        font-size: 24px;
+        font-size: 20px;
     }
     .camera{
-        border-radius: 50%;
-        margin: 5% 40%;
+        /* border-radius: 50%;*/
+        margin: 0 0 2%; 
+        width: 15.5%;
     }
     .lowerDiv {
         width: 100%;
@@ -153,15 +162,16 @@
         display: block;
     }
     .camera{
-        border-radius: 50%;
-        margin: 5% 40%;
+        /* border-radius: 50%; */
+        margin: 0 0 2%;
+        width: 15%;
     }
     #avatar{
         width: 70px;
         height: 70px;
     }
     .upperDiv h3{
-        margin: 5% 38%;
+        margin: 0;
         color: black;
         font-size: 20px;
     }

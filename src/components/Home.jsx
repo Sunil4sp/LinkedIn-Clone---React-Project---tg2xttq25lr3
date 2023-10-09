@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import "../styles/home.css";
 import { useNavigate } from "react-router-dom";
 import { DataAppContext } from "./DataApp";
@@ -8,6 +8,16 @@ import RightSideBar from "./RightSideBar";
 import Avatar from '@mui/material/Avatar';
 import profile_pic from '../Images/profile.jpg';
 import smallLogo from '../Images/smallLogo.png';
+import Card from "./Card";
+import posts from "../mock_backend/Posts";
+/* import Login from './Login'; */
+
+/* function isAuthenticated() {
+  // Check if authentication information is present in storage
+  const user = localStorage.getItem("user");
+  return !user; // Return true if user information is found
+}
+console.log(isAuthenticated()); */
 
 const ShareAble = (props) => {
   const localContext = useContext(DataAppContext);
@@ -15,16 +25,14 @@ const ShareAble = (props) => {
   const name = appState.name;
 
   const [showCommentBox, setShowCommentBox] = useState(true);
-/*   const [showCommenting, setShowCommenting] = useState(true); */
   const [inputs, setInputs] = useState("");
   
-
   const commentPost = (e) => {
     e.preventDefault();
     let objs = { inputs };
     let tempArr = [...props.posts];
     tempArr[props.index].coment.push(objs);
-    console.log(tempArr, "temparr");
+    /* console.log(tempArr, "temparr"); */
     props.setpost(tempArr);
     setInputs("");
     setShowCommentBox(false);
@@ -66,9 +74,10 @@ const ShareAble = (props) => {
           <div className="comment-reply">
             <div className="reply-profile">
               <h5 className="h5">{name}</h5>
+              <span className="showComnt">{data.inputs}</span>
             </div>
-            <span className="showComnt">{data.inputs}</span>
           </div>
+
         ))}
       </div>
       </div>
@@ -80,11 +89,13 @@ function Home({loading}) {
   const localContext = useContext(DataAppContext);
   const { appState } = localContext;
   const { loginStatus } = appState;
+  /* const isLoading = appState.isLoading; */
 
   const [input, setInput] = useState();
   const [post, setPost] = useState([]);
   const [like, setLike] = useState(0);
   const [clicked, setClicked] = useState(false);
+  const [displayPosts, setDisplayPosts] = useState(posts);
   const [togglephoto, setTogglePhoto] = useState(false);
   const [toggleevent, setToggleEvent] = useState(false);
   const [togglewriteArticle, setToggleWriteArticle] = useState(false);
@@ -122,8 +133,9 @@ function Home({loading}) {
     }
   };
 
-/*  const name = appState.name;
-   console.log(name); */
+  const display = (postData) => {
+    setDisplayPosts(postData);
+  };
 
   const navigate = useNavigate();
 
@@ -142,7 +154,7 @@ function Home({loading}) {
       if (obj.msg !== "") {
         setPost([obj, ...post]);
         setInput("");
-        console.log(post);
+        /* console.log(post); */
       } else {
         alert("Please enter a message");
       }
@@ -153,8 +165,10 @@ function Home({loading}) {
   };
 
   const deletePost = (index) => {
-    let tempArr = post;
-    console.log(index);
+   /*  let tempArr = post;
+    tempArr.splice(index, 1);
+    setPost([...tempArr]); */
+    let tempArr = post.slice(); // Create a copy of the array
     tempArr.splice(index, 1);
     setPost([...tempArr]);
   };
@@ -164,10 +178,17 @@ function Home({loading}) {
   const handleShowComment = () =>{
       setShowComments(!showComments);
   }
+/* 
+  useEffect(() => {
+    // Redirect to the login page if not authenticated
+    if (!isAuthenticated()) {
+      navigate("/login");
+    }
+  }, [navigate]); */
 
   return (
-    <>
-    {loading && (
+    <> 
+     {loading && (
         <div className="loading-screen">
           <div className="loading-animation">
             <p className="loading__text">
@@ -176,8 +197,9 @@ function Home({loading}) {
             <div className="loading-bar"></div>
           </div>
         </div>
-      )}
-    {!loading && (  
+      )} 
+    {!loading &&   
+    (
     <div className="main">
       <>
         {" "}
@@ -286,12 +308,13 @@ function Home({loading}) {
                   </div>
                 ))}
             </div>
+            <Card />
           </div>
           <RightSideBar />
         </div>
       </>
     </div>
-    )}
+    )} 
     </>
   );
 }

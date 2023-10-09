@@ -17,6 +17,7 @@
     position: sticky;
     top: 0px;
     width: 100%;
+    height: 6vh;
     display: flex;
     align-items: center;
     margin: 0 0 0.1% 0; 
@@ -56,10 +57,11 @@
     font-size: 12px;
     color: #666666;
     text-decoration: none;
+    margin: 0;
 }
 
 .meIcon{
-    margin-left: 14px;
+    margin-left: 2px;
     width: 20px;
 }
 
@@ -147,6 +149,10 @@
 .signoutLink:hover
 {
     text-decoration: none;
+    font-weight: 600;
+}
+
+.meIcon:hover{
     font-weight: 600;
 }
 
@@ -302,9 +308,7 @@
 .testingPara{
     margin: 10px 0px 5px 20px;
 }
-/* .testingHeading{
-    margin: 5px 0px 80px 20px;
-} */
+
 .likeArrow{
     font-size: 25px;
     margin: 5%;
@@ -377,9 +381,10 @@
     padding-left: 10px;
 }
 .comment-reply{
-    width: 95%;
+    width: 80%;
     height: auto;
     display: flex;
+    flex-direction: column;
 }
 .reply-profile{
     display: flex;
@@ -390,12 +395,12 @@
 
 .h5{
     color: black;
-    margin: 2% 10%
+    margin: 0 10%
 }
 .showComnt{
-    margin: 2% 3%;
+    margin: 0 15%;
     color: #201f1f;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: bold;
 }
 
@@ -509,7 +514,6 @@ ul li {
     margin-top: 5px;
     padding-left: 15px;
     margin-left: 10px;
-    /* width: 320px; */
   }
   .search-options{
     width: -webkit-fill-available;
@@ -605,11 +609,11 @@ ul li {
         justify-content: flex-start;
         align-items: center;
     }
-    .rightSection{
+    /* .rightSection{
         margin-left: 3%;
         width: 80%;
         padding: 0;
-    }
+    } */
      .home, .network, .jobs, .message, .notification, .signout {
         width: 17%;
         padding: 0 ;
@@ -623,6 +627,12 @@ ul li {
         font-size: 18px;
         font-weight: bold;
     }
+    .working_on_div__pad{
+        text-align: center;
+        padding: 20px;
+        font-size: 1.2rem;
+        margin: 0 15% 0 25%;
+      }
 }
 
 @media screen and (min-width: 281px) and (max-width: 580px) {
@@ -793,11 +803,15 @@ p {
 @media screen and (min-width: 1025px){
 
     .rightSection{
-        margin-left: 15%;
+        margin-left: 25%;
     }
     .search{
         margin-left: 1%;
         width: 90%;
+    }
+    .main-search-div{
+        margin-left: -1%;
+        width: 25%;
     }
 }
 
@@ -809,7 +823,7 @@ p {
     } */
 
     .main-search-div{
-        margin-left: -3%;
+        margin-left: -1%;
     }
     .search{
         position: fixed;
@@ -915,4 +929,10 @@ p {
     .loading__text{
         display: block;
     }
+    .working_on_div__pad{
+        text-align: center;
+        padding: 20px;
+        font-size: 1rem;
+        margin: 0 10%;
+      }
 }
