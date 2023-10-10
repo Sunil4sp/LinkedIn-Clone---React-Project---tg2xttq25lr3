@@ -202,17 +202,16 @@ input[type="password"]{
     margin: -1% 14%;
 }
 .validation-modal{
-    /* width: 70%;
-    height: 40%; */
     text-align: center;
-    margin: 16% 12%;
+    margin: 16% 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .modalDiv{
-    /* margin: 20% 10%; */
     border-radius: 10px;
     width: 40vw;
     height: 30vh;
-    margin: 0% 25%;
     padding-top: 4.25%;
     background-color: white;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);

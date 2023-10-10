@@ -51,7 +51,7 @@ const LeftSideBar = () => {
           />
           {/* <img class="avatar avatar-xl" src="Images/profile.jpg" alt='Profile_pic' /> */}
         </div>
-        <h3 className="h3">{name}</h3>
+        <h3 className="h3_title">{name}</h3>
         </div>
         {/* <h5>{username}</h5> */}
         <hr></hr>
@@ -71,11 +71,11 @@ const LeftSideBar = () => {
       </div>
       <div className="lowerDiv">
         <p id='lowerDiv recent'>Recent</p>
-        <h5 onClick={handleReactjs}>#reactJS</h5>
-        <h5 onClick={handleProgramming}>#programming</h5>
-        <h5 onClick={handleSoftwareEngineering}>#software engineering</h5>
-        <h5 onClick={handleDesign}>#design</h5>
-        <h5 onClick={handleDeveloper}>#developer</h5>
+        <h5 className='h5_title' onClick={handleReactjs}>#reactJS</h5>
+        <h5 className='h5_title' onClick={handleProgramming}>#programming</h5>
+        <h5 className='h5_title' onClick={handleSoftwareEngineering}>#software engineering</h5>
+        <h5 className='h5_title' onClick={handleDesign}>#design</h5>
+        <h5 className='h5_title' onClick={handleDeveloper}>#developer</h5>
       </div>
     </div>
   );

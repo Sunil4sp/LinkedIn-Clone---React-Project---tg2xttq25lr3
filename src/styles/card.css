@@ -192,3 +192,8 @@
     content: "·";
     margin: 0 5px;
   }
+
+  .h4_title{
+    color: black;
+    font-weight: 600;
+  }

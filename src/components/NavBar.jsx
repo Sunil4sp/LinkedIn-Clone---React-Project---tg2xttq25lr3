@@ -39,30 +39,6 @@ const NavBar = () => {
     setIsSearchBarExpanded(!isSearchBarExpanded);
   };
 
-  /* useEffect(() => {
-
-    function handleClickOutside(event) {
-        if (
-          searchBarRef.current &&
-          !searchBarRef.current.contains(event.target) &&
-          isSearchBarVisible &&
-          isSearchBarExpanded
-        ){ 
-          // Clicked outside the search bar, hide it and close the Autocomplete dropdown.
-          setIsSearchBarExpanded(false);
-          }
-      };
-
-    if (isSearchBarVisible && isSearchBarExpanded) {
-      document.addEventListener('click', handleClickOutside);
-    } else {
-      document.removeEventListener('click', handleClickOutside);;
-    }
-
-    return () => {
-      document.removeEventListener('click', handleClickOutside);
-    };
-  }, [isSearchBarVisible, isSearchBarExpanded]);  */
 
   return (
     <>

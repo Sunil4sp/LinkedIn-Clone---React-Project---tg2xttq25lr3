@@ -110,13 +110,13 @@ const Card = () => {
         </div>
         <div className="post__engagement--comments">
           <div>
-            <h4>Aditya Chandrakant</h4>
+            <h4 className='h4_title'>Aditya Chandrakant</h4>
             <p>LinkedIn Clone uses LocalStorage For Logging In!</p>
           </div>
         </div>
         <div className="post__engagement--comments">
           <div>
-            <h4>Sonu Kumar</h4>
+            <h4 className='h4_title'>Sonu Kumar</h4>
             <p>It uses Mock Backend!</p>
           </div>
         </div>
@@ -165,13 +165,13 @@ const Card = () => {
         </div>
         <div className="post__engagement--comments">
           <div>
-            <h4>Aditya Chandrakant</h4>
+            <h4 className='h4_title'>Aditya Chandrakant</h4>
             <p>LinkedIn Clone uses LocalStorage For Logging In!</p>
           </div>
         </div>
         <div className="post__engagement--comments">
           <div>
-            <h4>Sonu Kumar</h4>
+            <h4 className='h4_title'>Sonu Kumar</h4>
             <p>Agreed!</p>
           </div>
         </div>

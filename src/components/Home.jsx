@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import "../styles/home.css";
-import { useNavigate } from "react-router-dom";
+/* import { useNavigate } from "react-router-dom"; */
 import { DataAppContext } from "./DataApp";
 import NavBar from "./NavBar";
 import LeftSideBar from "./LeftSideBar";
@@ -9,7 +9,9 @@ import Avatar from '@mui/material/Avatar';
 import profile_pic from '../Images/profile.jpg';
 import smallLogo from '../Images/smallLogo.png';
 import Card from "./Card";
-import posts from "../mock_backend/Posts";
+import PostModal from "./PostModal";
+
+/* import posts from "../mock_backend/Posts"; */
 /* import Login from './Login'; */
 
 /* function isAuthenticated() {
@@ -54,7 +56,7 @@ const ShareAble = (props) => {
         </div> 
               
         <div className="profile-name">
-          <h5>{name}</h5>
+          <h5 className="h5_title">{name}</h5>
         </div>
       </div> 
        )}
@@ -73,7 +75,7 @@ const ShareAble = (props) => {
         {props.posts[props.index].coment.map((data) => (
           <div className="comment-reply">
             <div className="reply-profile">
-              <h5 className="h5">{name}</h5>
+              <h5 className="h5_title">{name}</h5>
               <span className="showComnt">{data.inputs}</span>
             </div>
           </div>
@@ -95,10 +97,11 @@ function Home({loading}) {
   const [post, setPost] = useState([]);
   const [like, setLike] = useState(0);
   const [clicked, setClicked] = useState(false);
-  const [displayPosts, setDisplayPosts] = useState(posts);
+  /* const [displayPosts, setDisplayPosts] = useState(posts); */
   const [togglephoto, setTogglePhoto] = useState(false);
   const [toggleevent, setToggleEvent] = useState(false);
   const [togglewriteArticle, setToggleWriteArticle] = useState(false);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const handlePhotoToggle = () => {
     setTogglePhoto(!togglephoto);
@@ -133,11 +136,7 @@ function Home({loading}) {
     }
   };
 
-  const display = (postData) => {
-    setDisplayPosts(postData);
-  };
-
-  const navigate = useNavigate();
+  /* const navigate = useNavigate(); */
 
   const handleClick = () => {
     const clickedOnce = !clicked;
@@ -145,8 +144,7 @@ function Home({loading}) {
     setClicked(clickedOnce);
   };
 
-
-  const submitPost = (e) => {
+  /* const submitPost = (e) => {
     if (loginStatus) {
       let obj = { id: post.length, clicked: false, msg: input, coment: [] };
       e.preventDefault();
@@ -155,14 +153,14 @@ function Home({loading}) {
         setPost([obj, ...post]);
         setInput("");
         /* console.log(post); */
-      } else {
+      /* } else {
         alert("Please enter a message");
       }
     } else {
       alert("Login to add post & comment");
       navigate("/login");
     }
-  };
+  };  */
 
   const deletePost = (index) => {
    /*  let tempArr = post;
@@ -173,11 +171,35 @@ function Home({loading}) {
     setPost([...tempArr]);
   };
 
-  const [showComments, setShowComments] = useState(false);
-
-  const handleShowComment = () =>{
+  /* const [showComments, setShowComments] = useState(false); */
+  const [showComments, setShowComments] = useState({});
+  
+  /* const handleShowComment = () =>{
       setShowComments(!showComments);
-  }
+  } */
+  const handleShowComment = (index) => {
+    setShowComments((prevState) => ({
+      ...prevState,
+      [index]: !prevState[index], // Toggle the state for the specific post index
+    }));
+  };
+
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
+
+  const handlePost = (newPost) => {
+    setPost([newPost, ...post]);
+    console.log("Post:", post);
+  };
+
+  /* const handleCloseModal = () => {
+    setModalIsOpen(false);
+  }; */
 /* 
   useEffect(() => {
     // Redirect to the login page if not authenticated
@@ -192,7 +214,7 @@ function Home({loading}) {
         <div className="loading-screen">
           <div className="loading-animation">
             <p className="loading__text">
-              Linked<img src={smallLogo} className="logo_text" alt="in" />
+              <font color="blue" weight="bold">Linked</font><img src={smallLogo} className="logo_text" alt="in" />
             </p>
             <div className="loading-bar"></div>
           </div>
@@ -214,14 +236,33 @@ function Home({loading}) {
                   src= {profile_pic}
                   sx={{ width: 36, height: 36 }}
                 />
-                <form onSubmit={submitPost} className="form_submit">
+                {/* <form onSubmit={submitPost} className="form_submit"> */}
                   <input
+                    className="postMsg"
                     type="search"
                     placeholder="Start Post"
                     value={input}
-                    onChange={(e) => setInput(e.target.value)}
+                    /* onChange={(e) => setInput(e.target.value)} */
+                    onClick={openModal}
                   />
-                </form>
+                  {modalIsOpen && <PostModal onClose= {closeModal} onPost={handlePost} />}
+                  
+                {/* </form> */}
+              </div>
+              
+              <div className="share_box">
+                <div className="share_box-1" onClick={handlePhotoToggle}>
+                  <i className="fa fa-picture-o photoIcon"></i>
+                  <p className="photos">Media</p>
+                </div>
+                <div className="share_box-2" onClick={handleEventToggle}>
+                  <i className="fa fa-calendar eventsIcon"></i>
+                  <p className="events">Events</p>
+                </div>
+                <div className="share_box-3" onClick={handleWriteArticleToggle}>
+                  <i className="fa fa-pencil-square-o articleIcon"></i>
+                  <p className="article">Write Article</p>
+                </div>
               </div>
               <br></br>
               <div className="sections">
@@ -248,25 +289,11 @@ function Home({loading}) {
                   ""
                 )}
               </div>
-              <div className="share_box">
-                <div className="share_box-1" onClick={handlePhotoToggle}>
-                  <i className="fa fa-picture-o photoIcon"></i>
-                  <p className="photos">Media</p>
-                </div>
-                <div className="share_box-2" onClick={handleEventToggle}>
-                  <i className="fa fa-calendar eventsIcon"></i>
-                  <p className="events">Events</p>
-                </div>
-                <div className="share_box-3" onClick={handleWriteArticleToggle}>
-                  <i className="fa fa-pencil-square-o articleIcon"></i>
-                  <p className="article">Write Article</p>
-                </div>
-              </div>
             </div>
             <div>
               {loginStatus &&
                 post.map((item, index) => (
-                  <div>
+                  <div key={item.id}>
                     <div className="postDiv">
                       <div className="postMsg">
                         <Avatar
@@ -282,10 +309,10 @@ function Home({loading}) {
                         <img src="https://static.licdn.com/sc/h/5zhd32fqi5pxwzsz78iui643e"
                         className="fa fa-thumbs-o-up likeArrow"
                          alt="like_pic"/>
-                        <span className="shareDetail-like">{like}Like</span>
+                        <span className="shareDetail-like">{like} Like</span>
                       </div>
                       
-                      <div className="comment" onClick={handleShowComment}>
+                      <div className="comment" onClick={() => handleShowComment(index)}>
                       
                         <i
                         className="fa fa-comments commentArrow"></i>
@@ -300,7 +327,7 @@ function Home({loading}) {
                         <span className="shareDetail-delete">Delete</span>
                       </div>
                       </div>
-                      {showComments && (
+                      {showComments[index] && (
                       <ShareAble posts={post} setpost={setPost} index={index} />
                       )}
                      

@@ -195,8 +195,9 @@
     margin-left: 2%;
 }
 
-.form_submit{
+.postMsg{
     width: 98%;
+    cursor: pointer;
 }
 
 .PostShare input{
@@ -243,7 +244,7 @@
     text-align: center;
     padding: 20px;
     font-size: 1.2rem;
-    margin: 0 20%;
+    margin: 0 26%;
   }
 
   .share_box{
@@ -279,6 +280,11 @@
     border: none;
     cursor: pointer;
 }
+.photos,
+.events,
+.article{
+    margin: 2px 0;
+}
 .postDiv{
     height: auto;
     width: 98%;
@@ -294,8 +300,10 @@
     margin: 5px 0px 0px 20px;
     color: black;
 }
-.postDiv h4{
+.testingHeading{
     margin: 0 0 0 10px;
+    font-size: 14px;
+    font-weight: 600;
 }
 .postMsg{
     width: 95%;
@@ -393,9 +401,10 @@
     margin: 2%;
 }
 
-.h5{
+.h5_title{
     color: black;
-    margin: 0 10%
+    margin: 0 4%;
+    font-size: 16px;
 }
 .showComnt{
     margin: 0 15%;
@@ -532,6 +541,19 @@ ul li {
   .search-option.selected {
     background-color: #007BFF; 
     color: #fff; 
+}
+.modalHeader{
+    justify-content: flex-start;
+}
+
+.textareaType{
+    border: none;
+}
+.modalTitle{
+    margin-left: 15px;
+}
+.btn-close{
+    
 }
 
 
