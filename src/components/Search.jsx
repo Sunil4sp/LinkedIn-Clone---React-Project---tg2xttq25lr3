@@ -49,7 +49,8 @@ const SearchBar = () => {
     <>
       {/* {isSearchBarVisible && ( */}
       <div
-        className={`search${!isSearchBarExpanded ? "-icon" : /* "-expanded" */ ''}`}
+        className='search'
+        /* className={`search${!isSearchBarExpanded ? "-icon" : "-expanded" /* '' }`} */
         ref={searchBarRef}
       >
         <input
