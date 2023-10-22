@@ -36,7 +36,7 @@
 }
 .loginLogo{
     height: 7vh;
-    width: 75%;
+    width: 60%;
     float: left;
     margin: 2% 5%;
 }
@@ -127,6 +127,7 @@ input[type="password"]{
 .password {
     margin: 2% 13%;
     font-family: sans-serif;
+    display: inline;
 }
 .leftSide .forPass{
     font-size: 18px;

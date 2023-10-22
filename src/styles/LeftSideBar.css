@@ -1,12 +1,13 @@
 .leftSideBar{
     height: auto;
-    width: 24%;
+    width: 20%;
+    margin: 0 22px 0 0;
     font-family: sans-serif;
 }
 .upperDiv{
     height: auto;
-    width: 70%;
-    margin: 9% 21% 5%;
+    width: 100%;
+    margin: 10% 7% 4.25% 0;/* 20px 20px 0 10px; */
     padding: 5% 0;
     font-size: 1rem;
     border: 1px solid rgb(202, 212, 188);
@@ -25,6 +26,10 @@
     color: black;
     font-size: 20px;
 }
+.connection_detail{
+    display: flex;
+    justify-content: space-between;
+}
 
  .connections{
     margin: 4% 4%;
@@ -34,14 +39,16 @@
 }
 .connectionCount{
     color: #0A66C2;
-    margin: auto;
+    /* margin: auto; */
+    margin: 4%;
     font-weight: bolder;
     font-size: 15px;
 }
 
 .postCount{
     color: #0A66C2;
-    margin: auto;
+    /* margin: auto; */
+    margin: 4%;
     font-weight: bolder;
     font-size: 15px;
 }
@@ -73,8 +80,8 @@
 }
 .lowerDiv{
     height: auto;
-    width: 70%;
-    margin: 7% 21%;
+    width: 100%;
+    margin: 10% 7% 4.25% 0;
     padding: 5% 0;
     font-size: 0.9rem;
     border: 1px solid rgb(202, 212, 188);
@@ -114,7 +121,7 @@
     .upperDiv{
         width: 100%;
         max-width: 100%;
-        margin: 60px 0 0 5%;
+        margin: 5% 0 0 5%;
         border-radius: 4px;
     }
     .upperDiv h3{
@@ -177,3 +184,11 @@
     }
 }
 
+@media screen and (min-width: 751px) and (max-width: 1024px) {
+/* .leftSideBar {
+    height: auto;
+    width: 20%;
+    margin: 10px 30px 0 0;
+    font-family: sans-serif;
+    } */
+}

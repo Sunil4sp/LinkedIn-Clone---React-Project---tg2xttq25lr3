@@ -47,34 +47,37 @@ const SearchBar = () => {
 
   return (
     <>
-    {/* {isSearchBarVisible && ( */}
-    <div className={`search${!isSearchBarExpanded ? '-icon' : '-expanded'}`} ref={searchBarRef}>
-      <input
-        type="search"
-        name="autocomplete"
-        id="text-field"
-        autoComplete="off"
-        value={inputText}
-        placeholder="Search"
-        onChange={inputHandler}
-      />
+      {/* {isSearchBarVisible && ( */}
+      <div
+        className={`search${!isSearchBarExpanded ? "-icon" : /* "-expanded" */ ''}`}
+        ref={searchBarRef}
+      >
+        <input
+          type="search"
+          name="autocomplete"
+          id="text-field"
+          autoComplete="off"
+          value={inputText}
+          placeholder="Search"
+          onChange={inputHandler}
+        />
 
-      {inputText && (
-        <div className="search-options">
-          {data
-            .filter((item) => item.text.toLowerCase().includes(inputText))
-            .map((item, index) => (
-              <div
-                key={index}
-                className="search-option"
-                onClick={() => handleOptionSelect(item.text)}
-              >
-                {item.text}
-              </div>
-            ))}
-        </div>
-      )}
-    </div>
+        {inputText && (
+          <div className="search-options">
+            {data
+              .filter((item) => item.text.toLowerCase().includes(inputText))
+              .map((item, index) => (
+                <div
+                  key={index}
+                  className="search-option"
+                  onClick={() => handleOptionSelect(item.text)}
+                >
+                  {item.text}
+                </div>
+              ))}
+          </div>
+        )}
+      </div>
     </>
   );
 };

@@ -542,6 +542,7 @@ input[type="password"]{
     }
     .navbar___div p{
         display: block;
+        margin: 0;
     }
     .post__info > p {
       display: block;
@@ -656,7 +657,7 @@ input[type="password"]{
     align-items: center;
     flex-direction: row;
     height: 50px;
-    margin-bottom: 16px;
+    margin: 0 10px 20px 0;
     
   }
   .pad_-left{
@@ -668,10 +669,10 @@ input[type="password"]{
   .para_head{
     color: #0177b7;
     font-weight: bold;
-    font-size: 15px;
+    font-size: 14px;
   }
   .para_text{
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 300;
   }
   .para_detail{

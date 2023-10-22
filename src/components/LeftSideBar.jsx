@@ -45,25 +45,29 @@ const LeftSideBar = () => {
           {/* <i className="fa fa-camera cameraIcon"></i> */}
           <Avatar
             id="avatar"
-            alt="Sunil Pal"
-            src= {profile_pic}
+            alt={name}
+            src= {(name ==='sunil'|| name === 'Sunil'|| name === 'SUNIL') ? profile_pic : undefined}
             sx={{ width: 56, height: 56 }}
           />
-          {/* <img class="avatar avatar-xl" src="Images/profile.jpg" alt='Profile_pic' /> */}
         </div>
         <h3 className="h3_title">{name}</h3>
         </div>
         {/* <h5>{username}</h5> */}
         <hr></hr>
-        <p className="connections">
-          Who's viewed your profile &ensp;
+        <div className="leftSidebar_connection">
+          <div className="connection_detail">
+          <p className="connections">
+            Who's viewed your profile &ensp;
+          </p>
           <span className="connectionCount">30</span>
-        </p>
-
+        </div>
+        <div className="connection_detail">
         <p className="growYour">
-          Views on post &ensp;<span className="postCount">1521</span>
+          Connections &ensp;
         </p>
-
+        <span className="postCount">1521</span>
+        </div>
+      </div>
        {/*  <hr></hr> */}
         {/* <p className="access">Access exclusive Tools & insights</p> */}
         {/* <hr></hr>

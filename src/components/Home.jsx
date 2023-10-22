@@ -47,7 +47,6 @@ const ShareAble = (props) => {
        {showCommentBox && ( 
        <div className="profile-pic-comment">
         <div className="profile-picture">
-          
           <Avatar
                   alt="Sunil Pal"
                   src= {profile_pic}
@@ -91,6 +90,7 @@ function Home({loading}) {
   const localContext = useContext(DataAppContext);
   const { appState } = localContext;
   const { loginStatus } = appState;
+  const name = appState.name;
   /* const isLoading = appState.isLoading; */
 
   const [input, setInput] = useState();
@@ -233,10 +233,9 @@ function Home({loading}) {
               <div className="user_profile">
                 <Avatar
                   alt="Sunil Pal"
-                  src= {profile_pic}
+                  src= {(name ==='sunil'|| name === 'Sunil'|| name === 'SUNIL') ? profile_pic : undefined}
                   sx={{ width: 36, height: 36 }}
                 />
-                {/* <form onSubmit={submitPost} className="form_submit"> */}
                   <input
                     className="postMsg"
                     type="search"
@@ -298,7 +297,7 @@ function Home({loading}) {
                       <div className="postMsg">
                         <Avatar
                           alt="Sunil Pal"
-                          src= {profile_pic}
+                          src= {(name ==='sunil'|| name === 'Sunil'|| name === 'SUNIL') ? profile_pic : undefined}
                           sx={{ width: 36, height: 36 }}
                         />
                         {/* <h3>{name}</h3> */}

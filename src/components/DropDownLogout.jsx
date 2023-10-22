@@ -50,7 +50,7 @@ const toggleDropdown = () => {
       <div className="dropdown">
         <Avatar
           alt="Sunil Pal"
-          src={profile_pic}
+          src={(name ==='sunil'|| name === 'Sunil'|| name === 'SUNIL') ? profile_pic : undefined}
           sx={{ width: 20, height: 20 }}
           onClick={toggleDropdown}
         />

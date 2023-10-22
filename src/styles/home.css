@@ -6,31 +6,66 @@
 
 .main{
     width: 100%;
+    display: flex;
+    flex-direction: column;
     height: auto;
     margin: auto;
     left: 0;
     right: 0;
 }
+.global-nav-bar{
+    background-color: #fff;
+    left: 0;
+    padding: 0 2.4rem;
+    position: sticky;
+    top: 0;
+    width: 100vw;
+    height: 8vh;
+    z-index: 100;
+    border-bottom: 1px solid rgb(140, 140, 140, 0.2);
+}
+/* .global-nav__content {
+    align-items: center;
+    display: flex;
+    margin: 0 auto;
+    min-height: 100%;
+    width: 1128px;
+} */
 
 .navStart{
-    min-height: 3rem;
+    align-items: center;
+    display: flex;
+    /* position: fixed; */
+    margin: 0 auto;
+    min-height: 100%;
+    width: 91%;
+    height: 8vh;
+    /* min-height: 3rem;
     position: sticky;
-    top: 0px;
-    width: 100%;
+    top: 0;
+    left: 0;
+    width: 100vw;
     height: 6vh;
+    padding: 0 var(--spacing-three-x);
+    z-index: 100;
     display: flex;
     align-items: center;
     margin: 0 0 0.1% 0; 
     background-color: #fff;
-    border-bottom: 1px solid rgb(202, 212, 188);
+    border-bottom: 1px solid var(--color-border-faint); *//* rgb(202, 212, 188); */
+}
+.navStart_logo{
+    margin: auto 10px auto 0;
 }
 .navLogo{
-    margin: 3px 1% 0 10%;
+    /* margin: 3px 1% 0 10%; */
+    margin: auto;
 }
 .smallLogo{
     height: 33px;
     width: auto;
-    margin: 0 1% 0 -65%;
+    /* margin: 0 1% 0 -65%; */
+    margin: auto;
 }
 
 .faIcons {
@@ -54,7 +89,7 @@
 .msgIcon,
 .notificationsIcon,
 .meIcon{
-    font-size: 12px;
+    font-size: 11px;
     color: #666666;
     text-decoration: none;
     margin: 0;
@@ -80,47 +115,48 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 2% 0 10%;
-    width: 70%;
-    margin-left: 15%;
+    padding: 0 2%;
+    width: 73%;
+    height: 8vh;
     box-sizing: border-box;
+    margin-left: 15%;
 }
 .home {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 13%;
-    padding: 1%;
+    width: 8%;
+    /* padding: 1%; */
 }
 
 .network {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 21%;
-    padding: 1%;
+    width: 12%;
+    /* padding: 1%; */
 }
 
 .jobs {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 10%;
-    padding: 1%;
+    width: 8%;
+    /* padding: 1%; */
 }
 .message {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 20%;
-    padding: 1%;
+    width: 10%;
+    /* padding: 1%; */
 }
 .notification{
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 20%;
-    padding: 1%;
+    width: 12%;
+    /* padding: 1%; */
 }
 .signout{
     display: flex;
@@ -130,15 +166,27 @@
     padding: 1%;
     text-decoration: none;
 }
+.business{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 15px;
+    border-left: 0.5px solid #80808038;
+}
 
 .homeLink,
 .netLink,
 .jobLink,
 .msgLink,
 .notifyLink,
+.notifyLinkBusiness,
 .signoutLink
 {
     text-decoration: none;
+    color: #666666;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .homeLink:hover,
@@ -146,10 +194,15 @@
 .jobLink:hover,
 .msgLink:hover,
 .notifyLink:hover,
+.notifyLinkBusiness:hover,
 .signoutLink:hover
 {
     text-decoration: none;
     font-weight: 600;
+}
+
+.notifyLinkBusiness{
+    padding: 0 20px;
 }
 
 .meIcon:hover{
@@ -164,10 +217,11 @@
     height: auto;
     min-height: auto;
     width: 100%;
+  /*   margin-top: 50px; */
     display: flex;
     justify-content: center;
     background-color: #F3F2EF;
-    overflow: auto;
+    /* overflow: auto; */
 }
 
 .MiddleBar{
@@ -453,11 +507,16 @@ ul li {
 }
 #text-field{
     height: 33px;
-    padding: 0 3px;
-    margin: -1px -2px;
-    border-radius: 5px;
-    font-size: 12px;
+    width: 100%;
+    line-height: 1.75;
+    font-weight: 400;
+    padding: 0 10px;
+    /* margin: -1px -2px; */
+    border-radius: 0.4rem;
+    border: none;
+    font-size: 14px;
     background-color: #EDF3F8;
+    color: rgb(0, 0, 0, 0.9);
 }
 .loading-screen{
     position: fixed;
@@ -552,8 +611,28 @@ ul li {
 .modalTitle{
     margin-left: 15px;
 }
-.btn-close{
-    
+
+.premium-upsell-link{
+    list-style-type: none;
+}
+
+.premium-upsell-link a{
+    color: #915907;
+}
+
+.link-without-visited_link{
+    display: flex;
+    justify-content: center;
+}
+
+.premium-upsell-link-ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0;
+    list-style: none;
+    text-decoration-line: underline;
 }
 
 
@@ -566,23 +645,26 @@ ul li {
         width: 100%;
         max-width: 100%;
         display: flex;
+        flex-direction: column;
         justify-content: flex-start;
         align-items: center;
         align-content: flex-start;
     }
+    .global-nav-bar {
+        margin: 0;
+        padding: 0;
+    }
 
     .mainContainer{
         display: inline-block;
-        margin-top: 2%;
+        /* margin-top: 2%; */
     }
      
-    .navStart{
-        width: 100%;
-        max-width: 100%;
-        position: fixed;
-        height: 6vh;
+    /* .navStart{
+        height: 7vh;
+        position: sticky;
     }
-
+ */
     .navLogo {
         margin: 3px 0 0 5%;
     }
@@ -655,16 +737,26 @@ ul li {
         font-size: 1.2rem;
         margin: 0 15% 0 25%;
       }
+      .rightSection{
+        margin-left: 25px;
+        width: 80%;
+        padding: 0;
+      }
+      .premium-upsell-link {
+        list-style-type: none;
+        width: 25%;
+        margin-left: 3px;
+    }
 }
 
 @media screen and (min-width: 281px) and (max-width: 580px) {
 
-    /* *{
-        font-size: 0.8rem;
-    } */
-    .navStart{
-        overflow: auto;
+    .global-nav-bar{
+        margin: 0;
     }
+    /* .navStart{
+        overflow: auto;
+    } */
 
     .mainContainer{
         display: inline-block;
@@ -743,8 +835,12 @@ ul li {
 .navStart{
     width: 100%;
     max-width: 100%;
-    position: sticky;
+    /* position: fixed; */
     height: 6vh;
+}
+
+.navStart_logo {
+    margin: auto 25px auto 0;
 }
 
 .navLogo {
@@ -757,9 +853,9 @@ ul li {
 }
 
 .rightSection{
-    margin-left: 3%;
+    margin-left: 10px;
     padding: 0;
-    width: 90%;
+    width: 50vw;
     height: auto;
 }
 .faIcons {
@@ -823,17 +919,24 @@ p {
 }
 
 @media screen and (min-width: 1025px){
-
+    /* .global-nav{
+        width: auto;
+        height: auto;
+    } */
     .rightSection{
-        margin-left: 25%;
+        margin-left: 4%;
     }
-    .search{
-        margin-left: 1%;
-        width: 90%;
+    .search-icon{
+        /* margin-left: 1%; */
+        width: 100%;
     }
     .main-search-div{
-        margin-left: -1%;
-        width: 25%;
+        /* margin-left: -1%; */
+        width: 100%;
+        max-width: 280px;
+        flex-grow: 1;
+        z-index: 100;
+        position: relative;
     }
 }
 
@@ -845,7 +948,7 @@ p {
     } */
 
     .main-search-div{
-        margin-left: -1%;
+        margin-left: 1%;
     }
     .search{
         position: fixed;
@@ -872,12 +975,12 @@ p {
         transition: width 0.3s ease-in-out;
         box-sizing: border-box;
     }
-    .rightSection{
+    /* .rightSection{
         margin-left: 33%;
         width: 80%;
         padding: 0;
         overflow: auto;
-    }
+    } */
     .faIcons {
         font-size: 20px;
     }
@@ -938,13 +1041,13 @@ p {
         background-color: #EDF3F8;
     }
     .main-search-div{
-        margin-left: -3%;
+        margin-left: -1%;
     }
-    .rightSection{
+    /* .rightSection{
         margin-left: 24%;
         width: 80%;
         padding: 0;
-    }
+    } */
     .faIcons {
         font-size: 18px;
     }
@@ -957,4 +1060,54 @@ p {
         font-size: 1rem;
         margin: 0 10%;
       }
+}
+
+@media screen and (max-width: 500px) {
+    .global-nav-bar {
+        height: 7vh;
+        padding: 0;
+    }
+    .business{
+        display: none;
+    }
+    .rightSection{
+        margin-left: 10px;
+        width: 90vw;
+
+    }
+    .premium-upsell-link{
+        display: none;
+    }
+    .home,
+    .network,
+    .jobs,
+    .message,
+    .notification{
+        width: 10%;
+        margin: 0 4px;
+    }
+
+}
+
+@media screen and (min-width: 500px) and (max-width: 606px){
+    .global-nav-bar{
+        margin: 0;
+        padding: 0;
+    }
+    .rightSection{
+        margin-left: 0;
+        width: 85%;
+        padding: 0;
+    }
+    .business{
+        display: block;
+        margin-left: 10px;
+    }
+    .home,
+    .network,
+    .jobs,
+    .message,
+    .notification{
+        width: 10%;
+    }
 }
