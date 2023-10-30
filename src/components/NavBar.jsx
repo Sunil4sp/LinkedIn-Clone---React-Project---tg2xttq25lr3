@@ -173,15 +173,15 @@ const NavBar = () => {
             </Link>
           </div>
           <div class="premium-upsell-link">
-            <a
-              href="https://www.linkedin.com/premium/products/?family=LEARNING&amp;upsellOrderOrigin=premium_nav_upsell_text&amp;intentType=DEVELOP_SKILLS&amp;utype=learning&amp;referenceId=gAzIVIVbTdqvO1BOBo486g%3D%3D&amp;destRedirectURL=https%3A%2F%2Fwww.linkedin.com%2Ffeed%2F"
-              class="link-without-visited_link"
+            <Link
+              to="https://www.linkedin.com/premium/products/?family=LEARNING&amp;upsellOrderOrigin=premium_nav_upsell_text&amp;intentType=DEVELOP_SKILLS&amp;utype=learning&amp;referenceId=gAzIVIVbTdqvO1BOBo486g%3D%3D&amp;destRedirectURL=https%3A%2F%2Fwww.linkedin.com%2Ffeed%2F"
+              className="link-without-visited_link"
             >
               <ul className="premium-upsell-link-ul">
                 <li>Learn New Skills,</li>
                 <li>Try Premium Free</li>
               </ul>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

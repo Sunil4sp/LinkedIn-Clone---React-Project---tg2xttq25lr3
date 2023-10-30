@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import "../styles/home.css";
-/* import { useNavigate } from "react-router-dom"; */
+import { Link } from "react-router-dom";
 import { DataAppContext } from "./DataApp";
 import NavBar from "./NavBar";
 import LeftSideBar from "./LeftSideBar";
@@ -10,16 +10,9 @@ import profile_pic from '../Images/profile.jpg';
 import smallLogo from '../Images/smallLogo.png';
 import Card from "./Card";
 import PostModal from "./PostModal";
-
-/* import posts from "../mock_backend/Posts"; */
-/* import Login from './Login'; */
-
-/* function isAuthenticated() {
-  // Check if authentication information is present in storage
-  const user = localStorage.getItem("user");
-  return !user; // Return true if user information is found
-}
-console.log(isAuthenticated()); */
+import Media from "./Media";
+import Events from "./Events";
+import WriteArticle from "./WriteArticle";
 
 const ShareAble = (props) => {
   const localContext = useContext(DataAppContext);
@@ -34,15 +27,13 @@ const ShareAble = (props) => {
     let objs = { inputs };
     let tempArr = [...props.posts];
     tempArr[props.index].coment.push(objs);
-    /* console.log(tempArr, "temparr"); */
     props.setpost(tempArr);
     setInputs("");
     setShowCommentBox(false);
-    /* setShowCommenting(false); */
   };
+
   return (
     <div>
-      {/* {showCommenting && ( */}
       <div className="comment-profile-pic">
        {showCommentBox && ( 
        <div className="profile-pic-comment">
@@ -91,49 +82,30 @@ function Home({loading}) {
   const { appState } = localContext;
   const { loginStatus } = appState;
   const name = appState.name;
-  /* const isLoading = appState.isLoading; */
 
   const [input, setInput] = useState();
   const [post, setPost] = useState([]);
   const [like, setLike] = useState(0);
   const [clicked, setClicked] = useState(false);
-  /* const [displayPosts, setDisplayPosts] = useState(posts); */
-  const [togglephoto, setTogglePhoto] = useState(false);
+  /* const [togglephoto, setTogglePhoto] = useState(false);
   const [toggleevent, setToggleEvent] = useState(false);
-  const [togglewriteArticle, setToggleWriteArticle] = useState(false);
+  const [togglewriteArticle, setToggleWriteArticle] = useState(false); */
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [mediaModalIsOpen, setMediaModalIsOpen] = useState(false);
+  const [eventModalIsOpen, setEventModalIsOpen] = useState(false);
+  const [writeArticleIsOpen, setWriteArticleIsOpen] = useState(false);
 
   const handlePhotoToggle = () => {
-    setTogglePhoto(!togglephoto);
-    
-    if (toggleevent === true) {
-      setToggleEvent(false);
-    }
-    if (togglewriteArticle === true) {
-      setToggleWriteArticle(false);
-    }
+
+    setMediaModalIsOpen(!mediaModalIsOpen);
   }
 
   const handleEventToggle = () => {
-    setToggleEvent(!toggleevent);
-    
-    if (togglephoto === true) {
-      setTogglePhoto(false);
-    }
-    if (togglewriteArticle === true) {
-      setToggleWriteArticle(false);
-    }
+    setEventModalIsOpen(!eventModalIsOpen);
   };
 
    const handleWriteArticleToggle = () => {
-    setToggleWriteArticle(!togglewriteArticle);
-    
-    if (togglephoto === true) {
-      setTogglePhoto(false);
-    }
-    if (toggleevent === true) {
-      setToggleEvent(false);
-    }
+    setWriteArticleIsOpen(!writeArticleIsOpen);
   };
 
   /* const navigate = useNavigate(); */
@@ -197,17 +169,6 @@ function Home({loading}) {
     console.log("Post:", post);
   };
 
-  /* const handleCloseModal = () => {
-    setModalIsOpen(false);
-  }; */
-/* 
-  useEffect(() => {
-    // Redirect to the login page if not authenticated
-    if (!isAuthenticated()) {
-      navigate("/login");
-    }
-  }, [navigate]); */
-
   return (
     <> 
      {loading && (
@@ -253,18 +214,21 @@ function Home({loading}) {
                 <div className="share_box-1" onClick={handlePhotoToggle}>
                   <i className="fa fa-picture-o photoIcon"></i>
                   <p className="photos">Media</p>
+                  {mediaModalIsOpen && <Media onClose= {closeModal} onPost={handlePost} />}
                 </div>
                 <div className="share_box-2" onClick={handleEventToggle}>
                   <i className="fa fa-calendar eventsIcon"></i>
                   <p className="events">Events</p>
+                  {eventModalIsOpen && <Events onClose={closeModal} onPost={handlePost} />}
                 </div>
                 <div className="share_box-3" onClick={handleWriteArticleToggle}>
-                  <i className="fa fa-pencil-square-o articleIcon"></i>
-                  <p className="article">Write Article</p>
+                  <Link to='/writearticle' className="article-Link"><i className="fa fa-pencil-square-o articleIcon"></i>
+                  <p className="article">Write Article</p></Link>
+                  {writeArticleIsOpen ? <WriteArticle /> : ""}
                 </div>
               </div>
               <br></br>
-              <div className="sections">
+              {/* <div className="sections">
                 {togglephoto ? (
                   <span className="working_on_div__pad">
                     working on media feature
@@ -287,7 +251,7 @@ function Home({loading}) {
                 ) : (
                   ""
                 )}
-              </div>
+              </div> */}
             </div>
             <div>
               {loginStatus &&

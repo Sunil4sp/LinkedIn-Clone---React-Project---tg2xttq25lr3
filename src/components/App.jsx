@@ -4,19 +4,20 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './Login';
 import Home from './Home';
 import NewUser from './NewUser';
-import Refresh from './Refresh';
+/* import Refresh from './Refresh'; */
 import MyNetwork from './MyNetwork';
 import MyJob from './MyJob';
 import Messaging from './Messaging';
 import NavBar from './NavBar';
 import Notification from './Notification';
+import WriteArticle from './WriteArticle';
 
 const App = () => {
   const [loading, setLoading] = useState(true);
   const handleLoading = () => {
     setTimeout(() => {
       setLoading(false);
-      }, 2000);
+      }, 1000);
   }
 
   return (
@@ -24,16 +25,17 @@ const App = () => {
     <BrowserRouter>
         {/* <Refresh /> */}
 				<Routes>
-					<Route path="/home" element={<Home loading={loading} />}/>
-          <Route path='/navbar' element={<NavBar />}/>
-          <Route path='/login' element={<Login handleLoading={handleLoading}/>}/>
-          <Route path="/newuser" element={<NewUser />}/>
+					<Route path="/home" element={<Home loading={loading} />} />
+          <Route path='/navbar' element={<NavBar />} />
+          <Route path='/login' element={<Login handleLoading={handleLoading} />} />
+          <Route path="/newuser" element={<NewUser />} />
           <Route path='/mynetwork' element={<MyNetwork />} />
           <Route path='/myjob' element={<MyJob />} />
           <Route path='/messaging' element={<Messaging />} />
           <Route path='/notification' element={<Notification />} />
-          <Route path="/" element={<Login handleLoading={handleLoading} />}/>
-          <Route path='/*' element={<Login handleLoading={handleLoading} />}/>
+          <Route path='/writearticle' element={<WriteArticle />} />
+          <Route path="/" element={<Login handleLoading={handleLoading} />} />
+          <Route path='/*' element={<Login handleLoading={handleLoading} />} />
 				</Routes>
 		</BrowserRouter>
     </div>
