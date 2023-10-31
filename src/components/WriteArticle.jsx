@@ -1,9 +1,6 @@
 import React, { useState, useEffect, useContext, useRef } from 'react';
 import { useNavigate } from "react-router-dom";
 import NavBar from './NavBar';
-/* import Button  from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import Modal from 'react-bootstrap/Modal'; */
 import { DataAppContext } from "./DataApp";
 import Avatar from '@mui/material/Avatar';
 import profile_pic from '../Images/profile.jpg';
@@ -17,7 +14,7 @@ const WriteArticle = ({ onClose, onPost }) => {
     const name = appState.name;
 
     const [show, setShow] = useState(false);
-    const [input, setInput] = useState("");
+    /* const [input, setInput] = useState(""); */
     const fileInputRef = useRef(null);
 
     useEffect(() => {
@@ -32,7 +29,7 @@ const WriteArticle = ({ onClose, onPost }) => {
 
     const navigate = useNavigate();
 
-    const submitPost = (e) => {
+    /* const submitPost = (e) => {
         e.preventDefault();
 
         if (loginStatus) {
@@ -49,7 +46,6 @@ const WriteArticle = ({ onClose, onPost }) => {
               onPost(newPost);
               setInput(""); // Clear the input field
               handleClose(); // Close the modal
-              /* onClose(); // Close the modal after posting */
             } else {
               alert("Please enter a message");
             }
@@ -57,9 +53,9 @@ const WriteArticle = ({ onClose, onPost }) => {
             alert("Login to add a post");
             navigate("/login");
           }
-      };
+      }; */
 
-      const handleFileUpload = (e) => {
+      /* const handleFileUpload = (e) => {
         const file = e.target.files[0]; // Get the selected file
         if (file) {
           console.log('Selected file:', file.name);
@@ -68,7 +64,7 @@ const WriteArticle = ({ onClose, onPost }) => {
     
       const preventModalClose = (e) => {
         e.stopPropagation(); // Prevent the modal from closing
-      };
+      }; */
 
     return (
       <div>
@@ -198,7 +194,7 @@ const WriteArticle = ({ onClose, onPost }) => {
             />
             <label
               for="article-editor-cover-image__file-input"
-              className="article-editor-cover-image__label artdeco-button artdeco-button--secondary artdeco-button--2 artdeco-button--muted"
+              className="article-editor-cover-image__label artdeco-button artdeco-button--secondary artdeco-button--muted"
             >
               Upload from computer
             </label>
@@ -220,12 +216,7 @@ const WriteArticle = ({ onClose, onPost }) => {
               spellcheck="false"
             ></textarea>
           </div>
-          {/* <div class="article-editor-content">
-          <div class="article-editor-content__canvas"></div>
-          <div contenteditable="true" translate="no" tabindex="0" class="ProseMirror" spellcheck="false">
-            <p class="article-editor-content__paragraph is-empty article-editor-content--is-empty" data-placeholder="Write here. You can also include @mentions."><br class="ProseMirror-trailingBreak"/></p>
-          </div>
-          </div> */}
+          
           <div className="article-editor-content">
             <div className="article-editor-content__canvas"></div>
             <div

@@ -68,7 +68,7 @@ const Events = ({ onClose, onPost }) => {
       <div>
         <>
           <Modal
-            className="MediaModal"
+            className="EventModal"
             show={show}
             /* onHide={handleClose} */
             dialogClassName="modal-90w sizeIncrease"
