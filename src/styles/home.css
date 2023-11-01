@@ -1513,7 +1513,11 @@ p.article-editor-content__paragraph {
     .global-nav-bar {
         height: 7vh;
         padding: 0;
-        width: 113vw;
+        /* width: 113vw; */
+    }
+    .mainContainer {
+        margin-top: -8%;
+        width: 100%;
     }
     .navStart{
         height: 7vh;
