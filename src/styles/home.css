@@ -670,13 +670,13 @@ ul li {
 } */
 
 .sizeIncrease{
-    margin-left: 10%;
+    margin-left: auto;
 }
 .modal-body{
     width: 100%;
 }
 .media{
-    width: 723px;
+    width: 100%;
     height: auto;
     border-radius: 5px;
     overflow: -moz-hidden-unscrollable;
@@ -1431,6 +1431,15 @@ p.article-editor-content__paragraph {
         font-size: 12px;
         background-color: #EDF3F8;
     }
+    .modal_selectFile p{
+        display: block;
+        font-size: 13px;
+    }
+    .uploadButton {
+        width: 32vw;
+        height: 6vh;
+        font-size: 12px;
+    }
 }
 
 @media screen and (max-width: 440px){
@@ -1495,6 +1504,9 @@ p.article-editor-content__paragraph {
         font-size: 1rem;
         margin: 0 10%;
       }
+      .modal-body {
+        width: 100%;
+    }
 }
 
 @media screen and (max-width: 500px) {
@@ -1526,7 +1538,9 @@ p.article-editor-content__paragraph {
         width: 10%;
         margin: 0 4px;
     }
-
+    .modal-body {
+        width: 100%;
+    }
 }
 
 @media screen and (min-width: 500px) and (max-width: 606px){
@@ -1550,6 +1564,20 @@ p.article-editor-content__paragraph {
     .notification{
         width: 10%;
     }
+    .media {
+        width: 100%;
+    }
+    .modal_selectFile p{
+        display: block;
+    }
+    .uploadButton {
+        width: 32vw;
+        height: 6vh;
+        font-size: 12px;
+    }
+    .sizeIncrease {
+        margin-left: 10%;
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -1566,7 +1594,9 @@ p.article-editor-content__paragraph {
         width: 90vw; 
         max-height: 800px;
     }
-
+    .media {
+        width: 100%;
+    }
 
     .article-mainSection {
       padding: 0 1rem; 
@@ -1622,5 +1652,21 @@ p.article-editor-content__paragraph {
   
     .p.article-editor-content__paragraph {
       font-size: 1.3rem; 
+    }
+    .modal-body {
+        width: 100%;
+    }
+    .modal_selectFile p{
+        display: block;
+        font-size: 12px;
+    }
+    .title{
+        font-size: 13px;
+    }
+
+    .uploadButton {
+        width: 32vw;
+        height: 6vh;
+        font-size: 12px;
     }
   }
