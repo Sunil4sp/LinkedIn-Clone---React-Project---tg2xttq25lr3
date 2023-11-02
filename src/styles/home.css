@@ -1644,10 +1644,10 @@ p.article-editor-content__paragraph {
     .article-mainSection {
       padding: 0 1rem; 
       height: auto; 
-      width: 113vw;
+      width: 100vw;
     }
     .article-headerSection {
-        width: 100vw;
+        width: 93vw;
     }
   
     .profileDetail {
@@ -1675,8 +1675,8 @@ p.article-editor-content__paragraph {
     }
   
     .article-editor-cover-image__placeholder {
-      width: 85vw; 
-      margin: 0 3rem;
+      width: 78vw; 
+      margin: 0 2.5rem;
     }
   
     .article-editor-cover-image__label {
@@ -1690,10 +1690,10 @@ p.article-editor-content__paragraph {
     }
   
     .article-editor-headline__textarea {
-      font-size: 1.8rem; 
+      font-size: 1.7rem; 
     }
   
-    .p.article-editor-content__paragraph {
+    p.article-editor-content__paragraph {
       font-size: 1.3rem; 
     }
     .modal-body {
