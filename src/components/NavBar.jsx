@@ -156,7 +156,7 @@ const NavBar = () => {
             <DropDownLogout />
           </div>
           <div className="business">
-            <Link to="/forBusiness" className="notifyLinkBusiness">
+            <Link to="https://www.indeed.com/career-advice/finding-a-job/best-business-jobs" className="notifyLinkBusiness" target="blank">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -176,6 +176,7 @@ const NavBar = () => {
             <Link
               to="https://www.linkedin.com/premium/products/?family=LEARNING&amp;upsellOrderOrigin=premium_nav_upsell_text&amp;intentType=DEVELOP_SKILLS&amp;utype=learning&amp;referenceId=gAzIVIVbTdqvO1BOBo486g%3D%3D&amp;destRedirectURL=https%3A%2F%2Fwww.linkedin.com%2Ffeed%2F"
               className="link-without-visited_link"
+              target="blank"
             >
               <ul className="premium-upsell-link-ul">
                 <li>Learn New Skills,</li>
