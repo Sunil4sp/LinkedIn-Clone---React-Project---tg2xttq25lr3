@@ -450,6 +450,17 @@
         margin: 0;
     }
   }
+  @media screen and (min-width: 100px) and (max-width: 328px){
+    .jobs_container {
+      justify-content: space-evenly;
+      margin: 10px 0px;
+    }
+    .image_container {
+      height: 70px;
+      margin: 10px 0;
+      width: 90%;
+    }
+  }
   
   @media screen and (min-width: 664px) and (max-width: 750px) {
     .post__info > p {

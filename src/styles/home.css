@@ -333,10 +333,10 @@
     cursor: pointer;
 }
 .share_box-3{
-    width: 35%;
     /* display: flex;
     justify-content: center;
     align-items: center; */
+    width: 35%;
     border: none;
     cursor: pointer;
 }
@@ -782,7 +782,7 @@ input[type=radio]{
     flex-direction: column;
 }
 #startDate{
-    width: 18vw;
+    /* width: 18vw; */
     margin: 5px 0;
 }
 .start-time{
@@ -792,7 +792,7 @@ input[type=radio]{
     margin: 10px 0 0;
 }
 #startTime{
-    width: 18vw;
+    /* width: 18vw; */
     margin: 5px 0;
 }
 #addDatetimeCheck{
@@ -858,8 +858,8 @@ input[type=radio]{
     border-bottom: 0.5px solid #80808038;
 }
 .article-Link{
-    text-decoration: none;
-    color: initial;
+    text-decoration: none !important;
+    color: initial !important;
     display: flex;
     margin: 0;
     justify-content: center;
@@ -1264,6 +1264,24 @@ p.article-editor-content__paragraph {
     }
 }
    
+@media screen and (min-width: 281px) and (max-width: 303px) {
+    .rightSection{
+        margin-left: 0;
+        width: 80vw;
+        height: 7vh;
+        justify-content: space-between;
+    }
+}
+
+@media screen and (min-width: 304px) and (max-width: 499px) {
+    .rightSection{
+        margin-left: 70px;
+        width: 70vw;
+        height: 7vh;
+        justify-content: space-evenly;
+    }
+}
+
 @media screen and (max-width: 280px){
 
 .navStart{
@@ -1286,9 +1304,9 @@ p.article-editor-content__paragraph {
 }
 
 .rightSection{
-    margin-left: 10px;
+    margin-left: 0;
     padding: 0;
-    width: 50vw;
+    width: 77vw;
     height: auto;
 }
 .faIcons {
@@ -1546,12 +1564,12 @@ p.article-editor-content__paragraph {
     .business{
         display: none;
     }
-    .rightSection{
+    /* .rightSection{
         margin: 0 10px 0 63px;
         width: 90vw;
         justify-content: space-evenly;
         height: 6vh;
-    }
+    } */
     .premium-upsell-link{
         display: none;
     }
@@ -1580,9 +1598,9 @@ p.article-editor-content__paragraph {
         width: 98%;
         margin: 0 0 0 3px;
     }
-    #text-field {
+    /* #text-field {
 
-    }
+    } */
     .search {
         position: fixed;
         width: 15%;
