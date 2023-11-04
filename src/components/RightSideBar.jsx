@@ -75,7 +75,7 @@ const RightSideBar = () => {
       {/* <div className='middleRight'>
             <img src={imgTwoLadies} alt='pic'/>
           </div> */}
-      <div className="lowerRight">
+      {/* <div className="lowerRight">
         <div className="h4">
           <h4>Design and developed by Sunil Pal</h4>
         </div>
@@ -88,7 +88,7 @@ const RightSideBar = () => {
             Github Project
           </Link>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
