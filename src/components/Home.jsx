@@ -7,14 +7,15 @@ import LeftSideBar from "./LeftSideBar";
 import RightSideBar from "./RightSideBar";
 import Avatar from '@mui/material/Avatar';
 import profile_pic from '../Images/profile.jpg';
-import smallLogo from '../Images/smallLogo.png';
+import LinkedInLogo from '../Images/linkedin-logo.png';
+/* import smallLogo from '../Images/smallLogo.png'; */
 import Card from "./Card";
 import PostModal from "./PostModal";
 import Media from "./Media";
 import Events from "./Events";
 import WriteArticle from "./WriteArticle";
 
-const ShareAble = (props) => {
+export const ShareAble = (props) => {
   const localContext = useContext(DataAppContext);
   const { appState } = localContext;
   const name = appState.name;
@@ -87,9 +88,6 @@ function Home({loading}) {
   const [post, setPost] = useState([]);
   const [like, setLike] = useState(0);
   const [clicked, setClicked] = useState(false);
-  /* const [togglephoto, setTogglePhoto] = useState(false);
-  const [toggleevent, setToggleEvent] = useState(false);
-  const [togglewriteArticle, setToggleWriteArticle] = useState(false); */
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [mediaModalIsOpen, setMediaModalIsOpen] = useState(false);
   const [eventModalIsOpen, setEventModalIsOpen] = useState(false);
@@ -108,7 +106,6 @@ function Home({loading}) {
     setWriteArticleIsOpen(!writeArticleIsOpen);
   };
 
-  /* const navigate = useNavigate(); */
 
   const handleClick = () => {
     const clickedOnce = !clicked;
@@ -116,39 +113,16 @@ function Home({loading}) {
     setClicked(clickedOnce);
   };
 
-  /* const submitPost = (e) => {
-    if (loginStatus) {
-      let obj = { id: post.length, clicked: false, msg: input, coment: [] };
-      e.preventDefault();
-
-      if (obj.msg !== "") {
-        setPost([obj, ...post]);
-        setInput("");
-        /* console.log(post); */
-      /* } else {
-        alert("Please enter a message");
-      }
-    } else {
-      alert("Login to add post & comment");
-      navigate("/login");
-    }
-  };  */
-
   const deletePost = (index) => {
-   /*  let tempArr = post;
-    tempArr.splice(index, 1);
-    setPost([...tempArr]); */
+   
     let tempArr = post.slice(); // Create a copy of the array
     tempArr.splice(index, 1);
     setPost([...tempArr]);
   };
 
-  /* const [showComments, setShowComments] = useState(false); */
   const [showComments, setShowComments] = useState({});
   
-  /* const handleShowComment = () =>{
-      setShowComments(!showComments);
-  } */
+  
   const handleShowComment = (index) => {
     setShowComments((prevState) => ({
       ...prevState,
@@ -175,7 +149,7 @@ function Home({loading}) {
         <div className="loading-screen">
           <div className="loading-animation">
             <p className="loading__text">
-              <font color="blue" weight="bold">Linked</font><img src={smallLogo} className="logo_text" alt="in" />
+              {/* <font color="blue" weight="bold">Linked </font>*/}<img src={LinkedInLogo} className="logo_text" alt="in" />
             </p>
             <div className="loading-bar"></div>
           </div>

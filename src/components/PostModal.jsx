@@ -54,20 +54,6 @@ const PostModal = ({ onClose, onPost }) => {
             navigate("/login");
           }
 
-        /* if (loginStatus) {
-          let obj = { id: post.length, clicked: false, msg: input, coment: [] };
-    
-          if (obj.msg !== "") {
-            setPost([obj, ...post]);
-            setInput("");
-            /* console.log(post); */
-          /* } else {
-            alert("Please enter a message");
-          }
-        } else {
-          alert("Login to add post & comment");
-          navigate("/login");
-        }  */
       };
 
     return (
@@ -84,19 +70,12 @@ const PostModal = ({ onClose, onPost }) => {
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={submitPost}>
-            {/* <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Email address</Form.Label>
-              <Form.Control
-                type="email"
-                placeholder="name@example.com"
-                autoFocus
-              />
-            </Form.Group> */}
+            
             <Form.Group
               className="mb-3"
               controlId="message"
             >
-              {/* <Form.Label>Example textarea</Form.Label> */}
+              
               <Form.Control 
               className='textareaType' 
               as="textarea" 
@@ -108,9 +87,7 @@ const PostModal = ({ onClose, onPost }) => {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          {/* <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button> */}
+          
           <Button variant="primary" onClick={submitPost}>
             Post
           </Button>
