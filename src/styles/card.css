@@ -209,17 +209,30 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+    padding: 15px;
   }
   .commentIcon{
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+    padding: 15px;
   }
   .send-icon{
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+    padding: 15px;
   }
+  .likeIcon:hover,
+  .commentIcon:hover,
+  .send-icon:hover{
+    background-color: rgb(0, 0, 0, 0.1);
+    border-radius: 0.8rem;
+  }
+
   .like-text{
     margin: 0 0 0 5px;
     color: rgb(0, 0, 0, 0.6);

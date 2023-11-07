@@ -69,6 +69,7 @@ const Card = (props) => {
       setComments1([...comments1, inputs1]); // Add the new comment to the comments array
       setInputs1(""); // Clear the input field
       setShowCommentReply1(true);
+      /* setShowCommentBox1(false); */
     }
   };
   const commentPost2 = (e) => {
@@ -78,6 +79,7 @@ const Card = (props) => {
       setComments2([...comments2, inputs2]); // Add the new comment to the comments array
       setInputs2(""); // Clear the input field
       setShowCommentReply2(true);
+      /* setShowCommentBox2(false); */
     }
   };
 
