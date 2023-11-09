@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext, useRef } from 'react';
-import { useNavigate } from "react-router-dom";
+/* import { useNavigate } from "react-router-dom"; */
 import NavBar from './NavBar';
 import { DataAppContext } from "./DataApp";
 import Avatar from '@mui/material/Avatar';
@@ -10,7 +10,7 @@ import '../styles/home.css';
 const WriteArticle = ({ onClose, onPost }) => {
     const localContext = useContext(DataAppContext);
     const { appState } = localContext;
-    const { loginStatus } = appState;
+    /* const { loginStatus } = appState; */
     const name = appState.name;
 
     const [show, setShow] = useState(false);
@@ -27,44 +27,7 @@ const WriteArticle = ({ onClose, onPost }) => {
         onClose(); }
     };
 
-    const navigate = useNavigate();
-
-    /* const submitPost = (e) => {
-        e.preventDefault();
-
-        if (loginStatus) {
-            const message = input.trim();;
-            console.log(message);
-      
-            if (message) {
-                const newPost = {
-                    id: new Date().getTime(),
-                    msg: message,
-                    coment: [],
-                  };
-              console.log(newPost);
-              onPost(newPost);
-              setInput(""); // Clear the input field
-              handleClose(); // Close the modal
-            } else {
-              alert("Please enter a message");
-            }
-          } else {
-            alert("Login to add a post");
-            navigate("/login");
-          }
-      }; */
-
-      /* const handleFileUpload = (e) => {
-        const file = e.target.files[0]; // Get the selected file
-        if (file) {
-          console.log('Selected file:', file.name);
-        }
-      };
-    
-      const preventModalClose = (e) => {
-        e.stopPropagation(); // Prevent the modal from closing
-      }; */
+    /* const navigate = useNavigate(); */
 
     return (
       <div>
@@ -152,7 +115,7 @@ const WriteArticle = ({ onClose, onPost }) => {
           </div>
           <div className="article-editor-cover-image__placeholder">
             <svg
-              role="none"
+              /* role="none" */
               aria-hidden="true"
               className="article-editor-cover-image__placeholder-illustration"
               xmlns="http://www.w3.org/2000/svg"

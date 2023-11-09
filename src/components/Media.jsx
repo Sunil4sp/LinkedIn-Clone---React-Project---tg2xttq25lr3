@@ -13,7 +13,7 @@ const Media = ({ onClose, onPost }) => {
     const { loginStatus } = appState;
 
     const [show, setShow] = useState(false);
-    const [input, setInput] = useState("");
+    /* const [input, setInput] = useState(""); */
     const [selectedFile, setSelectedFile] = useState(null);
     const fileInputRef = useRef(null);
 
@@ -26,9 +26,9 @@ const Media = ({ onClose, onPost }) => {
         onClose(); 
     };
 
-    const navigate = useNavigate();
+    /*const navigate = useNavigate();*/
 
-    const submitPost = (e) => {
+    /*  const submitPost = (e) => {
         e.preventDefault();
 
         if (loginStatus) {
@@ -46,15 +46,15 @@ const Media = ({ onClose, onPost }) => {
               setInput(""); // Clear the input field
               setSelectedFile(null);
               handleClose(); // Close the modal
-              /* onClose(); // Close the modal after posting */
-            } else {
+              /* onClose();*/ // Close the modal after posting
+           /*  } else {
               alert("Please enter a message");
             }
           } else {
             alert("Login to add a post");
             navigate("/login");
           }
-      };
+      };  */
 
       const handleFileUpload = (e) => {
         const file = e.target.files[0]; // Get the selected file
@@ -64,20 +64,21 @@ const Media = ({ onClose, onPost }) => {
         }
       };
     
-      const preventModalClose = (e) => {
+      /* const preventModalClose = (e) => {
         e.stopPropagation(); // Prevent the modal from closing
-      };
+      }; */
 
     return (
     <div>
     <>
-      <Modal className='MediaModal' show={show} onHide={handleClose} dialogClassName="modal-90w">
+      <Modal className='MediaModal' show={show} onHide={handleClose} dialogClassName="modal-90w" onClick={(e) => e.stopPropagation()}>
         <div className="modal-content media">
-        <Modal.Header className='modalHeader' closeButton>
+        <Modal.Header className='modalHeader'>
           <h3>Editor</h3>
+          <button type="button" class="btn-close" aria-label="Close" onClick={handleClose}>X</button>
         </Modal.Header>
         <Modal.Body className='modal-body'>
-          <Form onSubmit={submitPost}>
+          <Form /* onSubmit={submitPost} */>
             
             <Form.Group
               className="mb-3"
@@ -98,7 +99,6 @@ const Media = ({ onClose, onPost }) => {
         onChange={handleFileUpload}
       />
         <button className='uploadButton' onClick={(e) => {
-                      preventModalClose(e);
                       fileInputRef.current.click();
                     }}>
             Upload from computer
@@ -113,7 +113,7 @@ const Media = ({ onClose, onPost }) => {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" onClick={submitPost}>
+          <Button variant="primary"/*  onClick={submitPost} */>
             Post
           </Button>
         </Modal.Footer>

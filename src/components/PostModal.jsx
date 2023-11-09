@@ -4,6 +4,7 @@ import Button  from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import { DataAppContext } from "./DataApp";
+import '../styles/home.css';
 import Avatar from '@mui/material/Avatar';
 import profile_pic from '../Images/profile.jpg';
 
@@ -60,13 +61,14 @@ const PostModal = ({ onClose, onPost }) => {
     <div>
     <>
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header className='modalHeader' closeButton>
+        <Modal.Header className='modalHeader'>
         <Avatar
                   alt="Sunil Pal"
                   src= {profile_pic}
                   sx={{ width: 36, height: 36 }}
                 />
           <Modal.Title className='modalTitle'>{name}</Modal.Title>
+          <button type="button" class="btn-close" aria-label="Close">X</button>
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={submitPost}>

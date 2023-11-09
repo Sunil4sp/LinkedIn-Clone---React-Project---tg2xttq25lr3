@@ -23,11 +23,10 @@ const Events = ({ onClose, onPost }) => {
         setShow(true);
     }, []);
 
-    /* const handleClose = () => {
-        if(fileInputRef != null){
+    const handleClose = () => {
         setShow(false);
-        onClose(); }
-    }; */
+        onClose(); 
+    };
 
     const navigate = useNavigate();
 
@@ -70,12 +69,14 @@ const Events = ({ onClose, onPost }) => {
           <Modal
             className="EventModal"
             show={show}
-            /* onHide={handleClose} */
+            onHide={handleClose}
             dialogClassName="modal-90w sizeIncrease"
+            onClick={(e) => e.stopPropagation()}
           >
             <div className="modal-content event">
-              <Modal.Header className="modalHeader" closeButton>
+              <Modal.Header className="modalHeader">
                 <h3>Create an Event</h3>
+                <button type="button" class="btn-close" aria-label="Close" onClick={handleClose}>X</button>
               </Modal.Header>
               <Modal.Body className='event-body'>
                 
